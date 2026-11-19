@@ -3,24 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FAF9F6">
+<meta name="theme-color" content="#FFFFFF">
 <title>FRAGENTRE — Authentic Perfume Decants</title>
 <meta name="description" content="Authentic perfume decants with nationwide delivery across Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAF9F6;
-  --surf:#FFFFFF;
-  --card:#FFFFFF;
-  --soft:#F3F1EC;
-  --line:#E6E2D8;
+  --bg:#FFFFFF;
+  --paper:#FAF9F7;
+  --soft:#F5F4F1;
+  --line:#E8E6E1;
   --tx:#141414;
-  --mut:#68655E;
-  --gold:#9A7632;
-  --gold-bg:rgba(154,118,50,.09);
-  --shadow:0 10px 28px rgba(20,20,20,.05)
+  --mut:#6E6B64;
+  --accent:#141414;
+  --gold:#9A7632
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
@@ -36,109 +34,84 @@ body{
 button,input,a{font:inherit;color:inherit}
 a{text-decoration:none}
 button{cursor:pointer;border:0;background:none}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
 
 .wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
 
-/* Header */
+/* Top Bar & Clean Wordmark Header */
 header{
-  background:var(--surf);
+  background:var(--bg);
   border-bottom:1px solid var(--line);
-  padding:calc(14px + env(safe-area-inset-top,0px)) 0 24px;
-  text-align:center
+  padding:calc(12px + env(safe-area-inset-top,0px)) 0 22px
 }
 .topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:12px;
-  min-height:40px
+  min-height:42px
 }
-.menu-btn{
+.icon-btn{
   width:40px;height:40px;
   display:flex;align-items:center;justify-content:center;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:var(--surf);
-  transition:border-color .2s,background .2s
+  border-radius:999px;
+  transition:background .2s
 }
-.menu-btn:hover{border-color:var(--gold);background:var(--soft)}
-.menu-btn svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:1.8;stroke-linecap:round}
-.top-bag{
-  width:40px;height:40px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:var(--surf);
-  position:relative
-}
-.top-bag svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn:hover{background:var(--soft)}
+.icon-btn svg{width:20px;height:20px;stroke:var(--tx);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.top-bag{position:relative}
 .top-bag i{
-  position:absolute;top:-4px;right:-4px;
-  min-width:18px;height:18px;border-radius:9px;
-  background:var(--gold);color:#FFFFFF;
+  position:absolute;top:2px;right:1px;
+  min-width:17px;height:17px;border-radius:9px;
+  background:var(--tx);color:#FFFFFF;
   font-style:normal;font-size:10px;font-weight:700;
   display:flex;align-items:center;justify-content:center;padding:0 4px
 }
 
-.brand-mark{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:2px
-}
-.script-f{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-style:italic;
+.wordmark{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:21px;
   font-weight:500;
-  font-size:48px;
-  line-height:.88;
-  color:var(--gold);
-  user-select:none
-}
-header h1{
-  margin-top:6px;
-  font-size:24px;
-  font-weight:600;
-  letter-spacing:.34em;
-  text-indent:.34em;
+  letter-spacing:.26em;
+  text-indent:.26em;
   text-transform:uppercase;
-  color:var(--tx)
+  color:var(--tx);
+  text-align:center
 }
-header p{
+.hero-sub{
+  text-align:center;
   margin-top:8px;
   font-size:12px;
   color:var(--mut);
-  letter-spacing:.04em
+  letter-spacing:.03em
 }
 
-/* Search & Filter */
+/* Search & Brand Filter */
 .tools{padding:18px 0 6px}
 .search{position:relative}
 .search svg{
   position:absolute;left:14px;top:50%;transform:translateY(-50%);
-  width:18px;height:18px;stroke:var(--mut)
+  width:18px;height:18px;stroke:#8A8780
 }
 .search input{
   width:100%;
-  background:var(--surf);
+  background:var(--bg);
   border:1px solid var(--line);
-  border-radius:12px;
-  padding:13px 14px 13px 42px;
+  border-radius:6px;
+  padding:12px 14px 12px 42px;
   font-size:15px;
   color:var(--tx);
   outline:none;
   transition:border-color .2s
 }
-.search input:focus{border-color:var(--gold)}
-.search input::placeholder{color:#969289}
+.search input:focus{border-color:var(--tx)}
+.search input::placeholder{color:#9B978E}
 
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .pill{
   padding:8px 15px;
   border-radius:999px;
   border:1px solid var(--line);
-  background:var(--surf);
+  background:var(--bg);
   font-size:12.5px;
   color:var(--mut);
   transition:.2s
@@ -150,29 +123,21 @@ header p{
   font-weight:600
 }
 
-/* Collection */
-h2.cat{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:28px;
-  font-weight:600;
-  margin:24px 0 14px;
-  letter-spacing:.01em;
-  scroll-margin-top:18px
-}
+/* Catalog Cards */
+#collection{margin-top:16px;scroll-margin-top:18px}
 .card{
-  background:var(--card);
+  background:var(--bg);
   border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:10px;
   overflow:hidden;
   margin-bottom:18px;
-  box-shadow:var(--shadow);
   cursor:pointer;
-  transition:border-color .2s,transform .2s
+  transition:border-color .2s
 }
-.card:hover{border-color:#CFC8B8}
+.card:hover{border-color:#C9C5BC}
 .img{
-  height:235px;
-  padding:16px;
+  height:245px;
+  padding:18px;
   display:flex;align-items:center;justify-content:center;
   background:#FFFFFF;
   border-bottom:1px solid var(--line);
@@ -181,30 +146,31 @@ h2.cat{
 }
 .img img{
   width:auto;height:auto;
-  max-width:76%;max-height:84%;
+  max-width:78%;max-height:84%;
   object-fit:contain
 }
 .img .ph{
   display:none;flex-direction:column;align-items:center;gap:8px;
-  color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase
+  color:var(--mut);font-size:11px;letter-spacing:.18em;text-transform:uppercase
 }
 .img.noimg .ph{display:flex}
 .img.noimg img{display:none}
 
 .body{padding:18px}
 .brand{
-  font-size:11px;
-  letter-spacing:.24em;
+  font-size:10.5px;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  color:var(--gold);
-  font-weight:700
+  color:var(--mut);
+  font-weight:600
 }
 .title{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:27px;
-  font-weight:600;
-  line-height:1.15;
-  margin-top:3px
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:21px;
+  font-weight:500;
+  line-height:1.25;
+  margin-top:4px;
+  color:var(--tx)
 }
 .vibe{font-size:13px;color:var(--mut);margin-top:5px}
 .fr{
@@ -212,152 +178,166 @@ h2.cat{
   gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)
 }
 .fr small{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
-.fr b{font-size:21px;font-weight:700;color:var(--tx)}
+.fr b{font-size:20px;font-weight:600;color:var(--tx)}
 .vd{
   border:1px solid var(--tx);
   color:var(--tx);
-  border-radius:10px;
+  border-radius:6px;
   padding:10px 16px;
-  font-size:12.5px;
+  font-size:12px;
   font-weight:600;
-  letter-spacing:.06em;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   transition:.2s
 }
 .vd:hover{background:var(--tx);color:#FFFFFF}
 
-/* Editorial Info Blocks (Pickup Points, Delivery Policy, About) */
-.info-sec{
-  background:var(--surf);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:20px 18px;
-  margin-top:18px;
-  box-shadow:var(--shadow);
-  scroll-margin-top:18px
+/* Editorial Sections (Decant Bottles Info, Pick-Up Points, Delivery Policy, About) */
+.ed-sec{
+  border-top:1px solid var(--line);
+  padding:24px 0;
+  scroll-margin-top:16px
 }
-.info-kicker{
+.ed-kicker{
   font-size:10.5px;
-  letter-spacing:.24em;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  color:var(--gold);
-  font-weight:700
+  color:var(--mut);
+  font-weight:600
 }
-.info-sec h3{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:25px;
-  font-weight:600;
-  margin-top:2px;
-  line-height:1.2
+.ed-sec h3{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:19px;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-top:6px;
+  color:var(--tx)
 }
-.info-sec p{
+.ed-sec p{
   font-size:13.5px;
   color:var(--mut);
   margin-top:8px;
-  line-height:1.6
+  line-height:1.65
 }
-.spots{
-  list-style:none;
-  margin-top:12px;
+.size-grid{
   display:grid;
-  gap:8px
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px
 }
-.spots li{
-  padding:10px 12px;
-  border-radius:12px;
-  background:var(--soft);
+.size-box{
   border:1px solid var(--line);
-  font-size:13px;
-  color:var(--tx);
-  font-weight:500
+  border-radius:8px;
+  padding:12px;
+  background:var(--paper)
 }
-.spots li span{
+.size-box b{
   display:block;
-  font-size:11.5px;
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--tx)
+}
+.size-box span{
+  display:block;
+  font-size:12px;
   color:var(--mut);
+  margin-top:3px
+}
+.pickup-list{
+  list-style:none;
+  margin-top:14px;
+  border-top:1px solid var(--line)
+}
+.pickup-list li{
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--tx)
+}
+.pickup-list li small{
+  display:block;
+  font-size:12px;
   font-weight:400;
+  color:var(--mut);
   margin-top:2px
 }
 
 /* Request Box */
 .suggest{
-  background:var(--surf);
+  background:var(--paper);
   border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:10px;
   padding:20px 18px;
-  margin-top:18px;
-  box-shadow:var(--shadow)
+  margin-top:8px
 }
 .suggest h3{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:24px;
-  font-weight:600
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase
 }
 .suggest p{font-size:13px;color:var(--mut);margin:6px 0 12px}
 .suggest input{
   width:100%;
-  background:var(--soft);
+  background:var(--bg);
   border:1px solid var(--line);
-  border-radius:12px;
-  padding:13px 14px;
+  border-radius:6px;
+  padding:12px 14px;
   font-size:15px;
   color:var(--tx);
   outline:none
 }
-.suggest input:focus{border-color:var(--gold)}
+.suggest input:focus{border-color:var(--tx)}
 .suggest button{
   width:100%;
   margin-top:10px;
-  height:48px;
+  height:46px;
   background:var(--tx);
   color:#FFFFFF;
-  border-radius:12px;
+  border-radius:6px;
   font-weight:600;
-  letter-spacing:.12em;
-  font-size:12.5px;
-  transition:.2s
+  letter-spacing:.14em;
+  font-size:12px;
+  text-transform:uppercase
 }
-.suggest button:hover{background:#2B2B2B}
 
 /* Footer */
 footer{
   margin-top:24px;
-  padding:22px 18px;
-  background:var(--surf);
-  border:1px solid var(--line);
-  border-radius:18px
+  padding-top:22px;
+  border-top:1px solid var(--line)
 }
-.f-brand{
-  font-size:15px;
-  font-weight:600;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:var(--tx)
-}
-.f-tag{font-size:12.5px;color:var(--mut);margin-top:4px;display:block}
 .f-links{
   display:flex;
   flex-wrap:wrap;
   gap:10px 18px;
-  padding:16px 0;
-  margin-top:14px;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  margin-top:12px;
   font-size:12.5px;
-  color:var(--tx)
+  color:var(--mut)
 }
-.f-links a:hover{color:var(--gold)}
-.f-bot{padding-top:14px;text-align:center;font-size:11px;color:#8A867D;letter-spacing:.06em}
+.f-links a:hover{color:var(--tx)}
+.f-bot{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:11px;
+  color:#8E8A82;
+  letter-spacing:.08em
+}
 
 /* Sticky Bag Bar */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:20;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(10px);
   border-top:1px solid var(--line);
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
   transform:translateY(110%);
-  transition:transform .3s;
-  box-shadow:0 -8px 24px rgba(20,20,20,.06)
+  transition:transform .3s
 }
 .bar.show{transform:none}
 .bar .in{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -365,101 +345,99 @@ footer{
 .bar b{font-size:18px}
 .bar button{
   background:var(--tx);color:#FFFFFF;
-  font-weight:600;border-radius:12px;padding:12px 20px;
-  font-size:12.5px;letter-spacing:.1em
+  font-weight:600;border-radius:6px;padding:12px 20px;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase
 }
 
-/* Overlay & 3-Line Slide-Out Drawer */
+/* Overlay & Slide-Out Drawer (Inspired by Reference Menu) */
 .ov{
   position:fixed;inset:0;
-  background:rgba(20,20,20,.48);
-  z-index:60;opacity:0;pointer-events:none;transition:opacity .28s
+  background:rgba(20,20,20,.42);
+  z-index:60;opacity:0;pointer-events:none;transition:opacity .26s
 }
 .ov.show{opacity:1;pointer-events:auto}
 
 .nav-drawer{
   position:fixed;top:0;bottom:0;left:0;
-  width:min(310px,84vw);
+  width:min(340px,88vw);
   z-index:75;
-  background:var(--surf);
+  background:var(--bg);
   border-right:1px solid var(--line);
-  padding:calc(20px + env(safe-area-inset-top,0px)) 18px calc(24px + env(safe-area-inset-bottom,0px));
+  padding:calc(16px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));
   display:flex;flex-direction:column;
   transform:translateX(-105%);
-  transition:transform .3s cubic-bezier(.2,.8,.2,1);
-  box-shadow:12px 0 32px rgba(20,20,20,.1)
+  transition:transform .3s cubic-bezier(.2,.8,.2,1)
 }
 .nav-drawer.show{transform:none}
-.nav-hd{
+.nav-top{
   display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:14px;border-bottom:1px solid var(--line)
+  padding-bottom:16px
 }
-.nav-hd span{
-  font-size:14px;font-weight:600;letter-spacing:.26em;text-transform:uppercase
+.close-circle{
+  width:42px;height:42px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--tx)
 }
-.nav-hd button{font-size:26px;color:var(--mut);width:34px;height:34px;line-height:1}
-
+.menu-label{
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mut);
+  font-weight:600
+}
 .nav-list{
   list-style:none;
   margin-top:12px;
-  display:grid;
-  gap:6px
+  border-top:1px solid var(--line)
 }
-.nav-item a{
+.nav-list li{
+  border-bottom:1px solid var(--line)
+}
+.nav-list a{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:13px 14px;
-  border-radius:12px;
-  font-size:15px;
+  padding:16px 2px;
+  font-size:13.5px;
   font-weight:500;
-  color:var(--tx);
-  transition:background .2s,color .2s
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--tx)
 }
-.nav-item a:hover,.nav-item a.active{
-  background:var(--gold-bg);
-  color:var(--gold)
-}
-.nav-sub{
-  display:block;
-  font-size:11.5px;
-  font-weight:400;
+.nav-list a span:last-child{
   color:var(--mut);
-  margin-top:2px
+  font-size:16px;
+  letter-spacing:0
 }
-.nav-foot{
-  margin-top:auto;
-  padding-top:14px;
-  border-top:1px solid var(--line);
-  font-size:12px;
-  color:var(--mut);
-  line-height:1.55
-}
+.nav-list a:hover{color:var(--gold)}
 
 /* Bag Drawer */
 .drawer{
   position:fixed;left:0;right:0;bottom:0;z-index:70;
-  background:var(--surf);
-  border-radius:20px 20px 0 0;
+  background:var(--bg);
+  border-radius:16px 16px 0 0;
   border-top:1px solid var(--line);
   max-height:88vh;display:flex;flex-direction:column;
   transform:translateY(105%);
   transition:transform .32s cubic-bezier(.2,.8,.2,1);
   max-width:480px;margin:0 auto;
-  box-shadow:0 -12px 32px rgba(20,20,20,.12)
+  box-shadow:0 -10px 30px rgba(20,20,20,.1)
 }
 .drawer.show{transform:none}
-.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 18px 12px;border-bottom:1px solid var(--line)}
-.dh h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+.dh h3{font-family:'Montserrat','Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
 .dh button{font-size:26px;color:var(--mut);width:36px;height:36px;line-height:1}
 .items{overflow-y:auto;padding:0 18px;flex:1}
 .it{padding:14px 0;border-bottom:1px solid var(--line)}
 .it .t{display:flex;justify-content:space-between;gap:10px}
 .it .t b{font-size:15px}
-.it .t span{color:var(--gold);font-weight:700;white-space:nowrap}
+.it .t span{color:var(--tx);font-weight:700;white-space:nowrap}
 .it small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
 .it .c{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--soft);flex:none}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;background:var(--paper);flex:none}
 .qty button{width:34px;height:36px;font-size:18px;color:var(--tx)}
 .qty span{min-width:26px;text-align:center;font-weight:600;font-size:14px}
 .rm{font-size:12px;color:var(--mut);text-decoration:underline}
@@ -467,20 +445,19 @@ footer{
 .dl{padding:14px 18px 6px}
 .opt{
   display:flex;align-items:center;gap:10px;
-  border:1px solid var(--gold);background:var(--gold-bg);
-  border-radius:12px;padding:12px;margin-top:8px;font-size:13.5px;font-weight:500
+  border:1px solid var(--tx);background:var(--paper);
+  border-radius:8px;padding:12px;margin-top:8px;font-size:13.5px;font-weight:500
 }
-.opt input{accent-color:var(--gold);width:17px;height:17px}
+.opt input{accent-color:var(--tx);width:17px;height:17px}
 .opt span{flex:1}
 
 .tot{display:flex;justify-content:space-between;align-items:center;padding:10px 18px 2px;font-size:13px;color:var(--mut)}
 .tot.g{font-size:18px;color:var(--tx);font-weight:700;padding-top:10px}
-.tot.g span:last-child{color:var(--gold)}
 .co{
   margin:14px 18px calc(18px + env(safe-area-inset-bottom,0px));
-  height:50px;background:var(--tx);color:#FFFFFF;
-  border-radius:12px;font-weight:600;letter-spacing:.12em;font-size:13px;
-  width:calc(100% - 36px)
+  height:48px;background:var(--tx);color:#FFFFFF;
+  border-radius:6px;font-weight:600;letter-spacing:.14em;font-size:12px;
+  text-transform:uppercase;width:calc(100% - 36px)
 }
 .noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
 
@@ -496,69 +473,70 @@ footer{
 .dtop{
   flex:none;display:flex;align-items:center;justify-content:space-between;
   padding:calc(8px + env(safe-area-inset-top,0px)) 10px 8px;
-  background:var(--surf);border-bottom:1px solid var(--line)
+  background:var(--bg);border-bottom:1px solid var(--line)
 }
 .back,.bagbtn{
   display:flex;align-items:center;gap:4px;height:40px;padding:0 10px;
   color:var(--tx);font-size:14px;position:relative
 }
 .back svg,.bagbtn svg{width:20px;height:20px;stroke:var(--tx);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.dbrand{font-size:12px;letter-spacing:.28em;text-indent:.28em;font-weight:600;text-transform:uppercase}
+.dbrand{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:13px;letter-spacing:.24em;text-indent:.24em;font-weight:500;text-transform:uppercase
+}
 .bagbtn i{
   position:absolute;top:2px;right:2px;min-width:17px;height:17px;border-radius:9px;
-  background:var(--gold);color:#FFFFFF;font-style:normal;font-size:10px;font-weight:700;
+  background:var(--tx);color:#FFFFFF;font-style:normal;font-size:10px;font-weight:700;
   display:flex;align-items:center;justify-content:center;padding:0 4px
 }
 .dsc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .dsc .img{height:280px;padding:20px}
-.dsc .body{background:var(--surf);margin:14px 16px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
 .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
 .price{font-size:26px;font-weight:700;color:var(--tx)}
-.badge{padding:5px 12px;border-radius:999px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);font-size:12px;font-weight:600}
-.lbl{font-size:10.5px;letter-spacing:.22em;color:var(--mut);margin:18px 0 10px;font-weight:700}
+.badge{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--tx);font-size:12px;font-weight:500}
+.lbl{font-size:10.5px;letter-spacing:.2em;color:var(--mut);margin:18px 0 10px;font-weight:700}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .size{
-  border:1px solid var(--line);border-radius:14px;padding:12px 10px;
-  text-align:center;background:var(--soft);transition:.2s
+  border:1px solid var(--line);border-radius:8px;padding:12px 10px;
+  text-align:center;background:var(--paper);transition:.2s
 }
 .size b{display:block;font-size:14px;letter-spacing:.12em;font-weight:700}
 .size span{display:block;font-size:15px;margin-top:2px}
 .size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
-.size.on{border-color:var(--gold);background:var(--gold-bg)}
-.size.on b{color:var(--gold)}
+.size.on{border-color:var(--tx);background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--tx)}
 .row{display:flex;gap:10px;margin-top:18px}
 .row .qty button{height:48px;width:40px}
 .add{
-  flex:1;background:var(--tx);color:#FFFFFF;border-radius:12px;
-  font-weight:600;letter-spacing:.14em;font-size:12.5px;height:48px;transition:.2s
+  flex:1;background:var(--tx);color:#FFFFFF;border-radius:6px;
+  font-weight:600;letter-spacing:.14em;font-size:12px;text-transform:uppercase;height:48px;transition:.2s
 }
 .add.done{background:var(--gold);color:#FFFFFF}
 .wa{
   width:100%;margin-top:10px;height:46px;
-  border:1px solid var(--line);background:var(--surf);border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);border-radius:6px;
   font-size:13.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px
 }
-.wa:hover{border-color:var(--gold)}
-.wa svg{width:17px;height:17px;fill:var(--gold)}
+.wa:hover{border-color:var(--tx)}
+.wa svg{width:17px;height:17px;fill:var(--tx)}
 .trust{list-style:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
 .trust li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mut);line-height:1.45}
-.trust svg{flex:none;width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.trust svg{flex:none;width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
 .empty{text-align:center;color:var(--mut);padding:36px 10px;font-size:14px}
 
 .sec{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
 .sec .lbl{margin:0 0 12px}
-.tier{margin-left:5px;padding:0 0 14px 16px;border-left:1px solid var(--gold);position:relative}
+.tier{margin-left:5px;padding:0 0 14px 16px;border-left:1px solid var(--line);position:relative}
 .tier:last-child{padding-bottom:0}
-.tier::before{content:"";position:absolute;left:-4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
-.tier h5{font-size:10.5px;font-weight:700;color:var(--gold);letter-spacing:.18em;margin-bottom:8px}
+.tier::before{content:"";position:absolute;left:-4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--tx)}
+.tier h5{font-size:10.5px;font-weight:700;color:var(--mut);letter-spacing:.18em;margin-bottom:8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--soft);border:1px solid var(--line)}
-.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--gold);background:var(--gold-bg);color:var(--gold);font-weight:500}
-.desc{font-size:14px;color:#3A3834;line-height:1.65}
+.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#FFFFFF;color:var(--tx);font-weight:500}
+.desc{font-size:14px;color:#3E3C37;line-height:1.65}
 .dbar{
   flex:none;display:flex;align-items:center;gap:14px;
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  background:var(--surf);border-top:1px solid var(--line)
+  background:var(--bg);border-top:1px solid var(--line)
 }
 .dbar>div{flex:1;min-width:0}
 .dbar small{display:block;font-size:12px;color:var(--mut)}
@@ -576,20 +554,16 @@ footer{
 <header id="home">
   <div class="wrap">
     <div class="topbar">
-      <button class="menu-btn" id="menuOpen" type="button" aria-label="Open menu">
+      <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
         <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <button class="top-bag" id="topBag" type="button" aria-label="Open shopping bag">
+      <div class="wordmark">FRAGENTRE</div>
+      <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
         <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
         <i id="tbc" style="display:none">0</i>
       </button>
     </div>
-    <div class="brand-mark">
-      <!-- If you ever want your image file instead, replace the span below with: <img src="images/Bauer Bodoni.png" alt="FRAGENTRE emblem" style="height:56px;object-fit:contain"> -->
-      <span class="script-f" aria-hidden="true">F</span>
-      <h1>FRAGENTRE</h1>
-    </div>
-    <p>Authentic Perfume Decants • Nationwide Delivery Across Bangladesh</p>
+    <p class="hero-sub">Authentic Perfume Decants • Nationwide Delivery Across Bangladesh</p>
   </div>
 </header>
 
@@ -602,45 +576,56 @@ footer{
     <div class="pills" id="pills"></div>
   </div>
 
-  <h2 class="cat" id="decant-bottles">Decant Bottles</h2>
-  <div id="list"></div>
+  <div id="collection">
+    <div id="list"></div>
+  </div>
 
-  <section class="info-sec" id="pickup-points">
-    <div class="info-kicker">Pick-Up Points</div>
-    <h3>Local Collection Points</h3>
-    <p>Prefer collecting in person? Scheduled pickup is available at our designated points below:</p>
-    <ul class="spots">
-      <li>Trunk Road<span>By prior confirmation</span></li>
-      <li>Taranibash<span>By prior confirmation</span></li>
-      <li>Appayon Tower, Feni<span>By prior confirmation</span></li>
+  <section class="ed-sec" id="decant-bottles">
+    <div class="ed-kicker">Atomizers &amp; Sizes</div>
+    <h3>Decant bottles</h3>
+    <p>Each decant is drawn carefully from a sealed original bottle into a clean glass spray atomizer so you can test wearability, projection, and longevity before buying a full bottle.</p>
+    <div class="size-grid">
+      <div class="size-box"><b>5ML SPRAY</b><span>75+ sprays • 15+ wears</span></div>
+      <div class="size-box"><b>10ML SPRAY</b><span>150+ sprays • 30+ wears</span></div>
+      <div class="size-box"><b>15ML SPRAY</b><span>225+ sprays • 45+ wears</span></div>
+      <div class="size-box"><b>30ML SPRAY</b><span>450+ sprays • 90+ wears</span></div>
+    </div>
+  </section>
+
+  <section class="ed-sec" id="pickup-points">
+    <div class="ed-kicker">Collection</div>
+    <h3>Pick-up points</h3>
+    <p>Scheduled in-person collection is available by confirmation at these points:</p>
+    <ul class="pickup-list">
+      <li>Trunk Road<small>By prior confirmation</small></li>
+      <li>Taranibash<small>By prior confirmation</small></li>
+      <li>Appayon Tower, Feni<small>By prior confirmation</small></li>
     </ul>
   </section>
 
-  <section class="info-sec" id="delivery-policy">
-    <div class="info-kicker">Delivery Policy</div>
-    <h3>Nationwide Courier &amp; COD</h3>
-    <p>Every order is carefully packed in protective cushioning and dispatched nationwide with Cash on Delivery (৳120). Please inspect your parcel upon arrival and record an unboxing video if any issue occurs in transit.</p>
+  <section class="ed-sec" id="delivery-policy">
+    <div class="ed-kicker">Shipping</div>
+    <h3>Delivery policy</h3>
+    <p>Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every atomizer is sealed and cushioned for transit—please inspect your parcel on arrival and record an unboxing video if anything looks damaged.</p>
   </section>
 
-  <section class="info-sec" id="about">
-    <div class="info-kicker">About FRAGENTRE</div>
-    <h3>Crafted for Curious Noses</h3>
-    <p>FRAGENTRE makes authentic designer and Middle Eastern fragrances accessible in travel-ready glass atomizers. Every decant is drawn carefully from sealed original bottles so you can experience projection, longevity, and wearability on your own skin before committing to a full bottle.</p>
+  <section class="ed-sec" id="about">
+    <div class="ed-kicker">Brand</div>
+    <h3>About</h3>
+    <p>FRAGENTRE is built for fragrance lovers who want to explore genuine designer and Middle Eastern scents without guessing from a strip of paper. Every decant comes straight from an authentic, sealed bottle.</p>
   </section>
 
   <section class="suggest" id="request">
     <h3>What should we stock next?</h3>
     <p>Tell us a fragrance you want decanted and we will try to bring it in.</p>
     <input id="sg" type="text" placeholder="e.g. Amber Oud Gold" aria-label="Perfume suggestion">
-    <button id="sgb" type="button">REQUEST ON WHATSAPP</button>
+    <button id="sgb" type="button">Request on WhatsApp</button>
   </section>
 
   <footer>
-    <span class="f-brand">FRAGENTRE</span>
-    <span class="f-tag">100% genuine glass-atomizer decants from sealed original bottles.</span>
+    <div class="wordmark" style="text-align:left;font-size:15px;letter-spacing:.22em;text-indent:0">FRAGENTRE</div>
     <div class="f-links">
       <a href="#home">Home</a>
-      <a href="#decant-bottles">Decant bottles</a>
       <a href="#pickup-points">Pick-up points</a>
       <a href="#delivery-policy">Delivery policy</a>
       <a href="#about">About</a>
@@ -652,53 +637,24 @@ footer{
 <div class="bar" id="bar">
   <div class="in">
     <div><small id="bc">0 items</small><b id="bs">৳0</b></div>
-    <button id="vb" type="button">VIEW BAG</button>
+    <button id="vb" type="button">View Bag</button>
   </div>
 </div>
 
 <div class="ov" id="ov"></div>
 
 <nav class="nav-drawer" id="navDrawer" aria-label="Main navigation" aria-hidden="true">
-  <div class="nav-hd">
-    <span>FRAGENTRE</span>
-    <button id="menuClose" type="button" aria-label="Close menu">×</button>
+  <div class="nav-top">
+    <button class="close-circle" id="menuClose" type="button" aria-label="Close menu">×</button>
+    <span class="menu-label">MENU</span>
+    <span style="width:42px" aria-hidden="true"></span>
   </div>
   <ul class="nav-list">
-    <li class="nav-item">
-      <a href="#home" data-nav="close">
-        <span>Home</span>
-        <span>→</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#decant-bottles" data-nav="close">
-        <span>Decant bottles</span>
-        <span>→</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#pickup-points" data-nav="close">
-        <span>
-          Pick-up points
-          <span class="nav-sub">Trunk Road, Taranibash, Appayon Tower. Feni</span>
-        </span>
-        <span>→</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#delivery-policy" data-nav="close">
-        <span>Delivery policy</span>
-        <span>→</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#about" data-nav="close">
-        <span>About</span>
-        <span>→</span>
-      </a>
-    </li>
+    <li><a href="#home" data-nav="close"><span>Home</span><span>›</span></a></li>
+    <li><a href="#pickup-points" data-nav="close"><span>Pick-up points</span><span>›</span></a></li>
+    <li><a href="#delivery-policy" data-nav="close"><span>Delivery policy</span><span>›</span></a></li>
+    <li><a href="#about" data-nav="close"><span>About</span><span>›</span></a></li>
   </ul>
-  <p class="nav-foot">Authentic perfume decants • Nationwide delivery across Bangladesh (৳120).</p>
 </nav>
 
 <aside class="drawer" id="dr" aria-label="Shopping bag" aria-hidden="true">
@@ -711,7 +667,7 @@ footer{
   <div class="tot"><span>Subtotal</span><span id="ds">৳0</span></div>
   <div class="tot"><span>Delivery</span><span id="dd">৳120</span></div>
   <div class="tot g"><span>Total</span><span id="dt">৳0</span></div>
-  <button class="co" id="co" type="button">CHECKOUT ON WHATSAPP</button>
+  <button class="co" id="co" type="button">Checkout on WhatsApp</button>
 </aside>
 
 <section class="dv" id="dv" role="dialog" aria-modal="true" aria-label="Perfume details" aria-hidden="true">
@@ -751,13 +707,13 @@ var IC={
 var WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>';
 
 var curId=null;
-function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9A7632" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
+function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6E6B64" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
 function IMG(p){return '<div class="img"><img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>'}
 function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
 
 function card(p){
  return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p)+
-  '<div class="body"><div class="brand">'+p.brand+'</div><h3 class="title">'+p.name+'</h3><p class="vibe">'+p.vibe+'</p>'+
+  '<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2><p class="vibe">'+p.vibe+'</p>'+
   '<div class="fr"><div><small>From</small><b>'+tk(p.pr[5])+'</b></div><button class="vd" type="button" data-a="open" data-id="'+p.id+'">View Details</button></div></div></article>';
 }
 function renderList(){
