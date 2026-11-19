@@ -13,15 +13,14 @@
 :root{
   --bg:#FFFFFF;
   --paper:#FAF9F7;
-  --soft:#F5F4F1;
-  --line:#E8E6E1;
+  --soft:#F4F2EE;
+  --line:#E8E5DF;
   --tx:#141414;
   --mut:#6E6B64;
-  --accent:#141414;
   --gold:#9A7632
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+html{max-width:100%;overflow-x:hidden}
 body{
   background:var(--bg);
   color:var(--tx);
@@ -38,11 +37,16 @@ button{cursor:pointer;border:0;background:none}
 
 .wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
 
-/* Top Bar & Clean Wordmark Header */
-header{
-  background:var(--bg);
-  border-bottom:1px solid var(--line);
-  padding:calc(12px + env(safe-area-inset-top,0px)) 0 22px
+/* Glass Sticky Top Bar */
+header.glass-hdr{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(255,255,255,.76);
+  backdrop-filter:blur(14px) saturate(150%);
+  -webkit-backdrop-filter:blur(14px) saturate(150%);
+  border-bottom:1px solid rgba(20,20,20,.08);
+  padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
 }
 .topbar{
   display:flex;
@@ -56,7 +60,7 @@ header{
   border-radius:999px;
   transition:background .2s
 }
-.icon-btn:hover{background:var(--soft)}
+.icon-btn:hover{background:rgba(20,20,20,.05)}
 .icon-btn svg{width:20px;height:20px;stroke:var(--tx);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .top-bag{position:relative}
 .top-bag i{
@@ -69,7 +73,7 @@ header{
 
 .wordmark{
   font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:21px;
+  font-size:18px;
   font-weight:500;
   letter-spacing:.26em;
   text-indent:.26em;
@@ -77,16 +81,9 @@ header{
   color:var(--tx);
   text-align:center
 }
-.hero-sub{
-  text-align:center;
-  margin-top:8px;
-  font-size:12px;
-  color:var(--mut);
-  letter-spacing:.03em
-}
 
 /* Search & Brand Filter */
-.tools{padding:18px 0 6px}
+.tools{padding:16px 0 6px}
 .search{position:relative}
 .search svg{
   position:absolute;left:14px;top:50%;transform:translateY(-50%);
@@ -124,7 +121,7 @@ header{
 }
 
 /* Catalog Cards */
-#collection{margin-top:16px;scroll-margin-top:18px}
+#collection{margin-top:14px}
 .card{
   background:var(--bg);
   border:1px solid var(--line);
@@ -192,85 +189,13 @@ header{
 }
 .vd:hover{background:var(--tx);color:#FFFFFF}
 
-/* Editorial Sections (Decant Bottles Info, Pick-Up Points, Delivery Policy, About) */
-.ed-sec{
-  border-top:1px solid var(--line);
-  padding:24px 0;
-  scroll-margin-top:16px
-}
-.ed-kicker{
-  font-size:10.5px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--mut);
-  font-weight:600
-}
-.ed-sec h3{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:19px;
-  font-weight:500;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  margin-top:6px;
-  color:var(--tx)
-}
-.ed-sec p{
-  font-size:13.5px;
-  color:var(--mut);
-  margin-top:8px;
-  line-height:1.65
-}
-.size-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:14px
-}
-.size-box{
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:12px;
-  background:var(--paper)
-}
-.size-box b{
-  display:block;
-  font-size:13px;
-  letter-spacing:.12em;
-  color:var(--tx)
-}
-.size-box span{
-  display:block;
-  font-size:12px;
-  color:var(--mut);
-  margin-top:3px
-}
-.pickup-list{
-  list-style:none;
-  margin-top:14px;
-  border-top:1px solid var(--line)
-}
-.pickup-list li{
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
-  font-size:13.5px;
-  font-weight:500;
-  color:var(--tx)
-}
-.pickup-list li small{
-  display:block;
-  font-size:12px;
-  font-weight:400;
-  color:var(--mut);
-  margin-top:2px
-}
-
-/* Request Box */
+/* Request Box on Home */
 .suggest{
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:10px;
   padding:20px 18px;
-  margin-top:8px
+  margin-top:14px
 }
 .suggest h3{
   font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
@@ -307,7 +232,7 @@ header{
 /* Footer */
 footer{
   margin-top:24px;
-  padding-top:22px;
+  padding-top:20px;
   border-top:1px solid var(--line)
 }
 .f-links{
@@ -318,7 +243,8 @@ footer{
   font-size:12.5px;
   color:var(--mut)
 }
-.f-links a:hover{color:var(--tx)}
+.f-links button{color:var(--mut);padding:2px 0}
+.f-links button:hover{color:var(--tx)}
 .f-bot{
   margin-top:18px;
   padding-top:14px;
@@ -329,11 +255,87 @@ footer{
   letter-spacing:.08em
 }
 
+/* Separate Page View (Pick-up points, Delivery policy, About) */
+.page-view{
+  position:fixed;
+  inset:0;
+  z-index:48;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  visibility:hidden;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s
+}
+.page-view.show{
+  transform:none;
+  visibility:visible;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1)
+}
+.pv-head{
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
+}
+.pv-back{
+  display:flex;align-items:center;gap:4px;height:38px;padding:0 8px;
+  font-size:13.5px;font-weight:500;color:var(--tx)
+}
+.pv-back svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pv-title{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase
+}
+.pv-body{
+  flex:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:22px 16px calc(36px + env(safe-area-inset-bottom,0px))
+}
+.pv-card{
+  max-width:480px;
+  margin:0 auto;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:20px 18px
+}
+.pv-kicker{
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:600
+}
+.pv-card h2{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:20px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:6px
+}
+.pv-card p{
+  font-size:13.5px;color:var(--mut);margin-top:10px;line-height:1.65
+}
+.pickup-list{
+  list-style:none;
+  margin-top:16px;
+  border-top:1px solid var(--line)
+}
+.pickup-list li{
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;font-weight:500;color:var(--tx)
+}
+.pickup-list li small{
+  display:block;font-size:12px;font-weight:400;color:var(--mut);margin-top:2px
+}
+
 /* Sticky Bag Bar */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:20;
-  background:rgba(255,255,255,.97);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-top:1px solid var(--line);
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
   transform:translateY(110%);
@@ -349,7 +351,7 @@ footer{
   font-size:12px;letter-spacing:.12em;text-transform:uppercase
 }
 
-/* Overlay & Slide-Out Drawer (Inspired by Reference Menu) */
+/* Overlay & Slide-Out Drawer */
 .ov{
   position:fixed;inset:0;
   background:rgba(20,20,20,.42);
@@ -396,7 +398,8 @@ footer{
 .nav-list li{
   border-bottom:1px solid var(--line)
 }
-.nav-list a{
+.nav-list button{
+  width:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -405,14 +408,15 @@ footer{
   font-weight:500;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:var(--tx)
+  color:var(--tx);
+  text-align:left
 }
-.nav-list a span:last-child{
+.nav-list button span:last-child{
   color:var(--mut);
   font-size:16px;
   letter-spacing:0
 }
-.nav-list a:hover{color:var(--gold)}
+.nav-list button:hover{color:var(--gold)}
 
 /* Bag Drawer */
 .drawer{
@@ -473,7 +477,10 @@ footer{
 .dtop{
   flex:none;display:flex;align-items:center;justify-content:space-between;
   padding:calc(8px + env(safe-area-inset-top,0px)) 10px 8px;
-  background:var(--bg);border-bottom:1px solid var(--line)
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
 }
 .back,.bagbtn{
   display:flex;align-items:center;gap:4px;height:40px;padding:0 10px;
@@ -536,7 +543,10 @@ footer{
 .dbar{
   flex:none;display:flex;align-items:center;gap:14px;
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  background:var(--bg);border-top:1px solid var(--line)
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line)
 }
 .dbar>div{flex:1;min-width:0}
 .dbar small{display:block;font-size:12px;color:var(--mut)}
@@ -544,14 +554,13 @@ footer{
 .dbar .add{flex:none;width:155px}
 
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .dv,.drawer,.nav-drawer,.bar{transition:none}
+  .dv,.drawer,.nav-drawer,.bar,.page-view{transition:none}
 }
 </style>
 </head>
 <body>
 
-<header id="home">
+<header class="glass-hdr" id="home">
   <div class="wrap">
     <div class="topbar">
       <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
@@ -563,7 +572,6 @@ footer{
         <i id="tbc" style="display:none">0</i>
       </button>
     </div>
-    <p class="hero-sub">Authentic Perfume Decants • Nationwide Delivery Across Bangladesh</p>
   </div>
 </header>
 
@@ -580,41 +588,6 @@ footer{
     <div id="list"></div>
   </div>
 
-  <section class="ed-sec" id="decant-bottles">
-    <div class="ed-kicker">Atomizers &amp; Sizes</div>
-    <h3>Decant bottles</h3>
-    <p>Each decant is drawn carefully from a sealed original bottle into a clean glass spray atomizer so you can test wearability, projection, and longevity before buying a full bottle.</p>
-    <div class="size-grid">
-      <div class="size-box"><b>5ML SPRAY</b><span>75+ sprays • 15+ wears</span></div>
-      <div class="size-box"><b>10ML SPRAY</b><span>150+ sprays • 30+ wears</span></div>
-      <div class="size-box"><b>15ML SPRAY</b><span>225+ sprays • 45+ wears</span></div>
-      <div class="size-box"><b>30ML SPRAY</b><span>450+ sprays • 90+ wears</span></div>
-    </div>
-  </section>
-
-  <section class="ed-sec" id="pickup-points">
-    <div class="ed-kicker">Collection</div>
-    <h3>Pick-up points</h3>
-    <p>Scheduled in-person collection is available by confirmation at these points:</p>
-    <ul class="pickup-list">
-      <li>Trunk Road<small>By prior confirmation</small></li>
-      <li>Taranibash<small>By prior confirmation</small></li>
-      <li>Appayon Tower, Feni<small>By prior confirmation</small></li>
-    </ul>
-  </section>
-
-  <section class="ed-sec" id="delivery-policy">
-    <div class="ed-kicker">Shipping</div>
-    <h3>Delivery policy</h3>
-    <p>Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every atomizer is sealed and cushioned for transit—please inspect your parcel on arrival and record an unboxing video if anything looks damaged.</p>
-  </section>
-
-  <section class="ed-sec" id="about">
-    <div class="ed-kicker">Brand</div>
-    <h3>About</h3>
-    <p>FRAGENTRE is built for fragrance lovers who want to explore genuine designer and Middle Eastern scents without guessing from a strip of paper. Every decant comes straight from an authentic, sealed bottle.</p>
-  </section>
-
   <section class="suggest" id="request">
     <h3>What should we stock next?</h3>
     <p>Tell us a fragrance you want decanted and we will try to bring it in.</p>
@@ -623,16 +596,28 @@ footer{
   </section>
 
   <footer>
-    <div class="wordmark" style="text-align:left;font-size:15px;letter-spacing:.22em;text-indent:0">FRAGENTRE</div>
+    <div class="wordmark" style="text-align:left;font-size:14px;letter-spacing:.22em;text-indent:0">FRAGENTRE</div>
     <div class="f-links">
-      <a href="#home">Home</a>
-      <a href="#pickup-points">Pick-up points</a>
-      <a href="#delivery-policy">Delivery policy</a>
-      <a href="#about">About</a>
+      <button type="button" data-page="home">Home</button>
+      <button type="button" data-page="pickups">Pick-up points</button>
+      <button type="button" data-page="delivery">Delivery policy</button>
+      <button type="button" data-page="about">About</button>
     </div>
     <div class="f-bot">© FRAGENTRE • Hand-decanted in Bangladesh</div>
   </footer>
 </main>
+
+<!-- Separate Screen for Pick-up points, Delivery policy, and About -->
+<section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
+  <div class="pv-head">
+    <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back
+    </button>
+    <span class="pv-title" id="pvTitle">FRAGENTRE</span>
+    <span style="width:52px" aria-hidden="true"></span>
+  </div>
+  <div class="pv-body" id="pvBody"></div>
+</section>
 
 <div class="bar" id="bar">
   <div class="in">
@@ -650,10 +635,10 @@ footer{
     <span style="width:42px" aria-hidden="true"></span>
   </div>
   <ul class="nav-list">
-    <li><a href="#home" data-nav="close"><span>Home</span><span>›</span></a></li>
-    <li><a href="#pickup-points" data-nav="close"><span>Pick-up points</span><span>›</span></a></li>
-    <li><a href="#delivery-policy" data-nav="close"><span>Delivery policy</span><span>›</span></a></li>
-    <li><a href="#about" data-nav="close"><span>About</span><span>›</span></a></li>
+    <li><button type="button" data-page="home"><span>Home</span><span>›</span></button></li>
+    <li><button type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
+    <li><button type="button" data-page="delivery"><span>Delivery policy</span><span>›</span></button></li>
+    <li><button type="button" data-page="about"><span>About</span><span>›</span></button></li>
   </ul>
 </nav>
 
@@ -692,9 +677,31 @@ var P=[
  {id:"rayhaan-aquatica",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
  {id:"liquid-brun",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."}
 ];
+var PAGES={
+ pickups:{
+  bar:"PICK-UP POINTS",
+  kicker:"Collection",
+  heading:"Pick-up points",
+  text:"Scheduled in-person collection is available by prior confirmation at these locations:",
+  spots:["Trunk Road","Taranibash","Appayon Tower, Feni"]
+ },
+ delivery:{
+  bar:"DELIVERY POLICY",
+  kicker:"Shipping",
+  heading:"Delivery policy",
+  text:"Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every glass decant atomizer is packed with protective cushioning—please inspect your parcel on arrival and record an unboxing video if any issue occurs in transit."
+ },
+ about:{
+  bar:"ABOUT",
+  kicker:"Brand",
+  heading:"About FRAGENTRE",
+  text:"FRAGENTRE makes authentic designer and Middle Eastern fragrances accessible in travel-ready glass atomizers. Every decant is hand-drawn carefully from sealed original bottles so you can experience real projection, longevity, and wearability on your skin before committing to a full bottle."
+ }
+};
 var BRANDS=["All","Rasasi","Rayhaan","French Avenue"];
 var st={}; P.forEach(function(p){st[p.id]={size:5,qty:1}});
 var cart=[],brand="All",term="";
+var curPage=null,curId=null;
 var $=function(i){return document.getElementById(i)};
 var tk=function(n){return "৳"+n.toLocaleString("en-US")};
 var find=function(id){return P.filter(function(p){return p.id===id})[0]};
@@ -706,7 +713,6 @@ var IC={
 };
 var WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>';
 
-var curId=null;
 function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6E6B64" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
 function IMG(p){return '<div class="img"><img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>'}
 function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
@@ -751,7 +757,7 @@ function dbar(p){
 function lock(){
  var navOpen=$("navDrawer").classList.contains("show");
  var bagOpen=$("dr").classList.contains("show");
- document.body.style.overflow=(curId||navOpen||bagOpen)?"hidden":"";
+ document.body.style.overflow=(curId||curPage||navOpen||bagOpen)?"hidden":"";
 }
 function renderDetail(){
  var p=find(curId),sc=$("dsc"),y=sc.scrollTop;
@@ -767,6 +773,33 @@ function closeDetail(fromPop){
  if(!curId)return;
  curId=null;$("dv").classList.remove("show");$("dv").setAttribute("aria-hidden","true");lock();
  if(!fromPop&&history.state&&history.state.d){try{history.back()}catch(e){}}
+}
+
+function openPage(key){
+ openNav(false);
+ if(key==="home"){
+  closePage();
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ var pg=PAGES[key];
+ if(!pg)return;
+ curPage=key;
+ $("pvTitle").textContent=pg.bar;
+ var spotsHtml=pg.spots?('<ul class="pickup-list">'+pg.spots.map(function(s){return '<li>'+s+'<small>By prior confirmation</small></li>'}).join("")+'</ul>'):"";
+ $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+'</div>';
+ $("pvBody").scrollTop=0;
+ $("pv").classList.add("show");
+ $("pv").setAttribute("aria-hidden","false");
+ lock();
+ $("pvBack").focus({preventScroll:true});
+}
+function closePage(){
+ if(!curPage)return;
+ curPage=null;
+ $("pv").classList.remove("show");
+ $("pv").setAttribute("aria-hidden","true");
+ lock();
 }
 
 function renderPills(){
@@ -812,6 +845,9 @@ function syncOverlay(){
 function wa(msg){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank","noopener")}
 
 document.addEventListener("click",function(e){
+ var pgBtn=e.target.closest("[data-page]");
+ if(pgBtn){openPage(pgBtn.dataset.page);return;}
+
  var b=e.target.closest("[data-a]");if(!b)return;
  var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,s;
  if(a==="brand"){brand=v;renderPills();renderList();}
@@ -840,10 +876,8 @@ document.addEventListener("click",function(e){
 $("q").addEventListener("input",function(e){term=e.target.value;renderList()});
 $("menuOpen").addEventListener("click",function(){openNav(true)});
 $("menuClose").addEventListener("click",function(){openNav(false)});
+$("pvBack").addEventListener("click",function(){closePage()});
 $("topBag").addEventListener("click",function(){openDrawer(true)});
-document.querySelectorAll('[data-nav="close"]').forEach(function(el){
- el.addEventListener("click",function(){openNav(false)});
-});
 $("vb").addEventListener("click",function(){openDrawer(true)});
 $("cl").addEventListener("click",function(){openDrawer(false)});
 $("ov").addEventListener("click",function(){openNav(false);openDrawer(false)});
@@ -851,7 +885,8 @@ document.addEventListener("keydown",function(e){
  if(e.key==="Escape"){
   if($("navDrawer").classList.contains("show"))openNav(false);
   else if($("dr").classList.contains("show"))openDrawer(false);
-  else closeDetail();
+  else if(curId)closeDetail();
+  else if(curPage)closePage();
  }
 });
 $("co").addEventListener("click",function(){
