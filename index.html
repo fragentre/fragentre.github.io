@@ -26,6 +26,7 @@ body{
   color:var(--tx);
   font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
   line-height:1.5;
+  padding-top:calc(64px + env(safe-area-inset-top,0px));
   padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
   max-width:100%;
   overflow-x:hidden
@@ -37,18 +38,23 @@ button{cursor:pointer;border:0;background:none}
 
 .wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
 
-/* Sticky Frosted Glass Header (Persistent across Home & Product Detail) */
+/* Fixed Frosted Glass Header (Never glitches or disappears on iOS Safari) */
 header.glass-hdr{
-  position:sticky;
+  position:fixed;
   top:0;
-  z-index:55;
-  background:rgba(255,255,255,.68);
+  left:0;
+  right:0;
+  z-index:65;
+  background:rgba(255,255,255,.72);
   backdrop-filter:blur(18px) saturate(160%);
   -webkit-backdrop-filter:blur(18px) saturate(160%);
-  border-bottom:1px solid rgba(20,20,20,.07);
+  border-bottom:1px solid rgba(20,20,20,.08);
   padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
 }
 .topbar{
+  max-width:480px;
+  margin:0 auto;
+  padding:0 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -159,7 +165,7 @@ header.glass-hdr{
   right:12px;
   padding:5px 10px;
   border-radius:4px;
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.94);
   border:1px solid var(--line);
   font-size:10px;
   font-weight:600;
@@ -276,11 +282,11 @@ footer{
   letter-spacing:.08em
 }
 
-/* Separate Page View (Pick-up points, Delivery policy, About) */
+/* Separate Page View (Pick-up points, Delivery policy, Contact us, About) */
 .page-view{
   position:fixed;
   inset:0;
-  z-index:48;
+  z-index:50;
   background:var(--bg);
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
@@ -330,6 +336,13 @@ footer{
 .pickup-list li small{
   display:block;font-size:12px;font-weight:400;color:var(--mut);margin-top:2px
 }
+.pv-wa{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;margin-top:16px;height:46px;
+  background:var(--tx);color:#FFFFFF;border-radius:6px;
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase
+}
+.pv-wa svg{width:17px;height:17px;fill:#FFFFFF}
 
 /* Sticky Bag Bar */
 .bar{
@@ -356,25 +369,26 @@ footer{
 .ov{
   position:fixed;inset:0;
   background:rgba(20,20,20,.42);
-  z-index:60;opacity:0;pointer-events:none;transition:opacity .26s
+  z-index:70;opacity:0;pointer-events:none;transition:opacity .26s
 }
 .ov.show{opacity:1;pointer-events:auto}
 
 .nav-drawer{
   position:fixed;top:0;bottom:0;left:0;
   width:min(340px,88vw);
-  z-index:75;
+  z-index:80;
   background:var(--bg);
   border-right:1px solid var(--line);
   padding:calc(16px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));
   display:flex;flex-direction:column;
+  overflow-y:auto;
   transform:translateX(-105%);
   transition:transform .3s cubic-bezier(.2,.8,.2,1)
 }
 .nav-drawer.show{transform:none}
 .nav-top{
   display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:16px
+  padding-bottom:14px
 }
 .close-circle{
   width:42px;height:42px;
@@ -391,37 +405,69 @@ footer{
   color:var(--mut);
   font-weight:600
 }
+.nav-sec-title{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mut);
+  margin:16px 0 6px
+}
 .nav-list{
   list-style:none;
-  margin-top:12px;
   border-top:1px solid var(--line)
 }
-.nav-list li{
+.nav-list>li{
   border-bottom:1px solid var(--line)
 }
-.nav-list button{
+.nav-row{
   width:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:16px 2px;
-  font-size:13.5px;
+  padding:14px 2px;
+  font-size:13px;
   font-weight:500;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--tx);
   text-align:left
 }
-.nav-list button span:last-child{
+.nav-row span:last-child{
   color:var(--mut);
   font-size:16px;
-  letter-spacing:0
+  letter-spacing:0;
+  transition:transform .2s
 }
-.nav-list button:hover{color:var(--gold)}
+.nav-row[aria-expanded="true"] span:last-child{
+  transform:rotate(90deg)
+}
+.nav-row:hover{color:var(--gold)}
+
+.sub-list{
+  list-style:none;
+  display:none;
+  padding:0 0 10px 12px
+}
+.sub-list.open{display:block}
+.sub-list button{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 4px;
+  font-size:12.5px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--mut);
+  text-align:left
+}
+.sub-list button:hover{color:var(--tx)}
 
 /* Bag Drawer */
 .drawer{
-  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  position:fixed;left:0;right:0;bottom:0;z-index:75;
   background:var(--bg);
   border-radius:16px 16px 0 0;
   border-top:1px solid var(--line);
@@ -466,7 +512,7 @@ footer{
 }
 .noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
 
-/* Detail View (Sits under the persistent sticky Glass Header just like Aromatica) */
+/* Detail View */
 .dv{
   position:fixed;top:0;bottom:0;left:0;right:0;
   max-width:480px;margin:0 auto;z-index:45;
@@ -507,7 +553,7 @@ footer{
 .size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
 .size.on{border-color:var(--tx);background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--tx)}
 
-/* Sold Out Size & Status Styling (Matching Aromatica Liquid Brun Reference) */
+/* Sold Out Size & Status Styling (Matching Aromatica Reference — No Extra Prices) */
 .size.so{
   background:var(--paper);
   color:#A5A199
@@ -527,7 +573,7 @@ footer{
 }
 .so-status{
   display:flex;align-items:center;gap:8px;
-  margin-top:14px;
+  margin-top:16px;
   font-size:11.5px;
   font-weight:600;
   letter-spacing:.14em;
@@ -595,19 +641,17 @@ footer{
 <body>
 
 <header class="glass-hdr" id="home">
-  <div class="wrap">
-    <div class="topbar">
-      <div class="hdr-left">
-        <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
-          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-        <button class="wordmark" id="brandHome" type="button">FRAGENTRE</button>
-      </div>
-      <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
-        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
-        <i id="tbc" style="display:none">0</i>
+  <div class="topbar">
+    <div class="hdr-left">
+      <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
+      <button class="wordmark" id="brandHome" type="button">FRAGENTRE</button>
     </div>
+    <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
+      <i id="tbc" style="display:none">0</i>
+    </button>
   </div>
 </header>
 
@@ -637,13 +681,14 @@ footer{
       <button type="button" data-page="home">Home</button>
       <button type="button" data-page="pickups">Pick-up points</button>
       <button type="button" data-page="delivery">Delivery policy</button>
+      <button type="button" data-page="contact">Contact us</button>
       <button type="button" data-page="about">About</button>
     </div>
     <div class="f-bot">© FRAGENTRE • Hand-decanted in Bangladesh</div>
   </footer>
 </main>
 
-<!-- Separate Screen for Pick-up points, Delivery policy, and About -->
+<!-- Separate Screen for Pick-up points, Delivery policy, Contact us, and About -->
 <section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
   <div class="pv-wrap">
     <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
@@ -668,11 +713,27 @@ footer{
     <span class="menu-label">MENU</span>
     <span style="width:42px" aria-hidden="true"></span>
   </div>
+
+  <div class="nav-sec-title">MAIN</div>
   <ul class="nav-list">
-    <li><button type="button" data-page="home"><span>Home</span><span>›</span></button></li>
-    <li><button type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
-    <li><button type="button" data-page="delivery"><span>Delivery policy</span><span>›</span></button></li>
-    <li><button type="button" data-page="about"><span>About</span><span>›</span></button></li>
+    <li><button class="nav-row" type="button" data-page="home"><span>Home</span><span>›</span></button></li>
+    <li>
+      <button class="nav-row" id="shopToggle" type="button" aria-expanded="false" aria-controls="shopSub">
+        <span>Shop</span><span>›</span>
+      </button>
+      <ul class="sub-list" id="shopSub">
+        <li><button type="button" data-cat="middle-eastern"><span>Middle Eastern</span><span>›</span></button></li>
+        <li><button type="button" data-cat="designer"><span>Designer</span><span>›</span></button></li>
+      </ul>
+    </li>
+    <li><button class="nav-row" type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
+    <li><button class="nav-row" type="button" data-page="delivery"><span>Delivery policy</span><span>›</span></button></li>
+  </ul>
+
+  <div class="nav-sec-title">ALL YOU NEED TO KNOW</div>
+  <ul class="nav-list">
+    <li><button class="nav-row" type="button" data-page="contact"><span>Contact us</span><span>›</span></button></li>
+    <li><button class="nav-row" type="button" data-page="about"><span>About</span><span>›</span></button></li>
   </ul>
 </nav>
 
@@ -702,11 +763,11 @@ var SIZES=[5,10,15,30];
 var WEARS={5:"15+ wears",10:"30+ wears",15:"45+ wears",30:"90+ wears"};
 var SPRAYS={5:"75+ sprays",10:"150+ sprays",15:"225+ sprays",30:"450+ sprays"};
 var P=[
- {id:"hawas-ice",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",pr:{5:320,10:580,15:800,30:1420},vibe:"Fresh, fruity, icy",top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
- {id:"rayhaan-aquatica",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
- {id:"liquid-brun",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
- {id:"hawas-black",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",pr:{5:340,10:620,15:860,30:1550},vibe:"Woody, earthy, citrusy",top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["All Seasons"],occ:["Evening","Formal","Office"],desc:"A bold, woody-citrus composition opening with crisp pineapple and grapefruit, layered over earthy patchouli and cedarwood, anchored by deep oakmoss and amber."},
- {id:"212-men",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",pr:{5:450,10:850,15:1200,30:2200},vibe:"Crisp, green, aromatic",top:["Green Notes","Grapefruit","Spices","Bergamot","Lavender"],heart:["Ginger","Violet","Gardenia","Sage"],base:["Musk","Sandalwood","Incense","Vetiver","Guaiac Wood"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Signature scent"],desc:"An energetic, clean urban classic blending fresh cut-green notes and bright grapefruit with aromatic ginger, sage, and a smooth woody-musk drydown."}
+ {id:"hawas-ice",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",pr:{5:320,10:580,15:800,30:1420},vibe:"Fresh, fruity, icy",top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
+ {id:"rayhaan-aquatica",cat:"middle-eastern",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
+ {id:"liquid-brun",cat:"middle-eastern",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
+ {id:"hawas-black",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",pr:{5:300,10:620,15:860,30:1550},vibe:"Woody, earthy, citrusy",top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["All Seasons"],occ:["Evening","Formal","Office"],desc:"A bold, woody-citrus composition opening with crisp pineapple and grapefruit, layered over earthy patchouli and cedarwood, anchored by deep oakmoss and amber."},
+ {id:"212-men",cat:"designer",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",pr:{5:460,10:850,15:1200,30:2200},vibe:"Crisp, green, aromatic",top:["Green Notes","Grapefruit","Spices","Bergamot","Lavender"],heart:["Ginger","Violet","Gardenia","Sage"],base:["Musk","Sandalwood","Incense","Vetiver","Guaiac Wood"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Signature scent"],desc:"An energetic, clean urban classic blending fresh cut-green notes and bright grapefruit with aromatic ginger, sage, and a smooth woody-musk drydown."}
 ];
 var PAGES={
  pickups:{
@@ -720,6 +781,12 @@ var PAGES={
   heading:"Delivery policy",
   text:"Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every glass decant atomizer is packed with protective cushioning—please inspect your parcel on arrival and record an unboxing video if any issue occurs in transit."
  },
+ contact:{
+  kicker:"Support",
+  heading:"Contact us",
+  text:"Have a question about an order, stock availability, or decant sizes? Reach out directly on WhatsApp and we will get back to you promptly.",
+  waMsg:"Hello FRAGENTRE! I have a question regarding your decants."
+ },
  about:{
   kicker:"Brand",
   heading:"About FRAGENTRE",
@@ -728,7 +795,7 @@ var PAGES={
 };
 var BRANDS=["All","Rasasi","Rayhaan","French Avenue","Carolina Herrera"];
 var st={}; P.forEach(function(p){st[p.id]={size:5,qty:1}});
-var cart=[],brand="All",term="";
+var cart=[],brand="All",catFilter="all",term="";
 var curPage=null,curId=null;
 var $=function(i){return document.getElementById(i)};
 var tk=function(n){return "৳"+n.toLocaleString("en-US")};
@@ -757,9 +824,11 @@ function card(p){
 function renderList(){
  var t=term.trim().toLowerCase();
  var arr=P.filter(function(p){
-  return (brand==="All"||p.brand===brand)&&(!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1);
+  return (catFilter==="all"||p.cat===catFilter)&&
+         (brand==="All"||p.brand===brand)&&
+         (!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1);
  });
- $("list").innerHTML=arr.length?arr.map(card).join(""):'<div class="empty">No perfumes match your search. Try another name or brand, or request it below.</div>';
+ $("list").innerHTML=arr.length?arr.map(card).join(""):'<div class="empty">No perfumes match your filter. Try another name or brand, or request it below.</div>';
 }
 
 function detail(p){
@@ -770,19 +839,22 @@ function detail(p){
   }
   return '<button class="size'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><span>'+tk(p.pr[z])+'</span><small>'+SPRAYS[z]+'</small></button>';
  }).join("");
- var actions=so?(
+
+ var topBlock=so?(
+  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
   '<div class="so-status"><span class="so-dot"></span><span>Sold out</span></div>'+
   '<button class="notify-btn" type="button" data-a="notify" data-id="'+p.id+'">'+IC.bell+'Notify me when it\'s restocked</button>'
  ):(
+  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
+  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
   '<div class="row"><div class="qty"><button type="button" data-a="qm" data-id="'+p.id+'" aria-label="Decrease quantity">−</button><span>'+s.qty+'</span><button type="button" data-a="qp" data-id="'+p.id+'" aria-label="Increase quantity">+</button></div>'+
   '<button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button></div>'+
   '<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>'
  );
+
  return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-a="back">Home</button><span>/</span><span>'+p.brand+'</span><span>/</span><b>'+p.name+'</b></nav>'+
   IMG(p,false)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
-  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
-  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
-  actions+
+  topBlock+
   '<div class="sec"><div class="lbl">FRAGRANCE PYRAMID</div>'+
    '<div class="tier"><h5>TOP NOTES</h5><div class="chips">'+chips(p.top)+'</div></div>'+
    '<div class="tier"><h5>HEART NOTES</h5><div class="chips">'+chips(p.heart)+'</div></div>'+
@@ -824,6 +896,7 @@ function openPage(key){
  openNav(false);
  closeDetail();
  if(key==="home"){
+  catFilter="all";brand="All";renderPills();renderList();
   closePage();
   window.scrollTo({top:0,behavior:"smooth"});
   return;
@@ -832,7 +905,8 @@ function openPage(key){
  if(!pg)return;
  curPage=key;
  var spotsHtml=pg.spots?('<ul class="pickup-list">'+pg.spots.map(function(s){return '<li>'+s+'<small>By prior confirmation</small></li>'}).join("")+'</ul>'):"";
- $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+'</div>';
+ var waBtn=pg.waMsg?('<button class="pv-wa" type="button" data-a="contact-wa">'+WAI+'Message on WhatsApp</button>'):"";
+ $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+waBtn+'</div>';
  $("pv").scrollTop=0;
  $("pv").classList.add("show");
  $("pv").setAttribute("aria-hidden","false");
@@ -889,13 +963,32 @@ function syncOverlay(){
 }
 function wa(msg){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank","noopener")}
 
+$("shopToggle").addEventListener("click",function(){
+ var open=$("shopSub").classList.toggle("open");
+ this.setAttribute("aria-expanded",open);
+});
+
 document.addEventListener("click",function(e){
+ var catBtn=e.target.closest("[data-cat]");
+ if(catBtn){
+  var c=catBtn.dataset.cat;
+  openNav(false);
+  if(c==="designer"){
+   openDetail("212-men");
+   return;
+  }
+  closeDetail();closePage();
+  catFilter="middle-eastern";brand="All";renderPills();renderList();
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+
  var pgBtn=e.target.closest("[data-page]");
  if(pgBtn){openPage(pgBtn.dataset.page);return;}
 
  var b=e.target.closest("[data-a]");if(!b)return;
  var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,s;
- if(a==="brand"){brand=v;renderPills();renderList();}
+ if(a==="brand"){brand=v;catFilter="all";renderPills();renderList();}
  else if(a==="open"){openDetail(id);}
  else if(a==="back"){closeDetail();}
  else if(a==="bag"){openDrawer(true);}
@@ -914,6 +1007,9 @@ document.addEventListener("click",function(e){
  else if(a==="notify"){
   s=st[id];var np=find(id);
   wa("Hello FRAGENTRE! Restock alert request:\n\n• "+np.name+" ("+np.brand+")\n• Preferred size: "+s.size+"ml\n\nPlease notify me when it's back in stock. Thank you!");
+ }
+ else if(a==="contact-wa"){
+  wa(PAGES.contact.waMsg);
  }
  else if(a==="wa"){
   s=st[id];var p=find(id),u=p.pr[s.size];
