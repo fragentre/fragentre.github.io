@@ -33,14 +33,14 @@ header{
   position:fixed;top:0;left:0;right:0;z-index:65;
   padding:env(safe-area-inset-top,0px) 10px 0;
   height:var(--hh);display:flex;align-items:center;
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px) saturate(1.4);
   -webkit-backdrop-filter:blur(18px) saturate(1.4);
   border-bottom:1px solid rgba(0,0,0,.05)
 }
 .ib{width:44px;height:44px;display:grid;place-items:center;position:relative;font-size:22px;line-height:1;flex:none;border-radius:999px}
 .ib:active{background:rgba(0,0,0,.05)}
-.ib svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ib svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .mark{font-family:'Montserrat',sans-serif;font-weight:400;font-size:19px;letter-spacing:.24em;margin:0 auto 0 8px;text-transform:uppercase}
 .badge{position:absolute;top:4px;right:2px;min-width:17px;height:17px;border-radius:9px;background:var(--ink);color:#FFFFFF;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px}
 
@@ -97,7 +97,7 @@ header{
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* catalog */
-.wrap{padding:52px 16px 8px;max-width:1000px;margin:0 auto}
+.wrap{padding:52px 18px 8px;max-width:1000px;margin:0 auto}
 h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
 .search{margin:22px 0 4px;display:flex;align-items:center;gap:12px;height:54px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 8px 26px rgba(0,0,0,.04)}
 .search svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.6;flex:none}
@@ -109,16 +109,16 @@ h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
 .cap{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:10px}
 .cap button{text-decoration:underline;text-underline-offset:3px}
 
-/* minimal blended product cards */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:30px 14px;margin-top:22px}
-@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
+/* seamless minimal blended product cards */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 18px;margin-top:24px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr);gap:38px 24px}}
 .pc{display:block;width:100%;text-align:center}
-.pic{aspect-ratio:1/1.08;background:#F8F8F8;border-radius:16px;display:grid;place-items:center;position:relative;overflow:hidden}
-.pic img{width:76%;height:76%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.pic{aspect-ratio:1/1.08;background:#FFFFFF;display:grid;place-items:center;position:relative;overflow:hidden}
+.pic img{width:84%;height:84%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .pc:active .pic img{transform:scale(.97)}
-.ph{width:36%;height:58%;border:1px dashed #D8D8D8;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
-.tag{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.12em;padding:5px 10px;color:var(--mute)}
-.pn{display:block;margin-top:12px;font-size:14.5px;font-weight:500;color:var(--ink)}
+.ph{width:40%;height:60%;border:1px dashed #DFDFDF;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
+.tag{position:absolute;top:6px;right:6px;background:#F5F5F5;border-radius:999px;font-size:9px;font-weight:600;letter-spacing:.12em;padding:5px 9px;color:var(--mute)}
+.pn{display:block;margin-top:10px;font-size:14px;font-weight:500;color:var(--ink)}
 .pb{display:block;margin-top:2px;font-size:10px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
 .pf{display:block;margin-top:3px;font-size:13px;color:var(--mute)}
 .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:48px 0}
@@ -150,9 +150,9 @@ footer .mark{margin:0;font-size:20px}
 .lnk{display:flex;justify-content:space-between;padding:17px 18px;background:var(--s1);border-radius:14px;margin-bottom:10px;text-decoration:none;font-weight:500}
 .lnk small{color:var(--mute);font-size:14px;font-weight:400}
 
-/* minimal blended product detail */
-.dpic{background:#FAFAFA;border-radius:18px;aspect-ratio:1/.92;display:grid;place-items:center;margin:8px 0 22px}
-.dpic img{width:64%;height:84%;object-fit:contain;mix-blend-mode:multiply}
+/* seamless minimal blended product detail */
+.dpic{background:#FFFFFF;aspect-ratio:1/.88;display:grid;place-items:center;margin:8px 0 20px}
+.dpic img{width:68%;height:86%;object-fit:contain;mix-blend-mode:multiply}
 .dpic .ph{width:28%;height:56%}
 .dk{font-size:12px;letter-spacing:.22em;color:var(--mute);font-weight:500;text-transform:uppercase}
 .dt{font-size:28px;font-weight:500;line-height:1.15;margin:4px 0 4px!important}
@@ -164,23 +164,24 @@ footer .mark{margin:0;font-size:20px}
 .wear{background:#FFFFFF;border-radius:999px;padding:8px 15px;font-size:13px;color:var(--mute)}
 .lab{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--gold);margin:22px 0 12px}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{background:#FFFFFF;border:1.5px solid transparent;border-radius:12px;padding:14px 6px;text-align:center;line-height:1.4}
+.size{background:#FFFFFF;border:1.5px solid transparent;border-radius:12px;padding:14px 6px;text-align:center;line-height:1.45}
 .size.on{border-color:var(--gold)}
 .size b{display:block;font-size:16px;font-weight:700;letter-spacing:.04em}
 .size span{display:block;font-size:14px}
-.size small{display:block;font-size:12px;color:var(--mute)}
+.size small{display:block;font-size:12.5px;color:var(--mute)}
 .buyrow{display:flex;gap:10px;margin-top:16px}
 .qty{display:flex;align-items:center;background:#FFFFFF;border-radius:12px;height:52px;flex:none}
 .qty button{width:42px;height:100%;font-size:20px}
 .qty span{min-width:24px;text-align:center;font-weight:600}
 .buyrow .btn{flex:1}
 
-/* aromatica-style delivery & authenticity block */
+/* bold icons & bold lead copy */
 .perks{margin-top:18px;padding:4px 2px}
-.perk{display:flex;align-items:flex-start;gap:12px;padding:10px 0}
-.perk svg{width:19px;height:19px;stroke:var(--mute);fill:none;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
-.perk div{font-size:13.5px;color:var(--ink);line-height:1.45}
-.perk small{display:block;color:var(--mute);font-size:12.5px;margin-top:1px}
+.perk{display:flex;align-items:flex-start;gap:12px;padding:11px 0}
+.perk svg{width:20px;height:20px;stroke:#3A3A3A;fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:1px}
+.perk div{font-size:13.5px;color:var(--mute);line-height:1.45}
+.perk strong{color:var(--ink);font-weight:700}
+.perk small{display:block;color:var(--mute);font-size:12.5px;margin-top:2px}
 
 .spec{display:grid;grid-template-columns:1fr 1fr;background:#FFFFFF;border:1px solid var(--line);border-radius:16px;margin-top:22px}
 .spec div{padding:18px 16px}
@@ -202,7 +203,7 @@ footer .mark{margin:0;font-size:20px}
 .sec>small{display:block;font-size:11.5px;letter-spacing:.2em;color:var(--mute);font-weight:600;margin-bottom:2px}
 .sec p{color:var(--mute);font-size:14.5px;line-height:1.7;margin-top:8px}
 
-/* floating bar: hidden until scrolled past quick order */
+/* floating bar: only appears after scrolling past the entire size/cart box */
 .fbar{
   position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));
   z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:6px;
@@ -234,8 +235,8 @@ footer .mark{margin:0;font-size:20px}
 .sm .mi{font-size:15px;color:var(--mute)}
 .chev{font-size:13px;transition:transform .2s}.chev.on{transform:rotate(180deg)}
 .bi{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
-.th{width:68px;height:68px;border-radius:12px;background:#F8F8F8;display:grid;place-items:center;flex:none;overflow:hidden}
-.th img{width:82%;height:82%;object-fit:contain;mix-blend-mode:multiply}
+.th{width:68px;height:68px;border-radius:12px;background:#FFFFFF;display:grid;place-items:center;flex:none;overflow:hidden}
+.th img{width:84%;height:84%;object-fit:contain;mix-blend-mode:multiply}
 .th .ph{font-size:0;width:40%}
 .bm{flex:1;min-width:0}.bm b{display:block;font-size:14.5px;font-weight:600}.bm span{font-size:13px;color:var(--mute)}
 .bq{display:flex;align-items:center;gap:2px;margin-top:8px}
@@ -338,7 +339,7 @@ const P=[
 const BRANDS=['All','Rasasi','Rayhaan','French Avenue','Carolina Herrera'];
 const INFO={
 pickup:['Pick-up points',`<div class="row2"><h4>Trunk Road</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Taranibash</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Garden City</h4><p>Collect your order in person.</p></div><p class="dv" style="margin-top:14px">Message us on WhatsApp to confirm a pick-up time.</p>`],
-delivery:['Delivery policy',`<div class="row2"><h4>Nationwide delivery — ৳120</h4><p>We deliver across Bangladesh, arriving in 2 to 4 business days with Cash on Delivery.</p></div><div class="row2"><h4>Protective packaging</h4><p>Glass atomizers are wrapped in protective cushioning so they arrive intact.</p></div><div class="row2"><h4>Unboxing video</h4><p>Please record an unboxing video when your parcel arrives, so we can resolve any issue quickly.</p></div>`],
+delivery:['Delivery policy',`<div class="row2"><h4>Delivery ${fmt(DEL)} across Bangladesh</h4><p>Arrives in 2 to 4 business days with Cash on Delivery.</p></div><div class="row2"><h4>Protective packaging</h4><p>Glass atomizers are wrapped in protective cushioning so they arrive intact.</p></div><div class="row2"><h4>Unboxing video</h4><p>Please record an unboxing video when your parcel arrives, so we can resolve any issue quickly.</p></div>`],
 contact:['Contact us',`<a class="lnk" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener">Instagram <small>@fragentre</small></a><a class="lnk" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener">Facebook <small>@fragentre</small></a><button class="btn" type="button" style="margin-top:16px" data-act="wa">Chat on WhatsApp</button>`],
 about:['About',`<div class="row2"><h4>Our story</h4><p>Fragentre makes authentic designer and Middle Eastern fragrances accessible in pocket-ready sizes — whether you want to rotate scents by mood, keep spending smart, or explore more without limits.</p></div><div class="row2"><h4>Decanted from sealed originals</h4><p>Every atomizer is filled carefully from sealed original bottles into clean travel sprays.</p></div>`]
 };
@@ -400,10 +401,11 @@ function updateFbarVisibility(){
     fb.classList.remove('show');
     return;
   }
-  const anchor=$('#quickOrderAnchor')||$('#buyBox');
-  if(!anchor){fb.classList.remove('show');return;}
-  const rect=anchor.getBoundingClientRect();
-  fb.classList.toggle('show',rect.bottom < window.innerHeight - 16);
+  const box=$('#buyBox');
+  if(!box){fb.classList.remove('show');return;}
+  const rect=box.getBoundingClientRect();
+  const headerH=$('header')?$('header').getBoundingClientRect().height:60;
+  fb.classList.toggle('show',rect.bottom < headerH + 6);
 }
 
 function applyView(v,push=true){
@@ -474,19 +476,19 @@ function renderDetail(){
     <div class="sizes">${SZ.map(s=>`<button class="size ${S.size===s?'on':''}" type="button" data-act="size" data-s="${s}"><b>${s}ML</b>${so?'<small>Sold out</small>':`<span>${fmt(p.pr[s])}</span><small>${s*15}+ sprays</small>`}</button>`).join('')}</div>
     ${so?`<div class="buyrow"><button class="btn" type="button" data-act="notify">NOTIFY ME WHEN IT'S RESTOCKED</button></div>`:`<div class="buyrow"><div class="qty"><button type="button" data-act="qty" data-d="-1" aria-label="Decrease">−</button><span>${S.qty}</span><button type="button" data-act="qty" data-d="1" aria-label="Increase">+</button></div><button class="btn" type="button" data-act="add">ADD TO CART</button></div>`}
   </div>
-  <div id="quickOrderAnchor">${so?'':'<button class="btn out" type="button" data-act="quick">Quick Order on WhatsApp</button>'}</div>
+  ${so?'':'<button class="btn out" type="button" data-act="quick">Quick Order on WhatsApp</button>'}
   <div class="perks">
     <div class="perk">
       <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
-      <div>Cash on delivery across Bangladesh</div>
+      <div><strong>Cash on delivery</strong> across Bangladesh</div>
     </div>
     <div class="perk">
       <svg viewBox="0 0 24 24"><path d="M1 7h13v10H1z"/><path d="M14 11h4l3 3v3h-7v-6z"/><circle cx="6.5" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
-      <div>Delivery ${fmt(DEL)}<small>Arrives in 2 to 4 business days</small></div>
+      <div><strong>Delivery ${fmt(DEL)}</strong> across Bangladesh<small>Arrives in 2 to 4 business days</small></div>
     </div>
     <div class="perk">
       <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><path d="M9.5 12l1.7 1.7 3.5-3.5"/></svg>
-      <div>Genuine, decanted from sealed original bottles</div>
+      <div><strong>Genuine</strong>, decanted from sealed original bottles</div>
     </div>
   </div>
   <div class="spec"><div><small>CATEGORY</small><b>${CAT[p.cat]}</b></div><div><small>CONCENTRATION</small><b>${p.conc}</b></div><div><small>SCENT PROFILE</small><b>${esc(p.vibe)}</b></div><div><small>LONGEVITY</small><b>${p.lon}</b></div></div>
