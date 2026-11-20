@@ -4,20 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FFFFFF">
-<title>FRAGENTRE — Authentic Perfume Decants</title>
-<meta name="description" content="Authentic perfume decants with nationwide delivery across Bangladesh.">
+<title>FRAGENTRE — Original Perfume Decants</title>
+<meta name="description" content="Original designer and Middle Eastern perfume decants hand-poured in Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF;
   --paper:#FAF9F7;
-  --soft:#F5F4F1;
+  --soft:#F4F2EE;
   --line:#EAE7E1;
   --tx:#141414;
-  --mut:#75726B;
-  --gold:#9A7632
+  --mut:#737069;
+  --gold:#9A7632;
+  --btn-bg:#141414;
+  --btn-tx:#FFFFFF;
+  --tile-bg:#FAF9F7;
+  --tile-on:#FFFFFF;
+  --tile-bd:#141414;
+  --hdr-bg:rgba(255,255,255,.74);
+  --hdr-bd:rgba(20,20,20,.08)
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#111111;
+    --paper:#191919;
+    --soft:#222222;
+    --line:#2C2C2C;
+    --tx:#F4F3F0;
+    --mut:#9E9B93;
+    --gold:#C8A45D;
+    --btn-bg:#F4F3F0;
+    --btn-tx:#111111;
+    --tile-bg:#1E1E1E;
+    --tile-on:#141414;
+    --tile-bd:#C8A45D;
+    --hdr-bg:rgba(17,17,17,.78);
+    --hdr-bd:rgba(255,255,255,.08)
+  }
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{max-width:100%;overflow-x:hidden}
@@ -26,8 +51,8 @@ body{
   color:var(--tx);
   font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
   line-height:1.5;
-  padding-top:calc(64px + env(safe-area-inset-top,0px));
-  padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+  padding-top:calc(62px + env(safe-area-inset-top,0px));
+  padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));
   max-width:100%;
   overflow-x:hidden
 }
@@ -45,10 +70,10 @@ header.glass-hdr{
   left:0;
   right:0;
   z-index:65;
-  background:rgba(255,255,255,.72);
+  background:var(--hdr-bg);
   backdrop-filter:blur(18px) saturate(160%);
   -webkit-backdrop-filter:blur(18px) saturate(160%);
-  border-bottom:1px solid rgba(20,20,20,.08);
+  border-bottom:1px solid var(--hdr-bd);
   padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
 }
 .topbar{
@@ -74,13 +99,13 @@ header.glass-hdr{
   flex:none;
   transition:background .2s
 }
-.icon-btn:hover{background:rgba(20,20,20,.05)}
+.icon-btn:hover{background:rgba(128,128,128,.12)}
 .icon-btn svg{width:21px;height:21px;stroke:var(--tx);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .top-bag{position:relative}
 .top-bag i{
   position:absolute;top:2px;right:1px;
   min-width:17px;height:17px;border-radius:9px;
-  background:var(--tx);color:#FFFFFF;
+  background:var(--btn-bg);color:var(--btn-tx);
   font-style:normal;font-size:10px;font-weight:700;
   display:flex;align-items:center;justify-content:center;padding:0 4px
 }
@@ -95,12 +120,235 @@ header.glass-hdr{
   cursor:pointer
 }
 
-/* Search & Brand Filter */
-.tools{padding:16px 0 6px}
+/* ================= LANDING VIEW (HERO + EDITORIAL) ================= */
+.landing{display:block}
+.landing.hide{display:none}
+
+.hero{
+  position:relative;
+  background:radial-gradient(120% 90% at 50% 0%, #26221D 0%, #121110 62%, #0B0B0B 100%);
+  color:#F6F4EF;
+  overflow:hidden;
+  padding:28px 20px 32px;
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.hero-inner{max-width:480px;margin:0 auto}
+.hero-stage{
+  position:relative;
+  height:190px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:24px;
+  padding-bottom:10px
+}
+.hero-stage::after{
+  content:"";
+  position:absolute;
+  left:10%;right:10%;bottom:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,164,93,.45),transparent)
+}
+.stage-bottle{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F2F1EE;
+  border-radius:10px;
+  padding:10px;
+  box-shadow:0 18px 36px rgba(0,0,0,.55);
+  transition:transform .3s ease
+}
+.stage-bottle img{width:100%;height:100%;object-fit:contain}
+.stage-bottle.side{width:84px;height:122px;opacity:.92;transform:translateY(4px)}
+.stage-bottle.center{width:106px;height:156px;z-index:2;border:1px solid rgba(200,164,93,.5)}
+
+.hero-kicker{
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#C8A45D
+}
+.hero-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:38px;
+  font-weight:500;
+  line-height:1.06;
+  letter-spacing:-.01em;
+  margin-top:8px;
+  color:#FFFFFF
+}
+.hero-title em{
+  font-style:italic;
+  color:#E5D3AE
+}
+.hero-sub{
+  font-size:13.5px;
+  line-height:1.6;
+  color:rgba(246,244,239,.74);
+  margin-top:12px;
+  max-width:38ch
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:22px;
+  padding:14px 24px;
+  background:#FFFFFF;
+  color:#111111;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  transition:transform .2s,background .2s
+}
+.hero-cta:hover{background:#F0ECE3;transform:translateY(-1px)}
+.hero-cta svg{width:16px;height:16px;stroke:#111111;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* 3-Pillar Trust Strip */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  padding:18px 0;
+  border-bottom:1px solid var(--line)
+}
+.pillar{
+  text-align:center;
+  padding:8px 4px
+}
+.pillar svg{
+  width:20px;height:20px;
+  stroke:var(--gold);
+  fill:none;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  margin-bottom:6px
+}
+.pillar b{
+  display:block;
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--tx)
+}
+.pillar span{
+  display:block;
+  font-size:11px;
+  color:var(--mut);
+  margin-top:2px;
+  line-height:1.35
+}
+
+/* Curated Shelves on Landing */
+.shelf-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin:24px 0 12px
+}
+.shelf-head h2{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+.shelf-head button{
+  font-size:12px;
+  color:var(--mut);
+  text-decoration:underline
+}
+.cat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+.cat-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:16px 14px;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:132px;
+  transition:border-color .2s
+}
+.cat-card:hover{border-color:var(--tx)}
+.cat-card small{
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600
+}
+.cat-card h3{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:16px;
+  font-weight:500;
+  margin-top:4px;
+  color:var(--tx)
+}
+.cat-card span{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin-top:14px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--mut)
+}
+
+/* ================= CATALOG VIEW (ALL FRAGRANCES) ================= */
+.catalog{display:none}
+.catalog.show{display:block}
+
+.cat-crumb{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:14px 0 4px;
+  font-size:12.5px;
+  color:var(--mut)
+}
+.cat-crumb button{color:var(--mut)}
+.cat-crumb button:hover{color:var(--tx)}
+.cat-crumb span{color:var(--mut);opacity:.6}
+.cat-crumb b{font-weight:500;color:var(--tx)}
+
+.cat-header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  padding:6px 0 2px
+}
+.cat-header h1{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:.04em
+}
+.cat-header span{
+  font-size:12px;
+  color:var(--mut)
+}
+
+.tools{padding:10px 0 6px}
 .search{position:relative}
 .search svg{
   position:absolute;left:14px;top:50%;transform:translateY(-50%);
-  width:18px;height:18px;stroke:#8A8780
+  width:18px;height:18px;stroke:var(--mut)
 }
 .search input{
   width:100%;
@@ -114,7 +362,7 @@ header.glass-hdr{
   transition:border-color .2s
 }
 .search input:focus{border-color:var(--tx)}
-.search input::placeholder{color:#9B978E}
+.search input::placeholder{color:var(--mut)}
 
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .pill{
@@ -127,9 +375,9 @@ header.glass-hdr{
   transition:.2s
 }
 .pill.on{
-  background:var(--tx);
-  border-color:var(--tx);
-  color:#FFFFFF;
+  background:var(--btn-bg);
+  border-color:var(--btn-bg);
+  color:var(--btn-tx);
   font-weight:600
 }
 
@@ -144,12 +392,12 @@ header.glass-hdr{
   cursor:pointer;
   transition:border-color .2s
 }
-.card:hover{border-color:#C9C5BC}
+.card:hover{border-color:var(--mut)}
 .img{
   height:245px;
   padding:18px;
   display:flex;align-items:center;justify-content:center;
-  background:#FFFFFF;
+  background:#F6F6F5;
   border-bottom:1px solid var(--line);
   position:relative;
   overflow:hidden
@@ -165,17 +413,17 @@ header.glass-hdr{
   right:12px;
   padding:5px 10px;
   border-radius:4px;
-  background:rgba(255,255,255,.94);
-  border:1px solid var(--line);
+  background:#FFFFFF;
+  border:1px solid #E2DFD9;
   font-size:10px;
   font-weight:600;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--tx)
+  color:#141414
 }
 .img .ph{
   display:none;flex-direction:column;align-items:center;gap:8px;
-  color:var(--mut);font-size:11px;letter-spacing:.18em;text-transform:uppercase
+  color:#6E6B64;font-size:11px;letter-spacing:.18em;text-transform:uppercase
 }
 .img.noimg .ph{display:flex}
 .img.noimg img{display:none}
@@ -214,15 +462,15 @@ header.glass-hdr{
   text-transform:uppercase;
   transition:.2s
 }
-.vd:hover{background:var(--tx);color:#FFFFFF}
+.vd:hover{background:var(--btn-bg);color:var(--btn-tx)}
 
-/* Request Box on Home */
+/* Request Box */
 .suggest{
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:10px;
   padding:20px 18px;
-  margin-top:14px
+  margin-top:20px
 }
 .suggest h3{
   font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
@@ -247,8 +495,8 @@ header.glass-hdr{
   width:100%;
   margin-top:10px;
   height:46px;
-  background:var(--tx);
-  color:#FFFFFF;
+  background:var(--btn-bg);
+  color:var(--btn-tx);
   border-radius:6px;
   font-weight:600;
   letter-spacing:.14em;
@@ -258,7 +506,7 @@ header.glass-hdr{
 
 /* Footer */
 footer{
-  margin-top:24px;
+  margin-top:26px;
   padding-top:20px;
   border-top:1px solid var(--line)
 }
@@ -278,7 +526,7 @@ footer{
   border-top:1px solid var(--line);
   text-align:center;
   font-size:11px;
-  color:#8E8A82;
+  color:var(--mut);
   letter-spacing:.08em
 }
 
@@ -352,15 +600,15 @@ footer{
 .pv-wa{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;margin-top:16px;height:46px;
-  background:var(--tx);color:#FFFFFF;border-radius:6px;
+  background:var(--btn-bg);color:var(--btn-tx);border-radius:6px;
   font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase
 }
-.pv-wa svg{width:17px;height:17px;fill:#FFFFFF}
+.pv-wa svg{width:17px;height:17px;fill:var(--btn-tx)}
 
 /* Sticky Bag Bar */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:20;
-  background:rgba(255,255,255,.82);
+  background:var(--hdr-bg);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-top:1px solid var(--line);
@@ -373,7 +621,7 @@ footer{
 .bar small{display:block;font-size:12px;color:var(--mut)}
 .bar b{font-size:18px}
 .bar button{
-  background:var(--tx);color:#FFFFFF;
+  background:var(--btn-bg);color:var(--btn-tx);
   font-weight:600;border-radius:6px;padding:12px 20px;
   font-size:12px;letter-spacing:.12em;text-transform:uppercase
 }
@@ -381,7 +629,7 @@ footer{
 /* Overlay & Slide-Out Drawer */
 .ov{
   position:fixed;inset:0;
-  background:rgba(20,20,20,.42);
+  background:rgba(0,0,0,.5);
   z-index:70;opacity:0;pointer-events:none;transition:opacity .26s
 }
 .ov.show{opacity:1;pointer-events:auto}
@@ -488,7 +736,7 @@ footer{
   transform:translateY(105%);
   transition:transform .32s cubic-bezier(.2,.8,.2,1);
   max-width:480px;margin:0 auto;
-  box-shadow:0 -10px 30px rgba(20,20,20,.1)
+  box-shadow:0 -10px 30px rgba(0,0,0,.22)
 }
 .drawer.show{transform:none}
 .dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
@@ -519,7 +767,7 @@ footer{
 .tot.g{font-size:18px;color:var(--tx);font-weight:700;padding-top:10px}
 .co{
   margin:14px 18px calc(18px + env(safe-area-inset-bottom,0px));
-  height:48px;background:var(--tx);color:#FFFFFF;
+  height:48px;background:var(--btn-bg);color:var(--btn-tx);
   border-radius:6px;font-weight:600;letter-spacing:.14em;font-size:12px;
   text-transform:uppercase;width:calc(100% - 36px)
 }
@@ -539,7 +787,7 @@ footer{
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior:contain;
-  padding-top:calc(64px + env(safe-area-inset-top,0px))
+  padding-top:calc(62px + env(safe-area-inset-top,0px))
 }
 .crumb{
   display:flex;align-items:center;flex-wrap:wrap;gap:6px;
@@ -550,7 +798,7 @@ footer{
 }
 .crumb button{color:var(--mut)}
 .crumb button:hover{color:var(--tx)}
-.crumb span{color:#B8B4AC}
+.crumb span{color:var(--mut);opacity:.6}
 .crumb b{font-weight:500;color:var(--tx)}
 .dsc .img{height:270px;padding:18px;border-bottom:none}
 .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
@@ -560,30 +808,31 @@ footer{
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .size{
   border:1px solid var(--line);border-radius:8px;padding:12px 10px;
-  text-align:center;background:var(--paper);transition:.2s
+  text-align:center;background:var(--tile-bg);transition:.2s
 }
-.size b{display:block;font-size:14px;letter-spacing:.12em;font-weight:700}
-.size span{display:block;font-size:15px;margin-top:2px}
+.size b{display:block;font-size:14px;letter-spacing:.12em;font-weight:700;color:var(--tx)}
+.size span{display:block;font-size:15px;margin-top:2px;color:var(--tx)}
 .size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
-.size.on{border-color:var(--tx);background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--tx)}
+.size.on{
+  border-color:var(--tile-bd);
+  background:var(--tile-on);
+  box-shadow:inset 0 0 0 1px var(--tile-bd)
+}
 
 /* Sold Out Size & Status Styling */
 .size.so{
-  background:var(--paper);
-  color:#A5A199
+  background:var(--tile-bg);
+  opacity:.72
 }
 .size.so b{
   text-decoration:line-through;
   font-weight:600;
-  color:#A5A199
+  color:var(--mut)
 }
 .size.so.on{
-  border-color:#9C9589;
+  border-color:var(--mut);
   box-shadow:none;
-  background:#FFFFFF
-}
-.size.so.on b{
-  color:#7A756D
+  opacity:1
 }
 .so-status{
   display:flex;align-items:center;gap:8px;
@@ -595,26 +844,26 @@ footer{
   color:var(--mut)
 }
 .so-dot{
-  width:7px;height:7px;border-radius:50%;background:#A5A199;flex:none
+  width:7px;height:7px;border-radius:50%;background:var(--mut);flex:none
 }
 .notify-btn{
   width:100%;margin-top:14px;height:48px;
-  background:var(--tx);color:#FFFFFF;border-radius:6px;
+  background:var(--btn-bg);color:var(--btn-tx);border-radius:6px;
   font-weight:600;letter-spacing:.12em;font-size:12px;text-transform:uppercase;
   display:flex;align-items:center;justify-content:center;gap:8px
 }
-.notify-btn svg{width:17px;height:17px;stroke:#FFFFFF;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.notify-btn svg{width:17px;height:17px;stroke:var(--btn-tx);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 .row{display:flex;gap:10px;margin-top:18px}
 .row .qty button{height:48px;width:40px}
 .add{
-  flex:1;background:var(--tx);color:#FFFFFF;border-radius:6px;
+  flex:1;background:var(--btn-bg);color:var(--btn-tx);border-radius:6px;
   font-weight:600;letter-spacing:.14em;font-size:12px;text-transform:uppercase;height:48px;transition:.2s
 }
 .add.done{background:var(--gold);color:#FFFFFF}
 .wa{
   width:100%;margin-top:10px;height:46px;
-  border:1px solid var(--line);background:var(--bg);border-radius:6px;
+  border:1px solid var(--line);background:transparent;border-radius:6px;
   font-size:13.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px
 }
 .wa:hover{border-color:var(--tx)}
@@ -632,12 +881,12 @@ footer{
 .tier h5{font-size:10.5px;font-weight:700;color:var(--mut);letter-spacing:.18em;margin-bottom:8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
-.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#FFFFFF;color:var(--tx);font-weight:500}
-.desc{font-size:14px;color:#3E3C37;line-height:1.65}
+.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--tx);font-weight:500}
+.desc{font-size:14px;color:var(--mut);line-height:1.65}
 .dbar{
   flex:none;display:flex;align-items:center;gap:14px;
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  background:rgba(255,255,255,.82);
+  background:var(--hdr-bg);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-top:1px solid var(--line)
@@ -654,7 +903,7 @@ footer{
 </head>
 <body>
 
-<header class="glass-hdr" id="home">
+<header class="glass-hdr" id="topHdr">
   <div class="topbar">
     <div class="hdr-left">
       <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
@@ -669,7 +918,99 @@ footer{
   </div>
 </header>
 
-<main class="wrap">
+<!-- LANDING SCREEN (Default Home) -->
+<div class="landing" id="landingView">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="stage-bottle side"><img src="images/rayhaan-aquatica.png.WEBP" alt=""></div>
+        <div class="stage-bottle center"><img src="images/hawas-ice.png.WEBP" alt=""></div>
+        <div class="stage-bottle side"><img src="images/liquid-brun.png.WEBP" alt=""></div>
+      </div>
+      <div class="hero-kicker">ORIGINAL BOTTLES • POURED TO ORDER</div>
+      <h1 class="hero-title">Wear the scent <em>before</em> the bottle.</h1>
+      <p class="hero-sub">Hand-decanted designer &amp; Middle Eastern fragrances in travel-ready glass atomizers—delivered across Bangladesh.</p>
+      <button class="hero-cta" type="button" data-shop="all">
+        Explore Collection
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="pillars">
+      <div class="pillar">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        <b>100% Genuine</b>
+        <span>Sealed original bottles</span>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24"><rect x="8" y="8" width="8" height="12" rx="1.5"/><path d="M10 8V5h4v3M9 3h6v2H9z"/></svg>
+        <b>Glass Sprays</b>
+        <span>5ml to 30ml sizes</span>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4.5l3.5 3.5V16h-8"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+        <b>Nationwide COD</b>
+        <span>৳120 across Bangladesh</span>
+      </div>
+    </div>
+
+    <div class="shelf-head">
+      <h2>Browse by Line</h2>
+      <button type="button" data-shop="all">View all</button>
+    </div>
+    <div class="cat-grid">
+      <button class="cat-card" type="button" data-shop="middle-eastern">
+        <div>
+          <small>Collection</small>
+          <h3>Middle Eastern</h3>
+        </div>
+        <span>Explore ›</span>
+      </button>
+      <button class="cat-card" type="button" data-shop="designer">
+        <div>
+          <small>Collection</small>
+          <h3>Designer</h3>
+        </div>
+        <span>Explore ›</span>
+      </button>
+    </div>
+
+    <section class="suggest">
+      <h3>What should we stock next?</h3>
+      <p>Tell us a fragrance you want decanted and we will try to bring it in.</p>
+      <input id="sgHome" type="text" placeholder="e.g. Dior Sauvage EDP" aria-label="Perfume suggestion">
+      <button id="sgbHome" type="button">Request on WhatsApp</button>
+    </section>
+
+    <footer>
+      <div class="wordmark" style="font-size:15px;letter-spacing:.18em">FRAGENTRE</div>
+      <div class="f-links">
+        <button type="button" data-page="home">Home</button>
+        <button type="button" data-shop="all">All Fragrances</button>
+        <button type="button" data-page="pickups">Pick-up points</button>
+        <button type="button" data-page="delivery">Delivery policy</button>
+        <button type="button" data-page="contact">Contact us</button>
+        <button type="button" data-page="about">About</button>
+      </div>
+      <div class="f-bot">© FRAGENTRE • Hand-decanted in Bangladesh</div>
+    </footer>
+  </div>
+</div>
+
+<!-- CATALOG SCREEN (All Fragrances / Filtered View) -->
+<main class="wrap catalog" id="catalogView">
+  <nav class="cat-crumb" aria-label="Breadcrumb">
+    <button type="button" data-page="home">Home</button>
+    <span>/</span>
+    <b id="catLabel">All Fragrances</b>
+  </nav>
+  <div class="cat-header">
+    <h1 id="catHeading">All Fragrances</h1>
+    <span id="catCount"></span>
+  </div>
+
   <div class="tools">
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -693,6 +1034,7 @@ footer{
     <div class="wordmark" style="font-size:15px;letter-spacing:.18em">FRAGENTRE</div>
     <div class="f-links">
       <button type="button" data-page="home">Home</button>
+      <button type="button" data-shop="all">All Fragrances</button>
       <button type="button" data-page="pickups">Pick-up points</button>
       <button type="button" data-page="delivery">Delivery policy</button>
       <button type="button" data-page="contact">Contact us</button>
@@ -705,8 +1047,8 @@ footer{
 <!-- Separate Screen for Pick-up points, Delivery policy, Contact us, and About -->
 <section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
   <div class="pv-wrap">
-    <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
-      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back to Home
+    <button class="pv-back" id="pvBack" type="button" aria-label="Back">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back
     </button>
     <div id="pvBody"></div>
   </div>
@@ -736,8 +1078,9 @@ footer{
         <span>Shop</span><span>›</span>
       </button>
       <ul class="sub-list" id="shopSub">
-        <li><button type="button" data-cat="middle-eastern"><span>Middle Eastern</span><span>›</span></button></li>
-        <li><button type="button" data-cat="designer"><span>Designer</span><span>›</span></button></li>
+        <li><button type="button" data-shop="all"><span>All Fragrances</span><span>›</span></button></li>
+        <li><button type="button" data-shop="middle-eastern"><span>Middle Eastern</span><span>›</span></button></li>
+        <li><button type="button" data-shop="designer"><span>Designer</span><span>›</span></button></li>
       </ul>
     </li>
     <li><button class="nav-row" type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
@@ -834,6 +1177,33 @@ function IMG(p,showBadge){
 }
 function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
 
+function showLanding(){
+ openNav(false);
+ closeDetail();
+ closePage();
+ $("landingView").classList.remove("hide");
+ $("catalogView").classList.remove("show");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showCatalog(cat){
+ openNav(false);
+ closeDetail();
+ closePage();
+ catFilter=cat||"all";
+ brand="All";
+ term="";
+ $("q").value="";
+ $("landingView").classList.add("hide");
+ $("catalogView").classList.add("show");
+ var label=catFilter==="middle-eastern"?"Middle Eastern":(catFilter==="designer"?"Designer":"All Fragrances");
+ $("catLabel").textContent=label;
+ $("catHeading").textContent=label;
+ renderPills();
+ renderList();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
 function card(p){
  return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p,true)+
   '<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2><p class="vibe">'+p.vibe+'</p>'+
@@ -846,6 +1216,7 @@ function renderList(){
          (brand==="All"||p.brand===brand)&&
          (!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1);
  });
+ $("catCount").textContent=arr.length+(arr.length===1?" scent":" scents");
  $("list").innerHTML=arr.length?arr.map(card).join(""):'<div class="empty">No perfumes match your filter. Try another name or brand, or request it below.</div>';
 }
 
@@ -870,7 +1241,7 @@ function detail(p){
   '<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>'
  );
 
- return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-a="back">Home</button><span>/</span><span>'+p.brand+'</span><span>/</span><b>'+p.name+'</b></nav>'+
+ return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-page="home">Home</button><span>/</span><button type="button" data-a="back">'+p.brand+'</button><span>/</span><b>'+p.name+'</b></nav>'+
   IMG(p,false)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
   topBlock+
   '<div class="sec"><div class="lbl">FRAGRANCE PYRAMID</div>'+
@@ -911,14 +1282,9 @@ function closeDetail(fromPop){
 }
 
 function openPage(key){
+ if(key==="home"){showLanding();return;}
  openNav(false);
  closeDetail();
- if(key==="home"){
-  catFilter="all";brand="All";renderPills();renderList();
-  closePage();
-  window.scrollTo({top:0,behavior:"smooth"});
-  return;
- }
  var pg=PAGES[key];
  if(!pg)return;
  curPage=key;
@@ -988,25 +1354,20 @@ $("shopToggle").addEventListener("click",function(){
 });
 
 document.addEventListener("click",function(e){
- var catBtn=e.target.closest("[data-cat]");
- if(catBtn){
-  catFilter=catBtn.dataset.cat;
-  brand="All";
-  openNav(false);
-  closeDetail();
-  closePage();
-  renderPills();
-  renderList();
-  window.scrollTo({top:0,behavior:"smooth"});
-  return;
- }
+ var shopBtn=e.target.closest("[data-shop]");
+ if(shopBtn){showCatalog(shopBtn.dataset.shop);return;}
 
  var pgBtn=e.target.closest("[data-page]");
  if(pgBtn){openPage(pgBtn.dataset.page);return;}
 
  var b=e.target.closest("[data-a]");if(!b)return;
  var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,s;
- if(a==="brand"){brand=v;catFilter="all";renderPills();renderList();}
+ if(a==="brand"){
+  brand=v;catFilter="all";
+  $("catLabel").textContent=v==="All"?"All Fragrances":v;
+  $("catHeading").textContent=v==="All"?"All Fragrances":v;
+  renderPills();renderList();
+ }
  else if(a==="open"){openDetail(id);}
  else if(a==="back"){closeDetail();}
  else if(a==="bag"){openDrawer(true);}
@@ -1038,7 +1399,7 @@ document.addEventListener("click",function(e){
  else if(a==="rm"){cart.splice(+v,1);renderBag();}
 });
 $("q").addEventListener("input",function(e){term=e.target.value;renderList()});
-$("brandHome").addEventListener("click",function(){openPage("home")});
+$("brandHome").addEventListener("click",function(){showLanding()});
 $("menuOpen").addEventListener("click",function(){openNav(true)});
 $("menuClose").addEventListener("click",function(){openNav(false)});
 $("pvBack").addEventListener("click",function(){closePage()});
@@ -1063,15 +1424,17 @@ $("co").addEventListener("click",function(){
  }).join("\n");
  wa("Hello FRAGENTRE! I'd like to place an order:\n\n"+lines+"\n\nSubtotal: "+tk(s)+"\nNationwide Delivery: "+tk(DELIVERY)+"\nTotal: "+tk(s+DELIVERY)+"\n\nPayment: Cash on delivery\nName:\nPhone:\nFull address:\n\nThank you!");
 });
-$("sgb").addEventListener("click",function(){
- var v=$("sg").value.trim();
- if(!v){$("sg").focus();$("sg").placeholder="Type a perfume name first";return;}
+function sendRequest(inp){
+ var v=inp.value.trim();
+ if(!v){inp.focus();inp.placeholder="Type a perfume name first";return;}
  wa("Hello FRAGENTRE! Stock request: I'd love to see \""+v+"\" available as a decant. Please let me know if you can bring it in. Thank you!");
-});
+}
+$("sgb").addEventListener("click",function(){sendRequest($("sg"))});
+$("sgbHome").addEventListener("click",function(){sendRequest($("sgHome"))});
 
 renderPills();renderList();renderBag();
 window.addEventListener("popstate",function(){closeDetail(true)});
-var h0=location.hash.slice(1);if(h0&&find(h0))openDetail(h0,true);
+var h0=location.hash.slice(1);if(h0&&find(h0)){showCatalog("all");openDetail(h0,true);}
 })();
 </script>
 </body>
