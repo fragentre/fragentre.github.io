@@ -178,7 +178,9 @@ footer .mark{margin:0;font-size:20px}
 .size{background:#FFFFFF;border:1.5px solid transparent;border-radius:12px;padding:14px 8px;text-align:center;line-height:1.4}
 .size.on{border-color:var(--gold)}
 .size b{display:block;font-size:16px;font-weight:700;letter-spacing:.04em}
-.size.so b{text-decoration:line-through;color:var(--ink)}
+.size.so{opacity:.52}
+.size.so.on{opacity:.72}
+.size.so b{text-decoration:line-through;color:var(--mute)}
 .size span{display:block;font-size:14px}
 .size small{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
 .buyrow{display:flex;gap:10px;margin-top:16px}
@@ -187,7 +189,7 @@ footer .mark{margin:0;font-size:20px}
 .qty span{min-width:24px;text-align:center;font-weight:600}
 .buyrow .btn{flex:1}
 
-/* bold icons + spacing + only Delivery bolded */
+/* bold icons + spacing + bold Cash on delivery / Delivery nationwide / Genuine */
 .perks{margin-top:20px;padding:4px 2px}
 .perk{display:flex;align-items:flex-start;gap:14px;padding:11px 0}
 .perk svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
@@ -215,7 +217,7 @@ footer .mark{margin:0;font-size:20px}
 .sec>small{display:block;font-size:11.5px;letter-spacing:.2em;color:var(--mute);font-weight:600;margin-bottom:2px}
 .sec p{color:var(--mute);font-size:14.5px;line-height:1.7;margin-top:8px}
 
-/* floating bar: only appears after scrolling completely past #buyBox */
+/* floating bar: only appears after scrolling completely past action buttons */
 .fbar{
   position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));
   z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:6px;
@@ -412,10 +414,10 @@ function updateFbarVisibility(){
     fb.classList.remove('show');
     return;
   }
-  const buyEl=$('#buyBox');
-  if(!buyEl){fb.classList.remove('show');return;}
-  const rect=buyEl.getBoundingClientRect();
-  fb.classList.toggle('show',rect.bottom < window.innerHeight - 6);
+  const anchor=$('#afterBuyAnchor');
+  if(!anchor){fb.classList.remove('show');return;}
+  const rect=anchor.getBoundingClientRect();
+  fb.classList.toggle('show',rect.top < 0);
 }
 
 function applyView(v,push=true){
@@ -487,18 +489,19 @@ function renderDetail(){
     ${so?`<div class="buyrow"><button class="btn" type="button" data-act="notify">NOTIFY ME WHEN IT'S RESTOCKED</button></div>`:`<div class="buyrow"><div class="qty"><button type="button" data-act="qty" data-d="-1" aria-label="Decrease">−</button><span>${S.qty}</span><button type="button" data-act="qty" data-d="1" aria-label="Increase">+</button></div><button class="btn" type="button" data-act="add">ADD TO CART</button></div>`}
   </div>
   ${so?'':'<button class="btn out" type="button" data-act="quick">Quick Order on WhatsApp</button>'}
+  <div id="afterBuyAnchor"></div>
   <div class="perks">
     <div class="perk">
       <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
-      <div>Cash on delivery across Bangladesh</div>
+      <div><strong>Cash on delivery</strong> across Bangladesh</div>
     </div>
     <div class="perk">
       <svg viewBox="0 0 24 24"><path d="M1 7h13v10H1z"/><path d="M14 11h4l3 3v3h-7v-6z"/><circle cx="6.5" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
-      <div><strong>Delivery</strong> nationwide — ${fmt(DEL)}<small>Arrives in 2 to 4 business days</small></div>
+      <div><strong>Delivery nationwide</strong> — ${fmt(DEL)}<small>Arrives in 2 to 4 business days</small></div>
     </div>
     <div class="perk">
       <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><path d="M9.5 12l1.7 1.7 3.5-3.5"/></svg>
-      <div>Genuine, decanted from sealed original bottles</div>
+      <div><strong>Genuine</strong>, decanted from sealed original bottles</div>
     </div>
   </div>
   <div class="spec"><div><small>CATEGORY</small><b>${CAT[p.cat]}</b></div><div><small>CONCENTRATION</small><b>${p.conc}</b></div><div><small>SCENT PROFILE</small><b>${esc(p.vibe)}</b></div><div><small>LONGEVITY</small><b>${p.lon}</b></div></div>
