@@ -3,1089 +3,414 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#0A0A0A">
 <title>FRAGENTRE — Authentic Perfume Decants</title>
-<meta name="description" content="Authentic perfume decants with nationwide delivery across Bangladesh.">
+<meta name="description" content="Authentic, hand-decanted perfumes by the ML. Nationwide delivery across Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#FFFFFF;
-  --paper:#FAF9F7;
-  --soft:#F5F4F1;
-  --line:#EAE7E1;
-  --tx:#141414;
-  --mut:#75726B;
-  --gold:#9A7632
-}
+:root{--bg:#0A0A0A;--s1:#141414;--s2:#181818;--line:#262626;--tx:#F5F5F5;--mut:#9A9A9A;--gold:#C5A059;--gold2:#a8864a;--hh:calc(58px + env(safe-area-inset-top,0px));--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{max-width:100%;overflow-x:hidden}
-body{
-  background:var(--bg);
-  color:var(--tx);
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  line-height:1.5;
-  padding-top:calc(64px + env(safe-area-inset-top,0px));
-  padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
-  max-width:100%;
-  overflow-x:hidden
-}
-button,input,a{font:inherit;color:inherit}
-a{text-decoration:none}
-button{cursor:pointer;border:0;background:none}
-:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
-
-.wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
-
-/* Fixed Frosted Glass Header */
-header.glass-hdr{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:65;
-  background:rgba(255,255,255,.76);
-  backdrop-filter:blur(18px) saturate(160%);
-  -webkit-backdrop-filter:blur(18px) saturate(160%);
-  border-bottom:1px solid rgba(20,20,20,.08);
-  padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
-}
-.topbar{
-  max-width:480px;
-  margin:0 auto;
-  padding:0 16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  min-height:42px
-}
-.hdr-left{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  min-width:0
-}
-.icon-btn{
-  width:40px;height:40px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:999px;
-  flex:none;
-  transition:background .2s
-}
-.icon-btn:hover{background:rgba(20,20,20,.05)}
-.icon-btn svg{width:21px;height:21px;stroke:var(--tx);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.top-bag{position:relative}
-.top-bag i{
-  position:absolute;top:2px;right:1px;
-  min-width:17px;height:17px;border-radius:9px;
-  background:var(--tx);color:#FFFFFF;
-  font-style:normal;font-size:10px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;padding:0 4px
-}
-
-.wordmark{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:20px;
-  font-weight:400;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:var(--tx);
-  cursor:pointer
-}
-
-/* Search & Brand Filter */
-.tools{padding:16px 0 6px}
+html,body{max-width:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}a{color:inherit}
+[data-a]{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mf{font-family:Montserrat,sans-serif}
+/* header */
+.hd{position:fixed;top:0;left:0;right:0;max-width:480px;margin:0 auto;z-index:40;height:var(--hh);padding:env(safe-area-inset-top,0px) 6px 0;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.hd div{display:flex;align-items:center}
+.ib{width:44px;height:44px;display:grid;place-items:center;position:relative}
+.ib svg{width:23px;height:23px;stroke:var(--tx);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.wm{font:300 21px Montserrat,sans-serif;letter-spacing:.28em;text-decoration:none;margin-left:6px}
+.bd{position:absolute;top:3px;right:1px;min-width:18px;height:18px;border-radius:9px;background:var(--gold);color:#0A0A0A;font:700 10px 'Plus Jakarta Sans';display:none;place-items:center;padding:0 5px}
+main,footer{max-width:480px;margin:0 auto}
+main{padding-top:var(--hh)}
+/* hero */
+.stage{position:relative;height:380px;overflow:hidden;background:radial-gradient(90% 70% at 50% 18%,#2d2417 0,#14110c 55%,#0A0A0A 100%)}
+.stage::before{content:"";position:absolute;left:50%;top:40px;width:260px;height:260px;margin-left:-130px;border-radius:50%;border:1px solid rgba(197,160,89,.25);box-shadow:0 0 0 38px rgba(197,160,89,.04),0 0 0 76px rgba(197,160,89,.025)}
+.stage svg{position:absolute;left:50%;top:52px;width:300px;margin-left:-150px;overflow:visible}
+.fl{animation:fl 6s ease-in-out infinite}.fl2{animation-delay:-2s}.fl3{animation-delay:-4s}
+@keyframes fl{50%{transform:translateY(-9px)}}
+.gc{position:absolute;left:16px;right:16px;bottom:16px;padding:18px 20px;background:rgba(20,20,20,.7);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(197,160,89,.3);border-radius:18px}
+.k{font:600 11px Montserrat,sans-serif;letter-spacing:.32em;color:var(--gold)}
+.gc h2{font:600 24px Montserrat,sans-serif;margin:6px 0 2px}.gc span{font-size:11px;letter-spacing:.26em;color:var(--mut)}
+.hb{background:var(--s2);padding:40px 24px 46px}
+.hb h1{font:300 36px/1.12 Montserrat,sans-serif;letter-spacing:.03em;margin:14px 0}.hb h1 b{font-weight:600;color:var(--gold)}
+.hb p{color:#bdbdbd;font-size:14.5px;max-width:36ch}
+.cta{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:var(--tx);color:#0A0A0A;border-radius:14px;padding:16px 22px;font:600 13px Montserrat,sans-serif;letter-spacing:.14em;text-decoration:none}
+.cta svg{width:18px;height:18px;stroke:#0A0A0A;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mq{overflow:hidden;padding:34px 0 0;white-space:nowrap}
+.mq div{display:inline-flex;width:max-content;animation:mq 26s linear infinite}
+.mq span{font:700 46px Montserrat,sans-serif;letter-spacing:.05em;color:transparent;-webkit-text-stroke:1px var(--gold2);padding-right:26px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* catalog */
+.sh{display:flex;align-items:center;gap:16px;margin:36px 20px 6px;scroll-margin-top:var(--hh)}
+.sh h2{font:500 20px Montserrat,sans-serif;letter-spacing:.2em;white-space:nowrap}.sh i{flex:1;height:1px;background:var(--line)}
+.sub{margin:0 20px 22px;font-size:11px;letter-spacing:.3em;color:var(--mut)}
+.tools{padding:0 20px}
 .search{position:relative}
-.search svg{
-  position:absolute;left:14px;top:50%;transform:translateY(-50%);
-  width:18px;height:18px;stroke:#8A8780
-}
-.search input{
-  width:100%;
-  background:var(--bg);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:12px 14px 12px 42px;
-  font-size:15px;
-  color:var(--tx);
-  outline:none;
-  transition:border-color .2s
-}
-.search input:focus{border-color:var(--tx)}
-.search input::placeholder{color:#9B978E}
-
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.pill{
-  padding:8px 15px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:var(--bg);
-  font-size:12.5px;
-  color:var(--mut);
-  transition:.2s
-}
-.pill.on{
-  background:var(--tx);
-  border-color:var(--tx);
-  color:#FFFFFF;
-  font-weight:600
-}
-
-/* Catalog Cards */
-#collection{margin-top:14px}
-.card{
-  background:var(--bg);
-  border:1px solid var(--line);
-  border-radius:12px;
-  overflow:hidden;
-  margin-bottom:18px;
-  cursor:pointer;
-  transition:border-color .2s
-}
-.card:hover{border-color:#C9C5BC}
-.img{
-  height:245px;
-  padding:18px;
-  display:flex;align-items:center;justify-content:center;
-  background:#FFFFFF;
-  border-bottom:1px solid var(--line);
-  position:relative;
-  overflow:hidden
-}
-.img img{
-  width:auto;height:auto;
-  max-width:78%;max-height:84%;
-  object-fit:contain
-}
-.so-pill{
-  position:absolute;
-  top:12px;
-  right:12px;
-  padding:5px 10px;
-  border-radius:6px;
-  background:rgba(255,255,255,.94);
-  border:1px solid var(--line);
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--tx)
-}
-.img .ph{
-  display:none;flex-direction:column;align-items:center;gap:8px;
-  color:var(--mut);font-size:11px;letter-spacing:.18em;text-transform:uppercase
-}
-.img.noimg .ph{display:flex}
-.img.noimg img{display:none}
-
-.body{padding:18px}
-.brand{
-  font-size:10.5px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--mut);
-  font-weight:600
-}
-.title{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:21px;
-  font-weight:500;
-  line-height:1.25;
-  margin-top:4px;
-  color:var(--tx)
-}
-.vibe{font-size:13px;color:var(--mut);margin-top:5px}
-.fr{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)
-}
-.fr small{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
-.fr b{font-size:20px;font-weight:600;color:var(--tx)}
-.vd{
-  border:1px solid var(--tx);
-  color:var(--tx);
-  border-radius:8px;
-  padding:10px 16px;
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:.2s
-}
-.vd:hover{background:var(--tx);color:#FFFFFF}
-
-/* Request Box on Home */
-.suggest{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:20px 18px;
-  margin-top:14px
-}
-.suggest h3{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:17px;
-  font-weight:500;
-  letter-spacing:.06em;
-  text-transform:uppercase
-}
-.suggest p{font-size:13px;color:var(--mut);margin:6px 0 12px}
-.suggest input{
-  width:100%;
-  background:var(--bg);
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:12px 14px;
-  font-size:15px;
-  color:var(--tx);
-  outline:none
-}
-.suggest input:focus{border-color:var(--tx)}
-.suggest button{
-  width:100%;
-  margin-top:10px;
-  height:46px;
-  background:var(--tx);
-  color:#FFFFFF;
-  border-radius:8px;
-  font-weight:600;
-  letter-spacing:.14em;
-  font-size:12px;
-  text-transform:uppercase
-}
-
-/* Footer */
-footer{
-  margin-top:24px;
-  padding-top:20px;
-  border-top:1px solid var(--line)
-}
-.f-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px 18px;
-  margin-top:12px;
-  font-size:12.5px;
-  color:var(--mut)
-}
-.f-links button{color:var(--mut);padding:2px 0}
-.f-links button:hover{color:var(--tx)}
-.f-bot{
-  margin-top:18px;
-  padding-top:14px;
-  border-top:1px solid var(--line);
-  text-align:center;
-  font-size:11px;
-  color:#8E8A82;
-  letter-spacing:.08em
-}
-
-/* Separate Page View */
-.page-view{
-  position:fixed;
-  inset:0;
-  z-index:50;
-  background:var(--bg);
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  padding:calc(74px + env(safe-area-inset-top,0px)) 16px calc(36px + env(safe-area-inset-bottom,0px));
-  transform:translateX(100%);
-  visibility:hidden;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s
-}
-.page-view.show{
-  transform:none;
-  visibility:visible;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1)
-}
-.pv-wrap{max-width:480px;margin:0 auto}
-.pv-back{
-  display:inline-flex;align-items:center;gap:4px;height:36px;margin-bottom:14px;
-  font-size:13px;font-weight:500;color:var(--mut)
-}
-.pv-back:hover{color:var(--tx)}
-.pv-back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pv-card{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:20px 18px
-}
-.pv-kicker{
-  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:600
-}
-.pv-card h2{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:20px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:6px
-}
-.pv-card p{
-  font-size:13.5px;color:var(--mut);margin-top:10px;line-height:1.65
-}
-.pickup-list{
-  list-style:none;
-  margin-top:16px;
-  border-top:1px solid var(--line)
-}
-.pickup-list li{
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-  font-size:14px;font-weight:500;color:var(--tx)
-}
-.pickup-list li small{
-  display:block;font-size:12px;font-weight:400;color:var(--mut);margin-top:2px
-}
-.social-list{
-  margin-top:16px;
-  border-top:1px solid var(--line);
-  display:grid
-}
-.social-link{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 2px;
-  border-bottom:1px solid var(--line);
-  font-size:13.5px;font-weight:500;color:var(--tx)
-}
-.social-link small{color:var(--mut);font-size:12.5px}
-.social-link:hover{color:var(--gold)}
-.pv-wa{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;margin-top:16px;height:46px;
-  background:var(--tx);color:#FFFFFF;border-radius:8px;
-  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase
-}
-.pv-wa svg{width:17px;height:17px;fill:#FFFFFF}
-
-/* Sticky Bag Bar */
-.bar{
-  position:fixed;left:0;right:0;bottom:0;z-index:20;
-  background:rgba(255,255,255,.86);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-top:1px solid var(--line);
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  transform:translateY(110%);
-  transition:transform .3s
-}
-.bar.show{transform:none}
-.bar .in{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.bar small{display:block;font-size:12px;color:var(--mut)}
-.bar b{font-size:18px}
-.bar button{
-  background:var(--tx);color:#FFFFFF;
-  font-weight:600;border-radius:8px;padding:12px 20px;
-  font-size:12px;letter-spacing:.12em;text-transform:uppercase
-}
-
-/* Overlay & Slide-Out Drawer */
-.ov{
-  position:fixed;inset:0;
-  background:rgba(20,20,20,.42);
-  z-index:70;opacity:0;pointer-events:none;transition:opacity .26s
-}
-.ov.show{opacity:1;pointer-events:auto}
-
-.nav-drawer{
-  position:fixed;top:0;bottom:0;left:0;
-  width:min(340px,88vw);
-  z-index:80;
-  background:var(--bg);
-  border-right:1px solid var(--line);
-  padding:calc(16px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));
-  display:flex;flex-direction:column;
-  overflow-y:auto;
-  transform:translateX(-105%);
-  transition:transform .3s cubic-bezier(.2,.8,.2,1)
-}
-.nav-drawer.show{transform:none}
-.nav-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:14px
-}
-.close-circle{
-  width:42px;height:42px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:var(--bg);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;color:var(--tx)
-}
-.menu-label{
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--mut);
-  font-weight:600
-}
-.nav-sec-title{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--mut);
-  margin:16px 0 6px
-}
-.nav-list{
-  list-style:none;
-  border-top:1px solid var(--line)
-}
-.nav-list>li{
-  border-bottom:1px solid var(--line)
-}
-.nav-row{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 2px;
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--tx);
-  text-align:left
-}
-.nav-row span:last-child{
-  color:var(--mut);
-  font-size:16px;
-  letter-spacing:0;
-  transition:transform .2s
-}
-.nav-row[aria-expanded="true"] span:last-child{
-  transform:rotate(90deg)
-}
-.nav-row:hover{color:var(--gold)}
-
-.sub-list{
-  list-style:none;
-  display:none;
-  padding:0 0 10px 12px
-}
-.sub-list.open{display:block}
-.sub-list button{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 4px;
-  font-size:12.5px;
-  font-weight:500;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--mut);
-  text-align:left
-}
-.sub-list button:hover{color:var(--tx)}
-
-/* Bag Drawer */
-.drawer{
-  position:fixed;left:0;right:0;bottom:0;z-index:75;
-  background:var(--bg);
-  border-radius:16px 16px 0 0;
-  border-top:1px solid var(--line);
-  max-height:88vh;display:flex;flex-direction:column;
-  transform:translateY(105%);
-  transition:transform .32s cubic-bezier(.2,.8,.2,1);
-  max-width:480px;margin:0 auto;
-  box-shadow:0 -10px 30px rgba(20,20,20,.1)
-}
-.drawer.show{transform:none}
-.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
-.dh h3{font-family:'Montserrat','Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-.dh button{font-size:26px;color:var(--mut);width:36px;height:36px;line-height:1}
-.items{overflow-y:auto;padding:0 18px;flex:1}
-.it{padding:14px 0;border-bottom:1px solid var(--line)}
-.it .t{display:flex;justify-content:space-between;gap:10px}
-.it .t b{font-size:15px}
-.it .t span{color:var(--tx);font-weight:700;white-space:nowrap}
-.it small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
-.it .c{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--bg);flex:none}
-.qty button{width:34px;height:36px;font-size:18px;color:var(--tx)}
-.qty span{min-width:26px;text-align:center;font-weight:600;font-size:14px}
-.rm{font-size:12px;color:var(--mut);text-decoration:underline}
-
-.dl{padding:14px 18px 6px}
-.opt{
-  display:flex;align-items:center;gap:10px;
-  border:1px solid var(--line);background:var(--paper);
-  border-radius:10px;padding:12px;margin-top:8px;font-size:13.5px;font-weight:500
-}
-.opt input{accent-color:var(--tx);width:17px;height:17px}
-.opt span{flex:1}
-
-.tot{display:flex;justify-content:space-between;align-items:center;padding:10px 18px 2px;font-size:13px;color:var(--mut)}
-.tot.g{font-size:18px;color:var(--tx);font-weight:700;padding-top:10px}
-.co{
-  margin:14px 18px calc(18px + env(safe-area-inset-bottom,0px));
-  height:48px;background:var(--tx);color:#FFFFFF;
-  border-radius:8px;font-weight:600;letter-spacing:.14em;font-size:12px;
-  text-transform:uppercase;width:calc(100% - 36px)
-}
-.noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
-
-/* Detail View */
-.dv{
-  position:fixed;top:0;bottom:0;left:0;right:0;
-  max-width:480px;margin:0 auto;z-index:45;
-  background:var(--bg);display:flex;flex-direction:column;
-  transform:translateY(100%);visibility:hidden;
-  transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s .32s
-}
-.dv.show{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
-.dsc{
-  flex:1;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior:contain;
-  padding-top:calc(64px + env(safe-area-inset-top,0px))
-}
-.crumb{
-  display:flex;align-items:center;flex-wrap:wrap;gap:6px;
-  padding:14px 16px 8px;
-  font-size:12.5px;
-  color:var(--mut);
-  background:var(--bg)
-}
-.crumb button{color:var(--mut)}
-.crumb button:hover{color:var(--tx)}
-.crumb span{color:#B8B4AC}
-.crumb b{font-weight:500;color:var(--tx)}
-.dsc .img{height:270px;padding:18px;border-bottom:none}
-
-/* Grouped Purchase Container Inspired by Aromatica Light Mode */
-.buy-panel{
-  margin-top:16px;
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:16px
-}
-.pr{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.price{font-size:26px;font-weight:700;color:var(--tx);letter-spacing:-.01em}
-.badge{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font-size:12px;font-weight:500}
-.lbl{font-size:10.5px;letter-spacing:.2em;color:var(--mut);margin:16px 0 10px;font-weight:700}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:1.8;stroke-linecap:round}
+.search input{width:100%;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:15px 14px 15px 44px;font-size:15px;outline:none;transition:border-color .2s}
+.search input:focus{border-color:var(--gold)}.search input::placeholder{color:#666}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:var(--s1);font-size:12.5px;color:var(--mut);transition:.2s}
+.pill.on{background:var(--gold);border-color:var(--gold);color:#0A0A0A;font-weight:600}
+.ct{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 8px 7px 14px;border:1px solid var(--gold2);border-radius:999px;color:var(--gold);font-size:12.5px}
+.ct button{width:20px;height:20px;border-radius:50%;background:rgba(197,160,89,.18);line-height:1}
+#list{margin-top:22px}
+.card{background:var(--s1);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:0 20px 22px;text-align:center}
+.im{height:300px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 42%,#221e17 0,#121212 72%)}
+.im img{max-height:250px;max-width:72%;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(0,0,0,.65))}
+.ph{display:none;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.im.noimg .ph{display:flex}.im.noimg img{display:none}
+.so .im img{opacity:.45;filter:grayscale(.6)}
+.sob{position:absolute;top:14px;left:14px;background:#0A0A0A;border:1px solid #5a2f28;color:#d98a7a;font:600 10px Montserrat,sans-serif;letter-spacing:.2em;padding:6px 11px;border-radius:999px}
+.cb{padding:22px 20px 24px}
+.br{font:500 11px Montserrat,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.cb h3{font:400 22px Montserrat,sans-serif;margin-top:6px}
+.vb{color:var(--mut);font-size:13px;margin-top:4px}.fp{margin-top:14px;color:var(--mut);font-size:14px}.fp b{color:var(--tx);font:500 18px Montserrat,sans-serif;margin-left:4px}
+.vd{width:100%;height:50px;margin-top:18px;border:1px solid var(--gold);color:var(--gold);border-radius:14px;font:600 12px Montserrat,sans-serif;letter-spacing:.18em;transition:.2s}
+.vd:hover{background:var(--gold);color:#0A0A0A}
+.empty{text-align:center;color:var(--mut);padding:40px 24px;font-size:14px}
+.suggest{margin:34px 20px 0;padding:26px 20px;background:var(--s1);border:1px solid var(--line);border-radius:22px}
+.suggest h3{font:500 18px Montserrat,sans-serif}.suggest p{font-size:13px;color:var(--mut);margin:6px 0 16px}
+.suggest input{width:100%;background:#101010;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:15px;outline:none}.suggest input:focus{border-color:var(--gold)}
+.sbtn,.add,.nt{background:var(--gold);color:#0A0A0A;border-radius:12px;font:700 12.5px Montserrat,sans-serif;letter-spacing:.14em}
+.suggest .sbtn{width:100%;height:50px;margin-top:10px}
+footer{margin-top:44px;padding:36px 24px calc(30px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);text-align:center}
+footer .wm{margin:0;font-size:22px;display:block}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin:20px 0}
+footer nav a{font-size:12.5px;color:var(--mut);text-decoration:none}
+footer small{font-size:11px;letter-spacing:.08em;color:#666}
+/* overlays */
+.vw{position:fixed;top:var(--hh);bottom:0;left:0;right:0;max-width:480px;margin:0 auto;z-index:30;background:var(--bg);display:flex;flex-direction:column;transform:translateY(100%);visibility:hidden;transition:transform .38s var(--ease),visibility 0s .38s}
+.vw.show{transform:none;visibility:visible;transition:transform .38s var(--ease)}
+.vs{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:28px}
+.bc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:16px 20px;font-size:13px;color:var(--mut)}
+.bc i{font-style:normal;opacity:.5}.bc b{color:var(--tx);font-weight:600}.bc a:hover{color:var(--gold)}
+.im.big{height:340px}.im.big img{max-height:290px}
+.px{padding:22px 20px 0}.tt{font:300 34px/1.15 Montserrat,sans-serif;margin-top:6px}
+.pb{margin:22px 16px 0;padding:24px 18px;background:#111;border:1px solid var(--line);border-radius:22px}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font:300 42px Montserrat,sans-serif;letter-spacing:-.01em}.price.out{font:600 18px Montserrat,sans-serif;letter-spacing:.14em;color:#d98a7a}
+.wr{padding:8px 16px;border-radius:999px;background:#1c1c1c;border:1px solid var(--line);font-size:13px}
+.lbl{display:flex;align-items:center;gap:12px;font:600 12px Montserrat,sans-serif;letter-spacing:.26em;color:var(--gold);margin:26px 0 14px}.lbl i{width:22px;height:1px;background:var(--gold)}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{
-  border:1px solid var(--line);border-radius:10px;padding:12px 10px;
-  text-align:center;background:var(--bg);transition:.2s
-}
-.size b{display:block;font-size:14px;letter-spacing:.12em;font-weight:700}
-.size span{display:block;font-size:15px;margin-top:2px;font-weight:500}
-.size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
-.size.on{
-  border:1.5px solid var(--gold);
-  background:#FFFFFF;
-  box-shadow:0 2px 10px rgba(154,118,50,.08)
-}
-
-/* Sold Out Size & Status Styling */
-.size.so{
-  background:var(--bg);
-  color:#A5A199
-}
-.size.so b{
-  text-decoration:line-through;
-  font-weight:600;
-  color:#A5A199
-}
-.size.so.on{
-  border:1.5px solid #9C9589;
-  box-shadow:none;
-  background:#FFFFFF
-}
-.size.so.on b{
-  color:#7A756D
-}
-.so-status{
-  display:flex;align-items:center;gap:8px;
-  margin-top:14px;
-  font-size:11.5px;
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--mut)
-}
-.so-dot{
-  width:7px;height:7px;border-radius:50%;background:#A5A199;flex:none
-}
-.notify-btn{
-  width:100%;margin-top:14px;height:48px;
-  background:var(--tx);color:#FFFFFF;border-radius:8px;
-  font-weight:600;letter-spacing:.12em;font-size:12px;text-transform:uppercase;
-  display:flex;align-items:center;justify-content:center;gap:8px
-}
-.notify-btn svg{width:17px;height:17px;stroke:#FFFFFF;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-
-.row{display:flex;gap:10px;margin-top:16px}
-.row .qty button{height:48px;width:40px}
-.add{
-  flex:1;background:var(--tx);color:#FFFFFF;border-radius:8px;
-  font-weight:600;letter-spacing:.14em;font-size:12px;text-transform:uppercase;height:48px;transition:.2s
-}
-.add.done{background:var(--gold);color:#FFFFFF}
-.wa{
-  width:100%;margin-top:12px;height:46px;
-  border:1px solid var(--line);background:var(--bg);border-radius:8px;
-  font-size:13.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px
-}
-.wa:hover{border-color:var(--tx)}
-.wa svg{width:17px;height:17px;fill:var(--tx)}
-.trust{list-style:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
-.trust li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mut);line-height:1.45}
-.trust svg{flex:none;width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
-.empty{text-align:center;color:var(--mut);padding:36px 10px;font-size:14px}
-
-.sec{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
-.sec .lbl{margin:0 0 12px}
-.tier{margin-left:5px;padding:0 0 14px 16px;border-left:1px solid var(--line);position:relative}
-.tier:last-child{padding-bottom:0}
-.tier::before{content:"";position:absolute;left:-4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--tx)}
-.tier h5{font-size:10.5px;font-weight:700;color:var(--mut);letter-spacing:.18em;margin-bottom:8px}
+.sz{border:1px solid var(--line);border-radius:14px;padding:13px 8px;background:#191919;text-align:center;transition:.2s}
+.sz b{display:block;font:600 15px Montserrat,sans-serif;letter-spacing:.08em}.sz span{display:block;font-size:14px;margin-top:2px}.sz small{display:block;font-size:11.5px;color:var(--mut);margin-top:2px}
+.sz.on{border-color:var(--gold);background:rgba(197,160,89,.09);box-shadow:0 0 18px rgba(197,160,89,.12)}.sz.on b{color:var(--gold)}
+.row{display:flex;gap:10px;margin-top:20px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#191919;flex:none}
+.qty button{width:40px;height:50px;font-size:20px;color:var(--gold)}.qty span{min-width:26px;text-align:center;font-weight:600}
+.add{flex:1;height:52px;transition:.2s}.add.done{background:#e6d3a8}
+.nt{width:100%;height:52px;margin-top:20px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-size:12px}
+.wa{width:100%;height:50px;margin-top:10px;border:1px solid var(--line);border-radius:12px;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.wa:hover{border-color:var(--gold)}.wa svg{width:18px;height:18px;fill:var(--gold)}
+.sx{margin:26px 20px 0;padding-top:4px;border-top:1px solid var(--line)}.sx .lbl{margin:22px 0 14px}
+.tier{margin-left:5px;padding:0 0 16px 16px;border-left:1px solid var(--gold2);position:relative}.tier:last-child{padding-bottom:0}
+.tier::before{content:"";position:absolute;left:-4px;top:3px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.tier h5{font:600 11px Montserrat,sans-serif;color:var(--gold);letter-spacing:.16em;margin-bottom:8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
-.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#FFFFFF;color:var(--tx);font-weight:500}
-.desc{font-size:14px;color:#3E3C37;line-height:1.65}
-.dbar{
-  flex:none;display:flex;align-items:center;gap:14px;
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  background:rgba(255,255,255,.86);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-top:1px solid var(--line)
-}
-.dbar>div{flex:1;min-width:0}
-.dbar small{display:block;font-size:12px;color:var(--mut)}
-.dbar b{font-size:20px}
-.dbar .add{flex:none;width:155px}
-
-@media (prefers-reduced-motion:reduce){
-  .dv,.drawer,.nav-drawer,.bar,.page-view{transition:none}
-}
+.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:#101010;border:1px solid var(--line)}
+.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--gold2);color:var(--gold)}
+.desc{font-size:14px;color:#cfcfcf;line-height:1.7}
+.trust{list-style:none;display:grid;gap:11px}.trust li{display:flex;gap:10px;font-size:12.5px;color:var(--mut)}
+.trust svg,.ii{flex:none;width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.dbar{flex:none;display:flex;align-items:center;gap:14px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--s1);border-top:1px solid var(--gold)}
+.dbar>div{flex:1;min-width:0}.dbar small{display:block;font-size:12px;color:var(--mut)}.dbar b{font:500 20px Montserrat,sans-serif}.dbar b.out{font-size:14px;color:#d98a7a}
+.dbar .add,.dbar .nt{flex:none;width:158px;margin:0;height:50px}
+.in{padding:26px 20px}.in h2{font:300 32px Montserrat,sans-serif;margin:8px 0 18px}.in .lead{color:#cfcfcf;font-size:14.5px;margin-bottom:18px}
+.pk,.it2{display:flex;gap:14px;align-items:flex-start;padding:18px;margin-bottom:12px;background:var(--s1);border:1px solid var(--line);border-radius:16px;font-size:14px;color:#cfcfcf}
+.pk b{font:500 16px Montserrat,sans-serif;color:var(--tx);align-self:center}
+.lk{display:flex;justify-content:space-between;align-items:center;padding:18px;margin-bottom:12px;background:var(--s1);border:1px solid var(--line);border-radius:16px;text-decoration:none;font-weight:500}.lk span{color:var(--gold);font-size:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;margin-top:14px;height:50px;padding:0 22px;border:1px solid var(--gold);color:var(--gold);border-radius:14px;font:600 12px Montserrat,sans-serif;letter-spacing:.16em}
+.wab{width:100%;justify-content:center;margin-top:6px;text-decoration:none;font-size:13px}.wab svg{width:19px;height:19px;stroke:#0A0A0A;fill:none}
+/* drawers */
+.sc{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}.sc.show{opacity:1;pointer-events:auto}
+.mn{position:fixed;top:0;bottom:0;left:max(0px,calc(50% - 240px));width:86%;max-width:360px;z-index:70;background:var(--s1);border-right:1px solid var(--line);transform:translateX(-105%);visibility:hidden;transition:transform .35s var(--ease),visibility 0s .35s;overflow-y:auto;padding:calc(10px + env(safe-area-inset-top,0px)) 0 30px}
+.mn.show,.dr.show{transform:none;visibility:visible;transition:transform .35s var(--ease)}
+.mh{display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 24px;height:50px}.mh h3{font:300 18px Montserrat,sans-serif;letter-spacing:.3em}
+.mg{padding:22px 24px 8px;font:600 11px Montserrat,sans-serif;letter-spacing:.26em;color:var(--gold)}
+.mi{display:flex;align-items:center;justify-content:space-between;width:100%;padding:15px 24px;font-size:16px;text-align:left}.mi:hover{background:#1b1b1b}
+.mi svg{width:16px;height:16px;stroke:var(--mut);fill:none;stroke-width:2;transition:transform .25s}.mi.open svg{transform:rotate(45deg)}
+.s2{max-height:0;overflow:hidden;transition:max-height .3s}.s2.open{max-height:140px}
+.s2 .mi{padding-left:44px;font-size:14.5px;color:#cfcfcf}
+.dr{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;z-index:70;background:#111;border-radius:24px 24px 0 0;border-top:1px solid var(--gold);max-height:88vh;display:flex;flex-direction:column;transform:translateY(105%);visibility:hidden;transition:transform .38s var(--ease),visibility 0s .38s}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:12px 10px 8px 22px}.dh h3{font:400 18px Montserrat,sans-serif;letter-spacing:.14em}
+.items{overflow-y:auto;padding:0 22px;flex:1}
+.it{padding:15px 0;border-bottom:1px solid var(--line)}.it .t{display:flex;justify-content:space-between;gap:10px}.it .t span{color:var(--gold);font-weight:600;white-space:nowrap}
+.it small{display:block;color:var(--mut);font-size:12px;margin-top:2px}.it .c{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.it .qty button{height:36px;width:36px;font-size:18px}.rm{font-size:12px;color:var(--mut);text-decoration:underline}
+.tot{display:flex;justify-content:space-between;padding:10px 22px 0;font-size:13.5px;color:var(--mut)}.tot.g{font-size:18px;color:var(--tx);font-weight:700;padding-top:12px}.tot.g span:last-child{color:var(--gold)}
+.co{margin:16px 22px calc(18px + env(safe-area-inset-bottom,0px));width:calc(100% - 44px);height:54px}
+.noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<header class="glass-hdr" id="home">
-  <div class="topbar">
-    <div class="hdr-left">
-      <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
-        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <button class="wordmark" id="brandHome" type="button">FRAGENTRE</button>
-    </div>
-    <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
-      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
-      <i id="tbc" style="display:none">0</i>
-    </button>
+<header class="hd">
+  <div>
+    <button class="ib" data-a="menu" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <a class="wm" data-a="home">FRAGENTRE</a>
+  </div>
+  <div>
+    <button class="ib" data-a="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+    <button class="ib" data-a="bag" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg><span class="bd" id="hb">0</span></button>
   </div>
 </header>
 
-<main class="wrap">
-  <div class="tools">
-    <div class="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand">
+<main id="home">
+  <section class="stage" aria-label="Fragentre showcase">
+    <svg viewBox="0 0 300 230" aria-hidden="true">
+      <defs>
+        <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#3b3223"/><stop offset=".45" stop-color="#171410"/><stop offset="1" stop-color="#0d0c0a"/></linearGradient>
+        <linearGradient id="gc2" x1="0" x2="1"><stop offset="0" stop-color="#e3c98c"/><stop offset="1" stop-color="#8f7138"/></linearGradient>
+      </defs>
+      <g class="fl fl2"><rect x="34" y="96" width="70" height="120" rx="10" fill="url(#gl)" stroke="#C5A059" stroke-opacity=".45"/><rect x="56" y="68" width="26" height="30" rx="4" fill="url(#gc2)"/><rect x="48" y="142" width="42" height="1.5" fill="#C5A059" opacity=".6"/><rect x="54" y="150" width="30" height="1.5" fill="#C5A059" opacity=".35"/></g>
+      <g class="fl"><rect x="118" y="34" width="86" height="180" rx="12" fill="url(#gl)" stroke="#C5A059" stroke-opacity=".6"/><rect x="146" y="4" width="30" height="32" rx="4" fill="url(#gc2)"/><rect x="136" y="110" width="50" height="1.5" fill="#C5A059"/><rect x="144" y="119" width="34" height="1.5" fill="#C5A059" opacity=".5"/><rect x="126" y="44" width="5" height="160" rx="2.5" fill="#fff" opacity=".07"/></g>
+      <g class="fl fl3"><rect x="220" y="118" width="54" height="98" rx="8" fill="url(#gl)" stroke="#C5A059" stroke-opacity=".45"/><rect x="233" y="96" width="28" height="24" rx="4" fill="url(#gc2)"/><rect x="230" y="160" width="34" height="1.5" fill="#C5A059" opacity=".6"/></g>
+    </svg>
+    <div class="gc"><div class="k">COLLECTION</div><h2>Decant Collection</h2><span>5 FRAGRANCES</span></div>
+  </section>
+  <section class="hb">
+    <div class="k">CURATED AUTHENTIC DECANTS</div>
+    <h1>LUXURY, <b>BY THE ML</b></h1>
+    <p>From timeless classics to niche standouts - discover what truly fits you...</p>
+    <a class="cta" data-a="explore">EXPLORE DECANTS <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+  </section>
+  <div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+  <section id="shop">
+    <div class="sh"><h2>DECANT COLLECTION</h2><i></i></div>
+    <p class="sub">OUR CURATED BOTTLES</p>
+    <div class="tools">
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand">
+      </div>
+      <div class="pills" id="pills"></div>
+      <div id="catl"></div>
     </div>
-    <div class="pills" id="pills"></div>
-  </div>
-
-  <div id="collection">
     <div id="list"></div>
-  </div>
+  </section>
 
-  <section class="suggest" id="request">
+  <section class="suggest">
     <h3>What should we stock next?</h3>
     <p>Tell us a fragrance you want decanted and we will try to bring it in.</p>
     <input id="sg" type="text" placeholder="e.g. Amber Oud Gold" aria-label="Perfume suggestion">
-    <button id="sgb" type="button">Request on WhatsApp</button>
+    <button class="sbtn" id="sgb">REQUEST ON WHATSAPP</button>
   </section>
-
-  <footer>
-    <div class="wordmark" style="font-size:15px;letter-spacing:.18em">FRAGENTRE</div>
-    <div class="f-links">
-      <button type="button" data-page="home">Home</button>
-      <button type="button" data-page="pickups">Pick-up points</button>
-      <button type="button" data-page="delivery">Delivery policy</button>
-      <button type="button" data-page="contact">Contact us</button>
-      <button type="button" data-page="about">About</button>
-    </div>
-    <div class="f-bot">© FRAGENTRE • Hand-decanted in Bangladesh</div>
-  </footer>
 </main>
 
-<!-- Separate Screen for Pick-up points, Delivery policy, Contact us, and About -->
-<section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
-  <div class="pv-wrap">
-    <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
-      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back to Home
-    </button>
-    <div id="pvBody"></div>
-  </div>
-</section>
+<footer>
+  <a class="wm" data-a="home">FRAGENTRE</a>
+  <nav>
+    <a data-a="home">Home</a><a data-a="info" data-v="pickup">Pick-up points</a><a data-a="info" data-v="delivery">Delivery policy</a><a data-a="info" data-v="contact">Contact us</a><a data-a="info" data-v="about">About</a>
+  </nav>
+  <small>© FRAGENTRE • Hand-decanted in Bangladesh</small>
+</footer>
 
-<div class="bar" id="bar">
-  <div class="in">
-    <div><small id="bc">0 items</small><b id="bs">৳0</b></div>
-    <button id="vb" type="button">View Bag</button>
-  </div>
-</div>
-
-<div class="ov" id="ov"></div>
-
-<nav class="nav-drawer" id="navDrawer" aria-label="Main navigation" aria-hidden="true">
-  <div class="nav-top">
-    <button class="close-circle" id="menuClose" type="button" aria-label="Close menu">×</button>
-    <span class="menu-label">MENU</span>
-    <span style="width:42px" aria-hidden="true"></span>
-  </div>
-
-  <div class="nav-sec-title">MAIN</div>
-  <ul class="nav-list">
-    <li><button class="nav-row" type="button" data-page="home"><span>Home</span><span>›</span></button></li>
-    <li>
-      <button class="nav-row" id="shopToggle" type="button" aria-expanded="false" aria-controls="shopSub">
-        <span>Shop</span><span>›</span>
-      </button>
-      <ul class="sub-list" id="shopSub">
-        <li><button type="button" data-cat="middle-eastern"><span>Middle Eastern</span><span>›</span></button></li>
-        <li><button type="button" data-cat="designer"><span>Designer</span><span>›</span></button></li>
-      </ul>
-    </li>
-    <li><button class="nav-row" type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
-    <li><button class="nav-row" type="button" data-page="delivery"><span>Delivery policy</span><span>›</span></button></li>
-  </ul>
-
-  <div class="nav-sec-title">ALL YOU NEED TO KNOW</div>
-  <ul class="nav-list">
-    <li><button class="nav-row" type="button" data-page="contact"><span>Contact us</span><span>›</span></button></li>
-    <li><button class="nav-row" type="button" data-page="about"><span>About</span><span>›</span></button></li>
-  </ul>
-</nav>
-
-<aside class="drawer" id="dr" aria-label="Shopping bag" aria-hidden="true">
-  <div class="dh"><h3>Your Bag</h3><button id="cl" type="button" aria-label="Close bag">×</button></div>
-  <div class="items" id="items"></div>
-  <div class="dl">
-    <div class="lbl" style="margin:0 0 4px">DELIVERY</div>
-    <label class="opt" id="o120"><input type="radio" name="d" value="120" checked><span>Nationwide Delivery</span><b>৳120</b></label>
-  </div>
-  <div class="tot"><span>Subtotal</span><span id="ds">৳0</span></div>
-  <div class="tot"><span>Delivery</span><span id="dd">৳120</span></div>
-  <div class="tot g"><span>Total</span><span id="dt">৳0</span></div>
-  <button class="co" id="co" type="button">Checkout on WhatsApp</button>
-</aside>
-
-<section class="dv" id="dv" role="dialog" aria-modal="true" aria-label="Perfume details" aria-hidden="true">
-  <div class="dsc" id="dsc"></div>
+<section class="vw" id="dt" role="dialog" aria-modal="true" aria-label="Perfume details">
+  <div class="vs" id="dsc"></div>
   <div class="dbar" id="dbar"></div>
 </section>
+<section class="vw" id="info" role="dialog" aria-modal="true" aria-label="Information"><div class="vs" id="isc"></div></section>
+
+<div class="sc" id="sc"></div>
+<aside class="mn" id="mn" aria-label="Menu">
+  <div class="mh"><h3>MENU</h3><button class="ib" data-a="mclose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mg">MAIN</div>
+  <button class="mi" data-a="home">Home</button>
+  <button class="mi" data-a="shop" id="shopb">Shop <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="s2" id="s2"><button class="mi" data-a="cat" data-v="middle-eastern">Middle Eastern</button><button class="mi" data-a="cat" data-v="designer">Designer</button></div>
+  <button class="mi" data-a="info" data-v="pickup">Pick-up points</button>
+  <button class="mi" data-a="info" data-v="delivery">Delivery policy</button>
+  <div class="mg">ALL YOU NEED TO KNOW</div>
+  <button class="mi" data-a="info" data-v="contact">Contact us</button>
+  <button class="mi" data-a="info" data-v="about">About</button>
+</aside>
+<aside class="dr" id="dr" aria-label="Shopping bag">
+  <div class="dh"><h3>YOUR BAG</h3><button class="ib" data-a="bclose" aria-label="Close bag"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="items" id="items"></div>
+  <div class="tot"><span>Subtotal</span><span id="ds">৳0</span></div>
+  <div class="tot"><span>Nationwide Delivery</span><span>৳120</span></div>
+  <div class="tot g"><span>Total</span><span id="dtot">৳0</span></div>
+  <button class="sbtn co" id="co">CHECKOUT ON WHATSAPP</button>
+</aside>
 
 <script>
 (function(){
-var PHONE="8801841928296";
-var DELIVERY=120;
-var SIZES=[5,10,15,30];
+var WA="8801841928296",DEL=120,SZ=[5,10,15,30];
 var WEARS={5:"15+ wears",10:"30+ wears",15:"45+ wears",30:"90+ wears"};
-var SPRAYS={5:"75+ sprays",10:"150+ sprays",15:"225+ sprays",30:"450+ sprays"};
+var SPR={5:"75+ sprays",10:"150+ sprays",15:"225+ sprays",30:"450+ sprays"};
+var CATS={"middle-eastern":"Middle Eastern",designer:"Designer"};
+var BR=["All","Rasasi","Rayhaan","French Avenue","Carolina Herrera"];
 var P=[
- {id:"hawas-ice",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",pr:{5:320,10:580,15:800,30:1420},vibe:"Fresh, fruity, icy",top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
- {id:"rayhaan-aquatica",cat:"middle-eastern",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
- {id:"liquid-brun",cat:"middle-eastern",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
- {id:"hawas-black",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",pr:{5:300,10:620,15:860,30:1550},vibe:"Woody, earthy, citrusy",top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["All Seasons"],occ:["Evening","Formal","Office"],desc:"A bold, woody-citrus composition opening with crisp pineapple and grapefruit, layered over earthy patchouli and cedarwood, anchored by deep oakmoss and amber."},
- {id:"212-men",cat:"designer",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",pr:{5:460,10:850,15:1200,30:2200},vibe:"Crisp, green, aromatic",top:["Green Notes","Grapefruit","Spices","Bergamot","Lavender"],heart:["Ginger","Violet","Gardenia","Sage"],base:["Musk","Sandalwood","Incense","Vetiver","Guaiac Wood"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Signature scent"],desc:"An energetic, clean urban classic blending fresh cut-green notes and bright grapefruit with aromatic ginger, sage, and a smooth woody-musk drydown."}
+{id:"hawas-ice",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",vibe:"Fresh, fruity, icy",pr:{5:320,10:580,15:800,30:1420},top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
+{id:"rayhaan-aquatica",cat:"middle-eastern",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",vibe:"Tropical, citrusy, coconut",pr:{5:270,10:470,15:660,30:1200},top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
+{id:"liquid-brun",cat:"middle-eastern",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",vibe:"Sweet, spicy, gourmand",pr:{5:350,10:650,15:900,30:1700},top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
+{id:"hawas-black",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",vibe:"Woody, earthy, citrusy",pr:{5:300,10:620,15:860,30:1550},top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["Spring","Autumn"],occ:["Daily wear","Office","Evenings"],desc:"Juicy pineapple and citrus open onto an earthy heart of patchouli and cedar, drying down to deep oakmoss and amber. Fresh meets woody, with real presence."},
+{id:"212-men",cat:"designer",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",vibe:"Crisp, green, aromatic",pr:{5:460,10:850,15:1200,30:2200},top:["Citrus Leaves","Cut Grass","Spice"],heart:["Green Pepper","Ginger","Gardenia"],base:["Sandalwood","Guaiac Wood","Musk","Incense"],seasons:["Spring","Summer"],occ:["Daytime","Office","Weekends"],desc:"A clean, urban classic. Green citrus leaves and a peppery, floral heart lead into a soft, polished base of sandalwood and musk."}
 ];
-var PAGES={
- pickups:{
-  kicker:"Collection",
-  heading:"Pick-up points",
-  text:"Scheduled in-person collection is available by prior confirmation at these locations:",
-  spots:["Trunk Road","Taranibash","Appayon Tower"]
- },
- delivery:{
-  kicker:"Shipping",
-  heading:"Delivery policy",
-  text:"Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every glass decant atomizer is packed with protective cushioning—please inspect your parcel on arrival and record an unboxing video if any issue occurs in transit."
- },
- contact:{
-  kicker:"Support",
-  heading:"Contact us",
-  text:"Have a question about an order, stock availability, or decant sizes? Reach us on Instagram, Facebook, or WhatsApp.",
-  socials:[
-   {label:"Instagram",handle:"@fragentre",url:"https://www.instagram.com/fragentre"},
-   {label:"Facebook",handle:"@fragentre",url:"https://www.facebook.com/fragentre"}
-  ],
-  waMsg:"Hello FRAGENTRE! I have a question regarding your decants."
- },
- about:{
-  kicker:"Brand",
-  heading:"About FRAGENTRE",
-  text:"FRAGENTRE makes authentic designer and Middle Eastern fragrances accessible in travel-ready glass atomizers. Every decant is hand-drawn carefully from sealed original bottles so you can experience real projection, longevity, and wearability on your skin before committing to a full bottle."
- }
-};
-var BRANDS=["All","Rasasi","Rayhaan","French Avenue","Carolina Herrera"];
-var st={}; P.forEach(function(p){st[p.id]={size:5,qty:1}});
-var cart=[],brand="All",catFilter="all",term="";
-var curPage=null,curId=null;
 var $=function(i){return document.getElementById(i)};
 var tk=function(n){return "৳"+n.toLocaleString("en-US")};
 var find=function(id){return P.filter(function(p){return p.id===id})[0]};
-
-var IC={
- cod:'<svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>',
- truck:'<svg viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4.5l3.5 3.5V16h-8"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
- shield:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
- bell:'<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>'
-};
+var st={};P.forEach(function(p){st[p.id]={size:5,qty:1}});
+var brand="All",cat="all",term="",cur=null,cart=[];
+try{cart=JSON.parse(localStorage.getItem("fg_bag")||"[]").filter(function(i){return find(i.id)})}catch(e){cart=[]}
+var I=function(d){return '<svg viewBox="0 0 24 24">'+d+'</svg>'};
+var IC={cod:I('<rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/>'),truck:I('<path d="M2 6h11v10H2zM13 9h4.5l3.5 3.5V16h-8"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>'),shield:I('<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>'),pin:I('<path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'),box:I('<path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/>'),cam:I('<rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3"/>')};
+IC.pin=IC.pin.replace('<svg','<svg class="ii"');IC.box=IC.box.replace('<svg','<svg class="ii"');IC.cam=IC.cam.replace('<svg','<svg class="ii"');IC.truck2=IC.truck.replace('<svg','<svg class="ii"');IC.cod2=IC.cod.replace('<svg','<svg class="ii"');
 var WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>';
+var wa=function(m){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),"_blank","noopener")};
 
-function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6E6B64" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
-function IMG(p,showBadge){
- var badge=(showBadge&&p.soldOut)?'<span class="so-pill">Sold out</span>':'';
- return '<div class="img">'+badge+'<img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>';
-}
-function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
+/* marquee */
+var mqs='<span>AUTHENTIC ✦ HAND-DECANTED ✦ BY THE ML ✦</span>';$("mq").innerHTML=mqs+mqs+mqs+mqs;
 
+/* catalog */
+function img(p){return '<img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')"><div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
+var sob=function(p){return p.soldOut?'<span class="sob">SOLD OUT</span>':''};
 function card(p){
- return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p,true)+
-  '<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2><p class="vibe">'+p.vibe+'</p>'+
-  '<div class="fr"><div><small>From</small><b>'+tk(p.pr[5])+'</b></div><button class="vd" type="button" data-a="open" data-id="'+p.id+'">View Details</button></div></div></article>';
+ return '<article class="card'+(p.soldOut?' so':'')+'" data-a="open" data-id="'+p.id+'"><div class="im">'+img(p)+sob(p)+'</div><div class="cb"><div class="br">'+p.brand+'</div><h3>'+p.name+'</h3><p class="vb">'+p.vibe+'</p><div class="fp">From <b>'+tk(p.pr[5])+'</b></div><button class="vd" data-a="open" data-id="'+p.id+'">View Details</button></div></article>';
 }
 function renderList(){
  var t=term.trim().toLowerCase();
- var arr=P.filter(function(p){
-  return (catFilter==="all"||p.cat===catFilter)&&
-         (brand==="All"||p.brand===brand)&&
-         (!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1);
- });
- $("list").innerHTML=arr.length?arr.map(card).join(""):'<div class="empty">No perfumes match your filter. Try another name or brand, or request it below.</div>';
+ var a=P.filter(function(p){return (brand==="All"||p.brand===brand)&&(cat==="all"||p.cat===cat)&&(!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1)});
+ $("list").innerHTML=a.length?a.map(card).join(""):'<div class="empty">No perfumes match your search. Try another name or brand, or request it below.</div>';
 }
+function renderPills(){$("pills").innerHTML=BR.map(function(b){return '<button class="pill'+(b===brand?' on':'')+'" data-a="brand" data-v="'+b+'">'+b+'</button>'}).join("")}
+function renderCat(){$("catl").innerHTML=cat==="all"?"":'<span class="ct">'+CATS[cat]+'<button data-a="clrcat" aria-label="Clear category filter">×</button></span>'}
+function renderAll(){renderPills();renderCat();renderList()}
 
+/* detail */
+var chips=function(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")};
 function detail(p){
- var s=st[p.id],pr=p.pr[s.size],so=!!p.soldOut;
- var tiles=SIZES.map(function(z){
-  if(so){
-   return '<button class="size so'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><small>Sold out</small></button>';
-  }
-  return '<button class="size'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><span>'+tk(p.pr[z])+'</span><small>'+SPRAYS[z]+'</small></button>';
- }).join("");
-
- var panelContent=so?(
-  '<div class="lbl" style="margin-top:0">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
-  '<div class="so-status"><span class="so-dot"></span><span>Sold out</span></div>'+
-  '<button class="notify-btn" type="button" data-a="notify" data-id="'+p.id+'">'+IC.bell+'Notify me when it\'s restocked</button>'
- ):(
-  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
-  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
-  '<div class="row"><div class="qty"><button type="button" data-a="qm" data-id="'+p.id+'" aria-label="Decrease quantity">−</button><span>'+s.qty+'</span><button type="button" data-a="qp" data-id="'+p.id+'" aria-label="Increase quantity">+</button></div>'+
-  '<button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button></div>'
- );
-
- var waBtn=so?'':'<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>';
-
- return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-a="back">Home</button><span>/</span><span>'+p.brand+'</span><span>/</span><b>'+p.name+'</b></nav>'+
-  IMG(p,false)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
-  '<div class="buy-panel">'+panelContent+'</div>'+
-  waBtn+
-  '<div class="sec"><div class="lbl">FRAGRANCE PYRAMID</div>'+
-   '<div class="tier"><h5>TOP NOTES</h5><div class="chips">'+chips(p.top)+'</div></div>'+
-   '<div class="tier"><h5>HEART NOTES</h5><div class="chips">'+chips(p.heart)+'</div></div>'+
-   '<div class="tier"><h5>BASE NOTES</h5><div class="chips">'+chips(p.base)+'</div></div></div>'+
-  '<div class="sec"><div class="lbl">BEST SEASONS</div><div class="chips">'+chips(p.seasons,"tag")+'</div>'+
-   '<div class="lbl" style="margin-top:18px">BEST OCCASIONS</div><div class="chips">'+chips(p.occ,"tag")+'</div></div>'+
-  '<div class="sec"><div class="lbl">ABOUT</div><p class="desc">'+p.desc+'</p></div>'+
-  '<ul class="trust"><li>'+IC.cod+'<span>Cash on delivery available across Bangladesh</span></li><li>'+IC.truck+'<span>Nationwide delivery via Steadfast Courier</span></li><li>'+IC.shield+'<span>100% genuine, hand-decanted from sealed original bottles</span></li></ul></div>';
+ var s=st[p.id],so=p.soldOut,pr=p.pr[s.size];
+ var tiles=SZ.map(function(z){return '<button class="sz'+(z===s.size?' on':'')+'" data-a="size" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b>'+(so?'<small>Sold out</small>':'<span>'+tk(p.pr[z])+'</span><small>'+SPR[z]+'</small>')+'</button>'}).join("");
+ var buy=so?'<button class="nt" data-a="notify">NOTIFY ME WHEN IT\'S RESTOCKED</button>':
+  '<div class="row"><div class="qty"><button data-a="qm" aria-label="Decrease quantity">−</button><span>'+s.qty+'</span><button data-a="qp" aria-label="Increase quantity">+</button></div><button class="add" data-a="add">ADD TO BAG</button></div><button class="wa" data-a="wa">'+WAI+'Quick Order on WhatsApp</button>';
+ return '<nav class="bc"><a data-a="home">Home</a><i>/</i><span>'+p.brand+'</span><i>/</i><b>'+p.name+'</b></nav>'+
+ '<div class="im big'+(so?' so':'')+'">'+img(p)+sob(p)+'</div>'+
+ '<div class="px"><div class="br">'+p.brand+'</div><h2 class="tt">'+p.name+'</h2></div>'+
+ '<div class="pb"><div class="pr">'+(so?'<div class="price out">• SOLD OUT</div>':'<div class="price">'+tk(pr)+'</div><span class="wr">'+WEARS[s.size]+'</span>')+'</div>'+
+ '<div class="lbl"><i></i>SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+buy+'</div>'+
+ '<div class="sx"><div class="lbl"><i></i>FRAGRANCE PYRAMID</div>'+
+  '<div class="tier"><h5>TOP NOTES</h5><div class="chips">'+chips(p.top)+'</div></div><div class="tier"><h5>HEART NOTES</h5><div class="chips">'+chips(p.heart)+'</div></div><div class="tier"><h5>BASE NOTES</h5><div class="chips">'+chips(p.base)+'</div></div>'+
+  '<div class="lbl"><i></i>BEST SEASONS</div><div class="chips">'+chips(p.seasons,"tag")+'</div>'+
+  '<div class="lbl"><i></i>BEST OCCASIONS</div><div class="chips">'+chips(p.occ,"tag")+'</div>'+
+  '<div class="lbl"><i></i>ABOUT</div><p class="desc">'+p.desc+'</p></div>'+
+ '<div class="sx" style="margin-top:28px;padding-top:24px"><ul class="trust"><li>'+IC.cod+'<span>Cash on delivery available across Bangladesh</span></li><li>'+IC.truck+'<span>Nationwide delivery via Steadfast Courier</span></li><li>'+IC.shield+'<span>100% genuine, hand-decanted from sealed original bottles</span></li></ul></div>';
 }
 function dbar(p){
- if(p.soldOut){
-  return '<div><small>'+p.name+'</small><b>Sold out</b></div><button class="add" type="button" data-a="notify" data-id="'+p.id+'">Notify Me</button>';
- }
  var s=st[p.id];
- return '<div><small>'+s.size+'ML'+(s.qty>1?' × '+s.qty:'')+'</small><b>'+tk(p.pr[s.size]*s.qty)+'</b></div><button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button>';
+ return p.soldOut?'<div><small>'+s.size+'ML</small><b class="out">• SOLD OUT</b></div><button class="nt" data-a="notify">NOTIFY ME</button>':
+ '<div><small>'+s.size+'ML'+(s.qty>1?' × '+s.qty:'')+'</small><b>'+tk(p.pr[s.size]*s.qty)+'</b></div><button class="add" data-a="add">ADD TO BAG</button>';
 }
-function lock(){
- var navOpen=$("navDrawer").classList.contains("show");
- var bagOpen=$("dr").classList.contains("show");
- document.body.style.overflow=(curId||curPage||navOpen||bagOpen)?"hidden":"";
-}
-function renderDetail(){
- var p=find(curId),sc=$("dsc"),y=sc.scrollTop;
- sc.innerHTML=detail(p);$("dbar").innerHTML=dbar(p);sc.scrollTop=y;
-}
-function openDetail(id,nopush){
- closePage();
- curId=id;renderDetail();$("dsc").scrollTop=0;
- $("dv").classList.add("show");$("dv").setAttribute("aria-hidden","false");lock();
- if(!nopush){try{history.pushState({d:1},"","#"+id)}catch(e){}}
-}
-function closeDetail(fromPop){
- if(!curId)return;
- curId=null;$("dv").classList.remove("show");$("dv").setAttribute("aria-hidden","true");lock();
- if(!fromPop&&history.state&&history.state.d){try{history.back()}catch(e){}}
-}
+function renderDetail(){var p=find(cur),sc=$("dsc"),y=sc.scrollTop;sc.innerHTML=detail(p);$("dbar").innerHTML=dbar(p);sc.scrollTop=y}
 
-function openPage(key){
- openNav(false);
- closeDetail();
- if(key==="home"){
-  catFilter="all";brand="All";renderPills();renderList();
-  closePage();
-  window.scrollTo({top:0,behavior:"smooth"});
-  return;
- }
- var pg=PAGES[key];
- if(!pg)return;
- curPage=key;
- var spotsHtml=pg.spots?('<ul class="pickup-list">'+pg.spots.map(function(s){return '<li>'+s+'<small>By prior confirmation</small></li>'}).join("")+'</ul>'):"";
- var socialsHtml=pg.socials?('<div class="social-list">'+pg.socials.map(function(sc){return '<a class="social-link" href="'+sc.url+'" target="_blank" rel="noopener noreferrer"><span>'+sc.label+'</span><small>'+sc.handle+' ›</small></a>'}).join("")+'</div>'):"";
- var waBtn=pg.waMsg?('<button class="pv-wa" type="button" data-a="contact-wa">'+WAI+'Message on WhatsApp</button>'):"";
- $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+socialsHtml+waBtn+'</div>';
- $("pv").scrollTop=0;
- $("pv").classList.add("show");
- $("pv").setAttribute("aria-hidden","false");
- lock();
- $("pvBack").focus({preventScroll:true});
-}
-function closePage(){
- if(!curPage)return;
- curPage=null;
- $("pv").classList.remove("show");
- $("pv").setAttribute("aria-hidden","true");
+/* info pages */
+var back='<button class="bk" data-a="home"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg>BACK TO HOME</button>';
+var INFO={
+ pickup:["Pick-up points",'<p class="lead">Prefer to collect in person? Pick up your order from any of these points. Message us on WhatsApp to confirm your order and timing.</p>'+["Trunk Road","Taranibash","Appayon Tower"].map(function(x){return '<div class="pk">'+IC.pin+'<b>'+x+'</b></div>'}).join("")],
+ delivery:["Delivery policy",'<p class="lead">Simple, tracked and safe, wherever you are in Bangladesh.</p>'+
+  '<div class="it2">'+IC.truck2+'<span><b style="color:#F5F5F5">Nationwide delivery: ৳120.</b> We ship across Bangladesh via Steadfast Courier.</span></div>'+
+  '<div class="it2">'+IC.cod2+'<span><b style="color:#F5F5F5">Cash on Delivery</b> is available. Pay when your parcel reaches you.</span></div>'+
+  '<div class="it2">'+IC.box+'<span><b style="color:#F5F5F5">Protective packaging.</b> Every decant comes in a glass atomizer, packed securely to arrive safely.</span></div>'+
+  '<div class="it2">'+IC.cam+'<span><b style="color:#F5F5F5">Unboxing video.</b> Please record an unboxing video when you open your parcel. It helps us resolve any issue quickly.</span></div>'],
+ contact:["Contact us",'<p class="lead">Questions, orders or restock requests? We reply fastest on WhatsApp.</p>'+
+  '<a class="lk" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener">Instagram <span>@fragentre</span></a>'+
+  '<a class="lk" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener">Facebook <span>@fragentre</span></a>'+
+  '<a class="cta wab" href="https://wa.me/'+WA+'?text='+encodeURIComponent("Hello Fragentre!")+'" target="_blank" rel="noopener">'+WAI+'CHAT ON WHATSAPP</a>'],
+ about:["About",'<p class="lead">Fragentre was born from a simple belief: great fragrance should not demand a full-bottle commitment.</p><p class="desc">We hand-decant authentic perfumes from sealed original bottles into protective glass atomizers, so you can explore Middle Eastern favourites and designer icons by the ML. Every scent is genuine, fairly priced and delivered across Bangladesh, so you can find what truly fits you before you commit.</p>']
+};
+function renderInfo(k){var d=INFO[k];$("isc").innerHTML='<div class="in"><div class="k">FRAGENTRE</div><h2>'+d[0]+'</h2>'+d[1]+'<div>'+back+'</div></div>'}
+
+/* views */
+var open_=false;
+function lock(){var o=$("dt").classList.contains("show")||$("info").classList.contains("show")||$("mn").classList.contains("show")||$("dr").classList.contains("show");document.body.style.overflow=o?"hidden":""}
+function show(id){
+ var was=$("dt").classList.contains("show")||$("info").classList.contains("show");
+ ["dt","info"].forEach(function(v){$(v).classList.toggle("show",v===id)});
+ try{if(was)history.replaceState({v:1},"");else history.pushState({v:1},"")}catch(e){}
  lock();
 }
-
-function renderPills(){
- $("pills").innerHTML=BRANDS.map(function(b){return '<button class="pill'+(b===brand?' on':'')+'" type="button" data-a="brand" data-v="'+b+'">'+b+'</button>'}).join("");
+function closeViews(pop){
+ var any=$("dt").classList.contains("show")||$("info").classList.contains("show");
+ $("dt").classList.remove("show");$("info").classList.remove("show");cur=null;lock();
+ if(any&&!pop&&history.state&&history.state.v){try{history.back()}catch(e){}}
 }
+function openDetail(id){cur=id;renderDetail();$("dsc").scrollTop=0;show("dt")}
+function openInfo(k){renderInfo(k);$("isc").scrollTop=0;show("info")}
+function menu(o){$("mn").classList.toggle("show",o);$("sc").classList.toggle("show",o||$("dr").classList.contains("show"));lock()}
+function bagOpen(o){$("dr").classList.toggle("show",o);$("sc").classList.toggle("show",o||$("mn").classList.contains("show"));lock()}
+function jump(f){$("shop").scrollIntoView({behavior:"smooth"});if(f)setTimeout(function(){$("q").focus({preventScroll:true})},550)}
 
-function sub(){return cart.reduce(function(a,i){return a+find(i.id).pr[i.size]*i.qty},0)}
-function count(){return cart.reduce(function(a,i){return a+i.qty},0)}
+/* bag */
+var sub=function(){return cart.reduce(function(a,i){return a+find(i.id).pr[i.size]*i.qty},0)};
+var cnt=function(){return cart.reduce(function(a,i){return a+i.qty},0)};
 function renderBag(){
- var n=count(),s=sub();
- $("bar").classList.toggle("show",n>0);
- $("bc").textContent=n+(n===1?" item":" items");
- $("bs").textContent=tk(s);
- $("tbc").textContent=n;$("tbc").style.display=n?"":"none";
- $("items").innerHTML=cart.length?cart.map(function(i,ix){
-  var p=find(i.id),u=p.pr[i.size];
-  return '<div class="it"><div class="t"><b>'+p.name+'</b><span>'+tk(u*i.qty)+'</span></div><small>'+p.brand+' • '+i.size+'ml • '+tk(u)+' each</small>'+
-  '<div class="c"><div class="qty"><button type="button" data-a="cm" data-v="'+ix+'" aria-label="Decrease">−</button><span>'+i.qty+'</span><button type="button" data-a="cp" data-v="'+ix+'" aria-label="Increase">+</button></div><button class="rm" type="button" data-a="rm" data-v="'+ix+'">Remove</button></div></div>';
- }).join(""):'<div class="noitem">Your bag is empty.</div>';
- $("ds").textContent=tk(s);
- $("dd").textContent=tk(DELIVERY);
- $("dt").textContent=tk(s+(cart.length?DELIVERY:0));
+ var n=cnt(),s=sub();
+ $("hb").textContent=n;$("hb").style.display=n?"grid":"none";
+ $("items").innerHTML=cart.length?cart.map(function(i,ix){var p=find(i.id),u=p.pr[i.size];
+  return '<div class="it"><div class="t"><b>'+p.name+'</b><span>'+tk(u*i.qty)+'</span></div><small>'+p.brand+' • '+i.size+'ml • '+tk(u)+' each</small><div class="c"><div class="qty"><button data-a="cm" data-v="'+ix+'" aria-label="Decrease">−</button><span>'+i.qty+'</span><button data-a="cp" data-v="'+ix+'" aria-label="Increase">+</button></div><button class="rm" data-a="rm" data-v="'+ix+'">Remove</button></div></div>'}).join(""):'<div class="noitem">Your bag is empty.</div>';
+ $("ds").textContent=tk(s);$("dtot").textContent=tk(s+(cart.length?DEL:0));
  $("co").disabled=!cart.length;$("co").style.opacity=cart.length?1:.4;
- if(!cart.length&&$("dr").classList.contains("show"))setTimeout(function(){if(!cart.length)openDrawer(false)},500);
+ try{localStorage.setItem("fg_bag",JSON.stringify(cart))}catch(e){}
 }
-function openDrawer(o){
- if(o)openNav(false);
- $("dr").classList.toggle("show",o);
- $("dr").setAttribute("aria-hidden",!o);
- syncOverlay();lock();
-}
-function openNav(o){
- if(o)openDrawer(false);
- $("navDrawer").classList.toggle("show",o);
- $("navDrawer").setAttribute("aria-hidden",!o);
- syncOverlay();lock();
-}
-function syncOverlay(){
- var any=$("dr").classList.contains("show")||$("navDrawer").classList.contains("show");
- $("ov").classList.toggle("show",any);
-}
-function wa(msg){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank","noopener")}
 
-$("shopToggle").addEventListener("click",function(){
- var open=$("shopSub").classList.toggle("open");
- this.setAttribute("aria-expanded",open);
-});
-
+/* events */
 document.addEventListener("click",function(e){
- var catBtn=e.target.closest("[data-cat]");
- if(catBtn){
-  catFilter=catBtn.dataset.cat;
-  brand="All";
-  openNav(false);
-  closeDetail();
-  closePage();
-  renderPills();
-  renderList();
-  window.scrollTo({top:0,behavior:"smooth"});
-  return;
- }
-
- var pgBtn=e.target.closest("[data-page]");
- if(pgBtn){openPage(pgBtn.dataset.page);return;}
-
  var b=e.target.closest("[data-a]");if(!b)return;
- var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,s;
- if(a==="brand"){brand=v;catFilter="all";renderPills();renderList();}
- else if(a==="open"){openDetail(id);}
- else if(a==="back"){closeDetail();}
- else if(a==="bag"){openDrawer(true);}
- else if(a==="size"){st[id].size=+v;renderDetail();}
- else if(a==="qp"){st[id].qty=Math.min(20,st[id].qty+1);renderDetail();}
- else if(a==="qm"){st[id].qty=Math.max(1,st[id].qty-1);renderDetail();}
+ var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,p=cur?find(cur):null,s=cur?st[cur]:null;
+ if(a==="open")openDetail(id);
+ else if(a==="home"){menu(false);closeViews();window.scrollTo({top:0,behavior:"smooth"})}
+ else if(a==="menu")menu(true);
+ else if(a==="mclose")menu(false);
+ else if(a==="shop"){$("s2").classList.toggle("open");b.classList.toggle("open")}
+ else if(a==="cat"){cat=v;brand="All";menu(false);closeViews();renderAll();setTimeout(jump,60)}
+ else if(a==="clrcat"){cat="all";renderAll()}
+ else if(a==="info"){menu(false);openInfo(v)}
+ else if(a==="brand"){brand=v;renderPills();renderList()}
+ else if(a==="search"){closeViews();jump(true)}
+ else if(a==="explore")jump();
+ else if(a==="size"){s.size=+v;renderDetail()}
+ else if(a==="qp"){s.qty=Math.min(20,s.qty+1);renderDetail()}
+ else if(a==="qm"){s.qty=Math.max(1,s.qty-1);renderDetail()}
  else if(a==="add"){
-  var prod=find(id);if(!prod||prod.soldOut)return;
-  s=st[id];
-  var ex=cart.filter(function(i){return i.id===id&&i.size===s.size})[0];
-  if(ex)ex.qty=Math.min(50,ex.qty+s.qty);else cart.push({id:id,size:s.size,qty:s.qty});
+  var ex=cart.filter(function(i){return i.id===cur&&i.size===s.size})[0];
+  if(ex)ex.qty=Math.min(50,ex.qty+s.qty);else cart.push({id:cur,size:s.size,qty:s.qty});
   renderBag();
-  b.textContent="Added ✓";b.classList.add("done");
-  setTimeout(function(){b.textContent="ADD TO BAG";b.classList.remove("done");},1300);
+  var bs=document.querySelectorAll('#dt [data-a="add"]');
+  bs.forEach(function(x){x.textContent="Added ✓";x.classList.add("done")});
+  setTimeout(function(){bs.forEach(function(x){x.textContent="ADD TO BAG";x.classList.remove("done")})},1300);
  }
- else if(a==="notify"){
-  s=st[id];var np=find(id);
-  wa("Hello FRAGENTRE! Restock alert request:\n\n• "+np.name+" ("+np.brand+")\n• Preferred size: "+s.size+"ml\n\nPlease notify me when it's back in stock. Thank you!");
- }
- else if(a==="contact-wa"){
-  wa(PAGES.contact.waMsg);
- }
- else if(a==="wa"){
-  s=st[id];var p=find(id),u=p.pr[s.size];
-  wa("Hello FRAGENTRE! I'd like to order:\n\n• "+p.name+" ("+p.brand+")\n• Size: "+s.size+"ml\n• Quantity: "+s.qty+"\n• Price: "+tk(u*s.qty)+"\n\nPlease confirm availability and delivery details. Thank you!");
- }
- else if(a==="cp"){cart[+v].qty=Math.min(50,cart[+v].qty+1);renderBag();}
- else if(a==="cm"){cart[+v].qty=Math.max(1,cart[+v].qty-1);renderBag();}
- else if(a==="rm"){cart.splice(+v,1);renderBag();}
+ else if(a==="wa")wa("Hello Fragentre! I'd like to order:\n\n• "+p.name+" ("+p.brand+")\n• Size: "+s.size+"ml\n• Quantity: "+s.qty+"\n• Price: "+tk(p.pr[s.size]*s.qty)+"\n\nPlease confirm availability and delivery details. Thank you!");
+ else if(a==="notify")wa("Hello Fragentre! Please notify me when "+p.name+" ("+p.brand+") in "+s.size+"ml is back in stock. Thank you!");
+ else if(a==="bag")bagOpen(true);
+ else if(a==="bclose")bagOpen(false);
+ else if(a==="cp"){cart[+v].qty=Math.min(50,cart[+v].qty+1);renderBag()}
+ else if(a==="cm"){cart[+v].qty=Math.max(1,cart[+v].qty-1);renderBag()}
+ else if(a==="rm"){cart.splice(+v,1);renderBag();if(!cart.length)setTimeout(function(){if(!cart.length)bagOpen(false)},500)}
 });
 $("q").addEventListener("input",function(e){term=e.target.value;renderList()});
-$("brandHome").addEventListener("click",function(){openPage("home")});
-$("menuOpen").addEventListener("click",function(){openNav(true)});
-$("menuClose").addEventListener("click",function(){openNav(false)});
-$("pvBack").addEventListener("click",function(){closePage()});
-$("topBag").addEventListener("click",function(){openDrawer(true)});
-$("vb").addEventListener("click",function(){openDrawer(true)});
-$("cl").addEventListener("click",function(){openDrawer(false)});
-$("ov").addEventListener("click",function(){openNav(false);openDrawer(false)});
-document.addEventListener("keydown",function(e){
- if(e.key==="Escape"){
-  if($("navDrawer").classList.contains("show"))openNav(false);
-  else if($("dr").classList.contains("show"))openDrawer(false);
-  else if(curId)closeDetail();
-  else if(curPage)closePage();
- }
-});
+$("sc").addEventListener("click",function(){menu(false);bagOpen(false)});
+document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;
+ if($("dr").classList.contains("show"))bagOpen(false);else if($("mn").classList.contains("show"))menu(false);else closeViews()});
+window.addEventListener("popstate",function(){closeViews(true)});
 $("co").addEventListener("click",function(){
- if(!cart.length)return;
- var s=sub();
- var lines=cart.map(function(i,n){
-  var p=find(i.id),u=p.pr[i.size];
-  return (n+1)+". "+p.name+" ("+p.brand+")\n   "+i.size+"ml × "+i.qty+" = "+tk(u*i.qty);
- }).join("\n");
- wa("Hello FRAGENTRE! I'd like to place an order:\n\n"+lines+"\n\nSubtotal: "+tk(s)+"\nNationwide Delivery: "+tk(DELIVERY)+"\nTotal: "+tk(s+DELIVERY)+"\n\nPayment: Cash on delivery\nName:\nPhone:\nFull address:\n\nThank you!");
+ if(!cart.length)return;var s=sub();
+ var lines=cart.map(function(i,n){var p=find(i.id),u=p.pr[i.size];return (n+1)+". "+p.name+" ("+p.brand+")\n   "+i.size+"ml × "+i.qty+" = "+tk(u*i.qty)}).join("\n");
+ wa("Hello Fragentre! I'd like to place an order:\n\n"+lines+"\n\nSubtotal: "+tk(s)+"\nNationwide Delivery: "+tk(DEL)+"\nTotal: "+tk(s+DEL)+"\n\nPayment: Cash on delivery\nName:\nPhone:\nFull address:\n\nThank you!");
 });
 $("sgb").addEventListener("click",function(){
  var v=$("sg").value.trim();
- if(!v){$("sg").focus();$("sg").placeholder="Type a perfume name first";return;}
- wa("Hello FRAGENTRE! Stock request: I'd love to see \""+v+"\" available as a decant. Please let me know if you can bring it in. Thank you!");
+ if(!v){$("sg").focus();$("sg").placeholder="Type a perfume name first";return}
+ wa('Hello Fragentre! Stock request: I\'d love to see "'+v+'" available as a decant. Please let me know if you can bring it in. Thank you!');
 });
-
-renderPills();renderList();renderBag();
-window.addEventListener("popstate",function(){closeDetail(true)});
-var h0=location.hash.slice(1);if(h0&&find(h0))openDetail(h0,true);
+renderAll();renderBag();
 })();
 </script>
 </body>
