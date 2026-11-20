@@ -13,10 +13,10 @@
 :root{
   --bg:#FFFFFF;
   --paper:#FAF9F7;
-  --soft:#F4F2EE;
-  --line:#E8E5DF;
+  --soft:#F5F4F1;
+  --line:#EAE7E1;
   --tx:#141414;
-  --mut:#6E6B64;
+  --mut:#75726B;
   --gold:#9A7632
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -37,31 +37,39 @@ button{cursor:pointer;border:0;background:none}
 
 .wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
 
-/* Glass Sticky Top Bar */
+/* Sticky Frosted Glass Header (Persistent across Home & Product Detail) */
 header.glass-hdr{
   position:sticky;
   top:0;
-  z-index:30;
-  background:rgba(255,255,255,.76);
-  backdrop-filter:blur(14px) saturate(150%);
-  -webkit-backdrop-filter:blur(14px) saturate(150%);
-  border-bottom:1px solid rgba(20,20,20,.08);
+  z-index:55;
+  background:rgba(255,255,255,.68);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid rgba(20,20,20,.07);
   padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
 }
 .topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   min-height:42px
+}
+.hdr-left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0
 }
 .icon-btn{
   width:40px;height:40px;
   display:flex;align-items:center;justify-content:center;
   border-radius:999px;
+  flex:none;
   transition:background .2s
 }
 .icon-btn:hover{background:rgba(20,20,20,.05)}
-.icon-btn svg{width:20px;height:20px;stroke:var(--tx);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn svg{width:21px;height:21px;stroke:var(--tx);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .top-bag{position:relative}
 .top-bag i{
   position:absolute;top:2px;right:1px;
@@ -73,13 +81,12 @@ header.glass-hdr{
 
 .wordmark{
   font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:18px;
-  font-weight:500;
-  letter-spacing:.26em;
-  text-indent:.26em;
+  font-size:20px;
+  font-weight:400;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--tx);
-  text-align:center
+  cursor:pointer
 }
 
 /* Search & Brand Filter */
@@ -145,6 +152,20 @@ header.glass-hdr{
   width:auto;height:auto;
   max-width:78%;max-height:84%;
   object-fit:contain
+}
+.so-pill{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:5px 10px;
+  border-radius:4px;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--tx)
 }
 .img .ph{
   display:none;flex-direction:column;align-items:center;gap:8px;
@@ -261,8 +282,9 @@ footer{
   inset:0;
   z-index:48;
   background:var(--bg);
-  display:flex;
-  flex-direction:column;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:calc(74px + env(safe-area-inset-top,0px)) 16px calc(36px + env(safe-area-inset-bottom,0px));
   transform:translateX(100%);
   visibility:hidden;
   transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s
@@ -272,35 +294,14 @@ footer{
   visibility:visible;
   transition:transform .3s cubic-bezier(.2,.8,.2,1)
 }
-.pv-head{
-  flex:none;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line)
-}
+.pv-wrap{max-width:480px;margin:0 auto}
 .pv-back{
-  display:flex;align-items:center;gap:4px;height:38px;padding:0 8px;
-  font-size:13.5px;font-weight:500;color:var(--tx)
+  display:inline-flex;align-items:center;gap:4px;height:36px;margin-bottom:14px;
+  font-size:13px;font-weight:500;color:var(--mut)
 }
-.pv-back svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pv-title{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase
-}
-.pv-body{
-  flex:1;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  padding:22px 16px calc(36px + env(safe-area-inset-bottom,0px))
-}
+.pv-back:hover{color:var(--tx)}
+.pv-back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .pv-card{
-  max-width:480px;
-  margin:0 auto;
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:10px;
@@ -333,9 +334,9 @@ footer{
 /* Sticky Bag Bar */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:20;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-top:1px solid var(--line);
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
   transform:translateY(110%);
@@ -465,39 +466,33 @@ footer{
 }
 .noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
 
-/* Detail View */
+/* Detail View (Sits under the persistent sticky Glass Header just like Aromatica) */
 .dv{
   position:fixed;top:0;bottom:0;left:0;right:0;
-  max-width:480px;margin:0 auto;z-index:50;
+  max-width:480px;margin:0 auto;z-index:45;
   background:var(--bg);display:flex;flex-direction:column;
   transform:translateY(100%);visibility:hidden;
   transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s .32s
 }
 .dv.show{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
-.dtop{
-  flex:none;display:flex;align-items:center;justify-content:space-between;
-  padding:calc(8px + env(safe-area-inset-top,0px)) 10px 8px;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line)
+.dsc{
+  flex:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding-top:calc(64px + env(safe-area-inset-top,0px))
 }
-.back,.bagbtn{
-  display:flex;align-items:center;gap:4px;height:40px;padding:0 10px;
-  color:var(--tx);font-size:14px;position:relative
+.crumb{
+  display:flex;align-items:center;flex-wrap:wrap;gap:6px;
+  padding:12px 16px 6px;
+  font-size:12.5px;
+  color:var(--mut)
 }
-.back svg,.bagbtn svg{width:20px;height:20px;stroke:var(--tx);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.dbrand{
-  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
-  font-size:13px;letter-spacing:.24em;text-indent:.24em;font-weight:500;text-transform:uppercase
-}
-.bagbtn i{
-  position:absolute;top:2px;right:2px;min-width:17px;height:17px;border-radius:9px;
-  background:var(--tx);color:#FFFFFF;font-style:normal;font-size:10px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;padding:0 4px
-}
-.dsc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.dsc .img{height:280px;padding:20px}
+.crumb button{color:var(--mut)}
+.crumb button:hover{color:var(--tx)}
+.crumb span{color:#B8B4AC}
+.crumb b{font-weight:500;color:var(--tx)}
+.dsc .img{height:270px;padding:18px;border-bottom:none}
 .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
 .price{font-size:26px;font-weight:700;color:var(--tx)}
 .badge{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--tx);font-size:12px;font-weight:500}
@@ -511,6 +506,45 @@ footer{
 .size span{display:block;font-size:15px;margin-top:2px}
 .size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
 .size.on{border-color:var(--tx);background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--tx)}
+
+/* Sold Out Size & Status Styling (Matching Aromatica Liquid Brun Reference) */
+.size.so{
+  background:var(--paper);
+  color:#A5A199
+}
+.size.so b{
+  text-decoration:line-through;
+  font-weight:600;
+  color:#A5A199
+}
+.size.so.on{
+  border-color:#9C9589;
+  box-shadow:none;
+  background:#FFFFFF
+}
+.size.so.on b{
+  color:#7A756D
+}
+.so-status{
+  display:flex;align-items:center;gap:8px;
+  margin-top:14px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--mut)
+}
+.so-dot{
+  width:7px;height:7px;border-radius:50%;background:#A5A199;flex:none
+}
+.notify-btn{
+  width:100%;margin-top:14px;height:48px;
+  background:var(--tx);color:#FFFFFF;border-radius:6px;
+  font-weight:600;letter-spacing:.12em;font-size:12px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:8px
+}
+.notify-btn svg{width:17px;height:17px;stroke:#FFFFFF;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
 .row{display:flex;gap:10px;margin-top:18px}
 .row .qty button{height:48px;width:40px}
 .add{
@@ -543,9 +577,9 @@ footer{
 .dbar{
   flex:none;display:flex;align-items:center;gap:14px;
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-top:1px solid var(--line)
 }
 .dbar>div{flex:1;min-width:0}
@@ -563,10 +597,12 @@ footer{
 <header class="glass-hdr" id="home">
   <div class="wrap">
     <div class="topbar">
-      <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
-        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <div class="wordmark">FRAGENTRE</div>
+      <div class="hdr-left">
+        <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <button class="wordmark" id="brandHome" type="button">FRAGENTRE</button>
+      </div>
       <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
         <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
         <i id="tbc" style="display:none">0</i>
@@ -596,7 +632,7 @@ footer{
   </section>
 
   <footer>
-    <div class="wordmark" style="text-align:left;font-size:14px;letter-spacing:.22em;text-indent:0">FRAGENTRE</div>
+    <div class="wordmark" style="font-size:15px;letter-spacing:.18em">FRAGENTRE</div>
     <div class="f-links">
       <button type="button" data-page="home">Home</button>
       <button type="button" data-page="pickups">Pick-up points</button>
@@ -609,14 +645,12 @@ footer{
 
 <!-- Separate Screen for Pick-up points, Delivery policy, and About -->
 <section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
-  <div class="pv-head">
+  <div class="pv-wrap">
     <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
-      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back to Home
     </button>
-    <span class="pv-title" id="pvTitle">FRAGENTRE</span>
-    <span style="width:52px" aria-hidden="true"></span>
+    <div id="pvBody"></div>
   </div>
-  <div class="pv-body" id="pvBody"></div>
 </section>
 
 <div class="bar" id="bar">
@@ -656,11 +690,6 @@ footer{
 </aside>
 
 <section class="dv" id="dv" role="dialog" aria-modal="true" aria-label="Perfume details" aria-hidden="true">
-  <div class="dtop">
-    <button class="back" id="dback" type="button" data-a="back" aria-label="Back to collection"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back</button>
-    <span class="dbrand">FRAGENTRE</span>
-    <button class="bagbtn" type="button" data-a="bag" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg><i id="dbc" style="display:none">0</i></button>
-  </div>
   <div class="dsc" id="dsc"></div>
   <div class="dbar" id="dbar"></div>
 </section>
@@ -675,30 +704,29 @@ var SPRAYS={5:"75+ sprays",10:"150+ sprays",15:"225+ sprays",30:"450+ sprays"};
 var P=[
  {id:"hawas-ice",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",pr:{5:320,10:580,15:800,30:1420},vibe:"Fresh, fruity, icy",top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
  {id:"rayhaan-aquatica",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
- {id:"liquid-brun",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."}
+ {id:"liquid-brun",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
+ {id:"hawas-black",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",pr:{5:340,10:620,15:860,30:1550},vibe:"Woody, earthy, citrusy",top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["All Seasons"],occ:["Evening","Formal","Office"],desc:"A bold, woody-citrus composition opening with crisp pineapple and grapefruit, layered over earthy patchouli and cedarwood, anchored by deep oakmoss and amber."},
+ {id:"212-men",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",pr:{5:450,10:850,15:1200,30:2200},vibe:"Crisp, green, aromatic",top:["Green Notes","Grapefruit","Spices","Bergamot","Lavender"],heart:["Ginger","Violet","Gardenia","Sage"],base:["Musk","Sandalwood","Incense","Vetiver","Guaiac Wood"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Signature scent"],desc:"An energetic, clean urban classic blending fresh cut-green notes and bright grapefruit with aromatic ginger, sage, and a smooth woody-musk drydown."}
 ];
 var PAGES={
  pickups:{
-  bar:"PICK-UP POINTS",
   kicker:"Collection",
   heading:"Pick-up points",
   text:"Scheduled in-person collection is available by prior confirmation at these locations:",
   spots:["Trunk Road","Taranibash","Appayon Tower, Feni"]
  },
  delivery:{
-  bar:"DELIVERY POLICY",
   kicker:"Shipping",
   heading:"Delivery policy",
   text:"Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every glass decant atomizer is packed with protective cushioning—please inspect your parcel on arrival and record an unboxing video if any issue occurs in transit."
  },
  about:{
-  bar:"ABOUT",
   kicker:"Brand",
   heading:"About FRAGENTRE",
   text:"FRAGENTRE makes authentic designer and Middle Eastern fragrances accessible in travel-ready glass atomizers. Every decant is hand-drawn carefully from sealed original bottles so you can experience real projection, longevity, and wearability on your skin before committing to a full bottle."
  }
 };
-var BRANDS=["All","Rasasi","Rayhaan","French Avenue"];
+var BRANDS=["All","Rasasi","Rayhaan","French Avenue","Carolina Herrera"];
 var st={}; P.forEach(function(p){st[p.id]={size:5,qty:1}});
 var cart=[],brand="All",term="";
 var curPage=null,curId=null;
@@ -709,16 +737,20 @@ var find=function(id){return P.filter(function(p){return p.id===id})[0]};
 var IC={
  cod:'<svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>',
  truck:'<svg viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4.5l3.5 3.5V16h-8"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
- shield:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>'
+ shield:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+ bell:'<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>'
 };
 var WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>';
 
 function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6E6B64" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
-function IMG(p){return '<div class="img"><img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>'}
+function IMG(p,showBadge){
+ var badge=(showBadge&&p.soldOut)?'<span class="so-pill">Sold out</span>':'';
+ return '<div class="img">'+badge+'<img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>';
+}
 function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
 
 function card(p){
- return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p)+
+ return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p,true)+
   '<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2><p class="vibe">'+p.vibe+'</p>'+
   '<div class="fr"><div><small>From</small><b>'+tk(p.pr[5])+'</b></div><button class="vd" type="button" data-a="open" data-id="'+p.id+'">View Details</button></div></div></article>';
 }
@@ -731,16 +763,26 @@ function renderList(){
 }
 
 function detail(p){
- var s=st[p.id],pr=p.pr[s.size];
+ var s=st[p.id],pr=p.pr[s.size],so=!!p.soldOut;
  var tiles=SIZES.map(function(z){
+  if(so){
+   return '<button class="size so'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><small>Sold out</small></button>';
+  }
   return '<button class="size'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><span>'+tk(p.pr[z])+'</span><small>'+SPRAYS[z]+'</small></button>';
  }).join("");
- return IMG(p)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
-  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
-  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
+ var actions=so?(
+  '<div class="so-status"><span class="so-dot"></span><span>Sold out</span></div>'+
+  '<button class="notify-btn" type="button" data-a="notify" data-id="'+p.id+'">'+IC.bell+'Notify me when it\'s restocked</button>'
+ ):(
   '<div class="row"><div class="qty"><button type="button" data-a="qm" data-id="'+p.id+'" aria-label="Decrease quantity">−</button><span>'+s.qty+'</span><button type="button" data-a="qp" data-id="'+p.id+'" aria-label="Increase quantity">+</button></div>'+
   '<button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button></div>'+
-  '<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>'+
+  '<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>'
+ );
+ return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-a="back">Home</button><span>/</span><span>'+p.brand+'</span><span>/</span><b>'+p.name+'</b></nav>'+
+  IMG(p,false)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
+  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
+  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
+  actions+
   '<div class="sec"><div class="lbl">FRAGRANCE PYRAMID</div>'+
    '<div class="tier"><h5>TOP NOTES</h5><div class="chips">'+chips(p.top)+'</div></div>'+
    '<div class="tier"><h5>HEART NOTES</h5><div class="chips">'+chips(p.heart)+'</div></div>'+
@@ -751,6 +793,9 @@ function detail(p){
   '<ul class="trust"><li>'+IC.cod+'<span>Cash on delivery available across Bangladesh</span></li><li>'+IC.truck+'<span>Nationwide delivery via Steadfast Courier</span></li><li>'+IC.shield+'<span>100% genuine, hand-decanted from sealed original bottles</span></li></ul></div>';
 }
 function dbar(p){
+ if(p.soldOut){
+  return '<div><small>'+p.name+'</small><b>Sold out</b></div><button class="add" type="button" data-a="notify" data-id="'+p.id+'">Notify Me</button>';
+ }
  var s=st[p.id];
  return '<div><small>'+s.size+'ML'+(s.qty>1?' × '+s.qty:'')+'</small><b>'+tk(p.pr[s.size]*s.qty)+'</b></div><button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button>';
 }
@@ -764,10 +809,10 @@ function renderDetail(){
  sc.innerHTML=detail(p);$("dbar").innerHTML=dbar(p);sc.scrollTop=y;
 }
 function openDetail(id,nopush){
+ closePage();
  curId=id;renderDetail();$("dsc").scrollTop=0;
  $("dv").classList.add("show");$("dv").setAttribute("aria-hidden","false");lock();
  if(!nopush){try{history.pushState({d:1},"","#"+id)}catch(e){}}
- $("dback").focus({preventScroll:true});
 }
 function closeDetail(fromPop){
  if(!curId)return;
@@ -777,6 +822,7 @@ function closeDetail(fromPop){
 
 function openPage(key){
  openNav(false);
+ closeDetail();
  if(key==="home"){
   closePage();
   window.scrollTo({top:0,behavior:"smooth"});
@@ -785,10 +831,9 @@ function openPage(key){
  var pg=PAGES[key];
  if(!pg)return;
  curPage=key;
- $("pvTitle").textContent=pg.bar;
  var spotsHtml=pg.spots?('<ul class="pickup-list">'+pg.spots.map(function(s){return '<li>'+s+'<small>By prior confirmation</small></li>'}).join("")+'</ul>'):"";
  $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+'</div>';
- $("pvBody").scrollTop=0;
+ $("pv").scrollTop=0;
  $("pv").classList.add("show");
  $("pv").setAttribute("aria-hidden","false");
  lock();
@@ -858,12 +903,17 @@ document.addEventListener("click",function(e){
  else if(a==="qp"){st[id].qty=Math.min(20,st[id].qty+1);renderDetail();}
  else if(a==="qm"){st[id].qty=Math.max(1,st[id].qty-1);renderDetail();}
  else if(a==="add"){
+  var prod=find(id);if(!prod||prod.soldOut)return;
   s=st[id];
   var ex=cart.filter(function(i){return i.id===id&&i.size===s.size})[0];
   if(ex)ex.qty=Math.min(50,ex.qty+s.qty);else cart.push({id:id,size:s.size,qty:s.qty});
   renderBag();
   b.textContent="Added ✓";b.classList.add("done");
   setTimeout(function(){b.textContent="ADD TO BAG";b.classList.remove("done");},1300);
+ }
+ else if(a==="notify"){
+  s=st[id];var np=find(id);
+  wa("Hello FRAGENTRE! Restock alert request:\n\n• "+np.name+" ("+np.brand+")\n• Preferred size: "+s.size+"ml\n\nPlease notify me when it's back in stock. Thank you!");
  }
  else if(a==="wa"){
   s=st[id];var p=find(id),u=p.pr[s.size];
@@ -874,6 +924,7 @@ document.addEventListener("click",function(e){
  else if(a==="rm"){cart.splice(+v,1);renderBag();}
 });
 $("q").addEventListener("input",function(e){term=e.target.value;renderList()});
+$("brandHome").addEventListener("click",function(){openPage("home")});
 $("menuOpen").addEventListener("click",function(){openNav(true)});
 $("menuClose").addEventListener("click",function(){openNav(false)});
 $("pvBack").addEventListener("click",function(){closePage()});
