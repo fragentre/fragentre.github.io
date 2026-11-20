@@ -61,9 +61,10 @@ header{
 }
 .bt-wrap{
   display:flex;flex-direction:column;align-items:center;flex:1;
-  animation:fl 6.5s ease-in-out infinite;
-  animation-delay:var(--d,0s)
+  animation:fl 6.5s ease-in-out infinite
 }
+.bt-wrap.b2{animation-delay:-1.5s}
+.bt-wrap.b3{animation-delay:-3s}
 .bt-wrap svg{
   display:block;width:auto;
   filter:drop-shadow(0 20px 26px rgba(0,0,0,.55))
@@ -262,7 +263,65 @@ footer .mark{margin:0;font-size:20px}
 
 <main id="home">
   <section class="hero">
-    <div class="stage" id="stage" aria-hidden="true"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="bt-wrap b1">
+        <svg viewBox="0 0 72 150" style="width:66px;height:136px">
+          <defs>
+            <linearGradient id="liq1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FC0E8" stop-opacity=".92"/><stop offset="100%" stop-color="#5C8DB8" stop-opacity=".96"/></linearGradient>
+            <linearGradient id="gl1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF" stop-opacity=".36"/><stop offset="28%" stop-color="#FFFFFF" stop-opacity=".06"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity=".14"/></linearGradient>
+          </defs>
+          <rect x="26" y="4" width="20" height="24" rx="4" fill="#181818" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
+          <rect x="25" y="25" width="22" height="4.5" rx="1.5" fill="#B8913F"/>
+          <rect x="30.5" y="29.5" width="11" height="9" fill="rgba(255,255,255,.22)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.32)" stroke-width="1.1"/>
+          <rect x="13" y="64" width="46" height="75.5" rx="10" fill="url(#liq1)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="url(#gl1)"/>
+          <line x1="16.5" y1="45" x2="16.5" y2="134" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="21" y="84" width="30" height="26" rx="2.5" fill="#FAF9F7" fill-opacity=".92"/>
+          <line x1="26" y1="94" x2="46" y2="94" stroke="#181818" stroke-width="1.4"/>
+          <line x1="29" y1="100" x2="43" y2="100" stroke="#7A766E" stroke-width="1.2"/>
+        </svg>
+        <div class="shadow-base"></div>
+      </div>
+      <div class="bt-wrap b2">
+        <svg viewBox="0 0 72 150" style="width:76px;height:164px">
+          <defs>
+            <linearGradient id="liq2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E5B45C" stop-opacity=".92"/><stop offset="100%" stop-color="#B5832E" stop-opacity=".96"/></linearGradient>
+            <linearGradient id="gl2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF" stop-opacity=".36"/><stop offset="28%" stop-color="#FFFFFF" stop-opacity=".06"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity=".14"/></linearGradient>
+          </defs>
+          <rect x="26" y="4" width="20" height="24" rx="4" fill="#181818" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
+          <rect x="25" y="25" width="22" height="4.5" rx="1.5" fill="#B8913F"/>
+          <rect x="30.5" y="29.5" width="11" height="9" fill="rgba(255,255,255,.22)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.32)" stroke-width="1.1"/>
+          <rect x="13" y="64" width="46" height="75.5" rx="10" fill="url(#liq2)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="url(#gl2)"/>
+          <line x1="16.5" y1="45" x2="16.5" y2="134" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="21" y="84" width="30" height="26" rx="2.5" fill="#FAF9F7" fill-opacity=".92"/>
+          <line x1="26" y1="94" x2="46" y2="94" stroke="#181818" stroke-width="1.4"/>
+          <line x1="29" y1="100" x2="43" y2="100" stroke="#7A766E" stroke-width="1.2"/>
+        </svg>
+        <div class="shadow-base"></div>
+      </div>
+      <div class="bt-wrap b3">
+        <svg viewBox="0 0 72 150" style="width:84px;height:186px">
+          <defs>
+            <linearGradient id="liq3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C9744E" stop-opacity=".92"/><stop offset="100%" stop-color="#8F4729" stop-opacity=".96"/></linearGradient>
+            <linearGradient id="gl3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF" stop-opacity=".36"/><stop offset="28%" stop-color="#FFFFFF" stop-opacity=".06"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity=".14"/></linearGradient>
+          </defs>
+          <rect x="26" y="4" width="20" height="24" rx="4" fill="#181818" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
+          <rect x="25" y="25" width="22" height="4.5" rx="1.5" fill="#B8913F"/>
+          <rect x="30.5" y="29.5" width="11" height="9" fill="rgba(255,255,255,.22)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.32)" stroke-width="1.1"/>
+          <rect x="13" y="64" width="46" height="75.5" rx="10" fill="url(#liq3)"/>
+          <rect x="10" y="38.5" width="52" height="104" rx="13" fill="url(#gl3)"/>
+          <line x1="16.5" y1="45" x2="16.5" y2="134" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="21" y="84" width="30" height="26" rx="2.5" fill="#FAF9F7" fill-opacity=".92"/>
+          <line x1="26" y1="94" x2="46" y2="94" stroke="#181818" stroke-width="1.4"/>
+          <line x1="29" y1="100" x2="43" y2="100" stroke="#7A766E" stroke-width="1.2"/>
+        </svg>
+        <div class="shadow-base"></div>
+      </div>
+    </div>
     <p class="kick">AUTHENTIC DECANT ATELIER</p>
     <h1>TRUE LUXURY IN EVERY ML</h1>
     <p class="sub">Wear what suits the moment — explore more scents, keep spending effortless, and carry authentic fragrances in pocket-ready sizes.</p>
@@ -348,38 +407,6 @@ const fmt=n=>'৳'+n.toLocaleString('en-US'),up=s=>String(s).toUpperCase();
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const wa=t=>window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank','noopener');
 let S={brand:'All',cat:'',q:'',pid:null,size:5,qty:1,bag:[],view:'home',infoKey:null};
-let ignorePop=false;
-
-function bottle(w,h,liqTop,liqBot,gradId){
-  return `<svg viewBox="0 0 72 150" style="width:${w}px;height:${h}px">
-    <defs>
-      <linearGradient id="${gradId}" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="${liqTop}" stop-opacity=".92"/>
-        <stop offset="100%" stop-color="${liqBot}" stop-opacity=".96"/>
-      </linearGradient>
-      <linearGradient id="glassShine" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".36"/>
-        <stop offset="28%" stop-color="#FFFFFF" stop-opacity=".06"/>
-        <stop offset="100%" stop-color="#FFFFFF" stop-opacity=".14"/>
-      </linearGradient>
-    </defs>
-    <rect x="26" y="4" width="20" height="24" rx="4" fill="#181818" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
-    <rect x="25" y="25" width="22" height="4.5" rx="1.5" fill="#B8913F"/>
-    <rect x="30.5" y="29.5" width="11" height="9" fill="rgba(255,255,255,.22)"/>
-    <rect x="10" y="38.5" width="52" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.32)" stroke-width="1.1"/>
-    <rect x="13" y="64" width="46" height="75.5" rx="10" fill="url(#${gradId})"/>
-    <rect x="10" y="38.5" width="52" height="104" rx="13" fill="url(#glassShine)"/>
-    <line x1="16.5" y1="45" x2="16.5" y2="134" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
-    <rect x="21" y="84" width="30" height="26" rx="2.5" fill="#FAF9F7" fill-opacity=".92"/>
-    <line x1="26" y1="94" x2="46" y2="94" stroke="#181818" stroke-width="1.4"/>
-    <line x1="29" y1="100" x2="43" y2="100" stroke="#7A766E" stroke-width="1.2"/>
-  </svg>`;
-}
-$('#stage').innerHTML=[
-  [66,136,'#8FC0E8','#5C8DB8','liq1',0],
-  [76,164,'#E5B45C','#B5832E','liq2',-1.5],
-  [84,186,'#C9744E','#8F4729','liq3',-3.0]
-].map(([w,h,t,b,id,d])=>`<div class="bt-wrap" style="--d:${d}s">${bottle(w,h,t,b,id)}<div class="shadow-base"></div></div>`).join('');
 
 const MQ=['AUTHENTIC DECANTS','HAND-DECANTED IN BANGLADESH','SEALED ORIGINAL BOTTLES','NATIONWIDE DELIVERY'];
 $('#track').innerHTML=Array(2).fill(MQ.map(t=>`<span>${t}</span><span>•</span>`).join('')).join('').repeat(2);
@@ -510,7 +537,6 @@ function renderBag(){
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1600)}
 
 window.addEventListener('popstate',e=>{
-  if(ignorePop)return;
   ['menu','bag','ov'].forEach(i=>$('#'+i).classList.remove('on'));
   $('#menu').setAttribute('aria-hidden','true');
   $('#bag').setAttribute('aria-hidden','true');
