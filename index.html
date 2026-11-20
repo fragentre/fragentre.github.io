@@ -1,61 +1,111 @@
-cat > /mnt/user-data/outputs/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fragentre — Authentic Perfume Decants, Bangladesh</title>
-<meta name="theme-color" content="#141414">
+<title>Fragentre — Authentic Perfume Decants</title>
+<meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#111;--mute:#717171;--line:#ECECEC;--s1:#F6F6F6;--s2:#F9F9F9;--gold:#9A7632;--sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--hh:calc(60px + env(safe-area-inset-top))}
+:root{
+  --ink:#111111;
+  --mute:#717171;
+  --line:#ECECEC;
+  --s1:#F6F6F6;
+  --s2:#F9F9F9;
+  --gold:#9A7632;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --hh:calc(60px + env(safe-area-inset-top,0px))
+}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:var(--hh)}
-body{background:#fff;color:var(--ink);font:400 15px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-input{font:inherit;color:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh);overflow-x:hidden}
+body{background:#FFFFFF;color:var(--ink);font:400 15px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
 a{color:inherit}
 .hidden{display:none!important}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
 /* header */
-header{position:fixed;top:0;left:0;right:0;z-index:65;padding:env(safe-area-inset-top) 10px 0;height:var(--hh);display:flex;align-items:center;background:rgba(255,255,255,.8);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(0,0,0,.05)}
-.ib{width:44px;height:44px;display:grid;place-items:center;position:relative;font-size:23px;line-height:1}
+header{
+  position:fixed;top:0;left:0;right:0;z-index:65;
+  padding:env(safe-area-inset-top,0px) 10px 0;
+  height:var(--hh);display:flex;align-items:center;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);
+  border-bottom:1px solid rgba(0,0,0,.06)
+}
+.ib{width:44px;height:44px;display:grid;place-items:center;position:relative;font-size:22px;line-height:1;flex:none;border-radius:999px}
+.ib:active{background:rgba(0,0,0,.05)}
 .ib svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.mark{font-family:'Montserrat',sans-serif;font-weight:400;font-size:19px;letter-spacing:.24em;margin:0 auto 0 8px}
-.badge{position:absolute;top:3px;right:1px;min-width:17px;height:17px;border-radius:9px;background:var(--ink);color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px}
+.mark{font-family:'Montserrat',sans-serif;font-weight:400;font-size:19px;letter-spacing:.24em;margin:0 auto 0 8px;text-transform:uppercase}
+.badge{position:absolute;top:4px;right:2px;min-width:17px;height:17px;border-radius:9px;background:var(--ink);color:#FFFFFF;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px}
+
 /* hero */
-.hero{min-height:100svh;background:radial-gradient(70% 45% at 50% 38%,rgba(214,170,98,.2),transparent 70%),#141414;color:#fff;padding:calc(var(--hh) + 26px) 24px 52px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;overflow:hidden}
-.stage{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-bottom:38px;width:100%;max-width:380px}
-.step{display:flex;flex-direction:column;align-items:center;flex:1}
-.bt{animation:fl 6.5s ease-in-out infinite;animation-delay:var(--d);filter:drop-shadow(0 16px 20px rgba(0,0,0,.5));margin-bottom:-2px}
-.bt svg{display:block;width:auto}
-.plinth{width:100%;background:linear-gradient(#2a2a2a,#1b1b1b);border-top:1px solid rgba(255,255,255,.22);display:grid;place-items:center;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.5);font-weight:600}
-@keyframes fl{50%{transform:translateY(-12px)}}
-.kick{font-size:11px;font-weight:500;letter-spacing:.28em;color:rgba(255,255,255,.62)}
-.hero h1{font-weight:500;font-size:clamp(32px,9.4vw,52px);line-height:1.08;letter-spacing:.01em;margin:16px 0 16px;max-width:520px;text-wrap:balance}
-.sub{max-width:380px;color:rgba(255,255,255,.66);font-size:15px;line-height:1.6}
-.cta{margin-top:30px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;letter-spacing:.12em;padding:18px 34px;border-radius:14px}
+.hero{
+  min-height:92svh;
+  background:
+    radial-gradient(65% 42% at 50% 34%,rgba(198,157,86,.22),transparent 72%),
+    linear-gradient(180deg,#161616 0%,#111111 100%);
+  color:#FFFFFF;
+  padding:calc(var(--hh) + 28px) 24px 52px;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  text-align:center;overflow:hidden;position:relative
+}
+.stage{
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:16px;margin-bottom:36px;width:100%;max-width:360px
+}
+.bt-wrap{
+  display:flex;flex-direction:column;align-items:center;flex:1;
+  animation:fl 6.5s ease-in-out infinite;
+  animation-delay:var(--d,0s)
+}
+.bt-wrap svg{
+  display:block;width:auto;
+  filter:drop-shadow(0 20px 26px rgba(0,0,0,.55))
+}
+.shadow-base{
+  width:72%;height:8px;border-radius:999px;
+  background:radial-gradient(ellipse at center,rgba(214,170,98,.28),transparent 75%);
+  margin-top:8px
+}
+@keyframes fl{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-11px)}
+}
+.kick{font-size:11px;font-weight:500;letter-spacing:.28em;color:rgba(255,255,255,.64);text-transform:uppercase}
+.hero h1{font-weight:500;font-size:clamp(31px,9vw,48px);line-height:1.1;letter-spacing:.01em;margin:14px 0 14px;max-width:500px;text-wrap:balance}
+.sub{max-width:370px;color:rgba(255,255,255,.68);font-size:14.5px;line-height:1.62}
+.cta{
+  margin-top:28px;background:#FFFFFF;color:var(--ink);
+  font-size:12.5px;font-weight:600;letter-spacing:.13em;
+  padding:17px 32px;border-radius:14px;transition:transform .18s ease
+}
 .cta:active{transform:scale(.98)}
-.hero>.kick,.hero>h1,.hero>.sub,.hero>.cta{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
-.hero>h1{animation-delay:.1s}.hero>.sub{animation-delay:.18s}.hero>.cta{animation-delay:.26s}
+.hero>.kick,.hero>h1,.hero>.sub,.hero>.cta{animation:up .85s cubic-bezier(.2,.7,.2,1) both}
+.hero>h1{animation-delay:.08s}.hero>.sub{animation-delay:.16s}.hero>.cta{animation-delay:.24s}
 @keyframes up{from{opacity:0;transform:translateY(14px)}}
+
 /* marquee */
-.marq{background:#F7F7F7;overflow:hidden;padding:20px 0;border-bottom:1px solid var(--line)}
+.marq{background:#F7F7F7;overflow:hidden;padding:18px 0;border-bottom:1px solid var(--line)}
 .track{display:flex;width:max-content;animation:mq 38s linear infinite}
-.track span{font-weight:700;font-size:15px;letter-spacing:.2em;padding:0 20px;white-space:nowrap}
+.track span{font-weight:600;font-size:13.5px;letter-spacing:.2em;padding:0 18px;white-space:nowrap;color:var(--ink)}
 @keyframes mq{to{transform:translateX(-50%)}}
+
 /* catalog */
-.wrap{padding:56px 16px 8px;max-width:1000px;margin:0 auto}
+.wrap{padding:52px 16px 8px;max-width:1000px;margin:0 auto}
 h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
-.search{margin:22px 0 4px;display:flex;align-items:center;gap:12px;height:54px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 26px rgba(0,0,0,.06)}
+.search{margin:22px 0 4px;display:flex;align-items:center;gap:12px;height:54px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 8px 26px rgba(0,0,0,.05)}
 .search svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.6;flex:none}
 .search input{flex:1;min-width:0;border:0;outline:0;background:none;font-size:16px;height:100%}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:none}
 .pills::-webkit-scrollbar{display:none}
-.pill{flex:none;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--mute);background:#fff}
-.pill.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.pill{flex:none;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--mute);background:#FFFFFF}
+.pill.on{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
 .cap{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:10px}
 .cap button{text-decoration:underline;text-underline-offset:3px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 14px;margin-top:20px}
@@ -64,7 +114,7 @@ h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
 .pic{aspect-ratio:1/1.08;background:#F5F5F5;border-radius:14px;display:grid;place-items:center;position:relative;overflow:hidden}
 .pic img{width:82%;height:82%;object-fit:contain;mix-blend-mode:multiply}
 .ph{width:36%;height:58%;border:1px dashed #CFCFCF;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
-.tag{position:absolute;top:10px;right:10px;background:#fff;border-radius:999px;font-size:9.5px;font-weight:700;letter-spacing:.12em;padding:5px 10px;color:var(--mute);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tag{position:absolute;top:10px;right:10px;background:#FFFFFF;border-radius:999px;font-size:9.5px;font-weight:700;letter-spacing:.12em;padding:5px 10px;color:var(--mute);box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .pn{display:block;margin-top:14px;font-size:14.5px;font-weight:500}
 .pb{display:block;margin-top:3px;font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
 .pf{display:block;margin-top:4px;font-size:13.5px;color:var(--mute)}
@@ -72,18 +122,19 @@ h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
 .stock{margin:48px 0 8px;background:var(--s1);border-radius:18px;padding:26px 20px}
 .stock h3{font-size:19px;font-weight:600}
 .stock p{color:var(--mute);font-size:13.5px;margin:4px 0 16px}
-.stock input{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:#fff;font-size:16px;outline:0;margin-bottom:10px}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;background:var(--ink);color:#fff;border-radius:12px;font-size:13px;font-weight:600;letter-spacing:.08em;text-decoration:none}
-.btn.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.stock input{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:#FFFFFF;font-size:16px;outline:0;margin-bottom:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;background:var(--ink);color:#FFFFFF;border-radius:12px;font-size:13px;font-weight:600;letter-spacing:.08em;text-decoration:none}
+.btn.out{background:#FFFFFF;color:var(--ink);border:1px solid var(--ink)}
 .btn[disabled]{opacity:.35;pointer-events:none}
-footer{margin-top:44px;border-top:1px solid var(--line);padding:38px 20px calc(34px + env(safe-area-inset-bottom));text-align:center}
+footer{margin-top:44px;border-top:1px solid var(--line);padding:38px 20px calc(34px + env(safe-area-inset-bottom,0px));text-align:center}
 footer .mark{margin:0;font-size:20px}
 .fl{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 22px;margin:20px 0;font-size:13.5px;color:var(--mute)}
 .fl button{padding:8px 0}
 .copy{font-size:12px;color:var(--mute)}
+
 /* views */
-.view{max-width:720px;margin:0 auto;padding:calc(var(--hh) + 10px) 16px calc(40px + env(safe-area-inset-bottom));min-height:100dvh}
-#detailView{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+.view{max-width:720px;margin:0 auto;padding:calc(var(--hh) + 10px) 16px calc(40px + env(safe-area-inset-bottom,0px));min-height:100dvh}
+#detailView{padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
 .back{font-size:14px;font-weight:500;padding:12px 0;color:var(--mute)}
 .view h1{font-size:28px;font-weight:500;margin:10px 0 20px}
 .crumb{font-size:13.5px;color:var(--mute);padding:12px 0 4px}
@@ -104,26 +155,26 @@ footer .mark{margin:0;font-size:20px}
 .pr{display:flex;justify-content:space-between;align-items:center;min-height:44px}
 .price{font-size:28px;font-weight:600}
 .price.so{font-size:15px;color:var(--mute);letter-spacing:.1em;font-weight:600}
-.wear{background:#fff;border-radius:999px;padding:8px 15px;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.wear{background:#FFFFFF;border-radius:999px;padding:8px 15px;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .lab{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--gold);margin:22px 0 12px}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{background:#fff;border:1.5px solid transparent;border-radius:12px;padding:14px 6px;text-align:center;line-height:1.4}
+.size{background:#FFFFFF;border:1.5px solid transparent;border-radius:12px;padding:14px 6px;text-align:center;line-height:1.4}
 .size.on{border-color:var(--gold)}
 .size b{display:block;font-size:16px;font-weight:700;letter-spacing:.04em}
 .size span{display:block;font-size:14px}
 .size small{display:block;font-size:12px;color:var(--mute)}
 .buyrow{display:flex;gap:10px;margin-top:16px}
-.qty{display:flex;align-items:center;background:#fff;border-radius:12px;height:52px;flex:none}
+.qty{display:flex;align-items:center;background:#FFFFFF;border-radius:12px;height:52px;flex:none}
 .qty button{width:42px;height:100%;font-size:20px}
 .qty span{min-width:24px;text-align:center;font-weight:600}
 .buyrow .btn{flex:1}
-.spec{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:26px}
+.spec{display:grid;grid-template-columns:1fr 1fr;background:#FFFFFF;border:1px solid var(--line);border-radius:16px;margin-top:26px}
 .spec div{padding:18px 16px}
 .spec div:nth-child(odd){border-right:1px solid var(--line)}
 .spec div:nth-child(-n+2){border-bottom:1px solid var(--line)}
 .spec small,.cardh small{display:block;font-size:10.5px;letter-spacing:.18em;color:var(--mute);font-weight:600;margin-bottom:4px}
 .spec b{font-size:14.5px;font-weight:600}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-top:14px}
+.card{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-top:14px}
 .cardh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
 .cardh small{margin:0;color:var(--ink);font-size:11.5px}.cardh span{font-size:12.5px;color:var(--mute)}
 .ng{padding:14px 0;border-top:1px solid var(--line)}
@@ -139,21 +190,22 @@ footer .mark{margin:0;font-size:20px}
 .trust{margin-top:26px;border-top:1px solid var(--line)}
 .trust div{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);font-size:14px}
 .trust i{font-style:normal;color:var(--gold);font-weight:700}
-.fbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;padding:7px 7px 7px 8px;box-shadow:0 12px 36px rgba(0,0,0,.14)}
+.fbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;padding:7px 7px 7px 8px;box-shadow:0 12px 36px rgba(0,0,0,.14)}
 .fp{background:var(--s1);border-radius:999px;padding:0 11px;height:42px;display:grid;place-items:center;font-size:13px;font-weight:700;white-space:nowrap}
 .fs{display:flex;flex:1;justify-content:center;gap:1px}
-.fs button{height:36px;padding:0 7px;border-radius:999px;font-size:11px;font-weight:600;color:var(--mute);border:1.5px solid transparent}
+.fs button{height:36px;padding:0 6px;border-radius:999px;font-size:11px;font-weight:600;color:var(--mute);border:1.5px solid transparent}
 .fs button.on{border-color:var(--gold);color:var(--ink)}
-.fbar .go{height:42px;padding:0 15px;border-radius:999px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
+.fbar .go{height:42px;padding:0 14px;border-radius:999px;background:var(--ink);color:#FFFFFF;font-size:11.5px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
+
 /* drawers */
-.ov{position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov{position:fixed;inset:0;background:rgba(17,17,17,.42);z-index:70;opacity:0;pointer-events:none;transition:opacity .28s}
 .ov.on{opacity:1;pointer-events:auto}
-.dr{position:fixed;z-index:80;background:#fff;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-#menu{top:0;bottom:0;left:0;width:min(86vw,370px);height:100dvh;padding-top:env(safe-area-inset-top);transform:translateX(-102%)}
+.dr{position:fixed;z-index:80;background:#FFFFFF;display:flex;flex-direction:column;transition:transform .34s cubic-bezier(.2,.8,.2,1)}
+#menu{top:0;bottom:0;left:0;width:min(86vw,370px);height:100dvh;padding-top:env(safe-area-inset-top,0px);transform:translateX(-102%)}
 #bag{left:0;right:0;bottom:0;max-height:88dvh;border-radius:22px 22px 0 0;transform:translateY(102%);max-width:560px;margin:0 auto}
 .dr.on{transform:none}
 .dh{display:flex;justify-content:space-between;align-items:center;padding:10px 8px 10px 22px;border-bottom:1px solid var(--line);font-weight:600;letter-spacing:.2em;font-size:13px}
-.db{flex:1;overflow-y:auto;padding:20px 22px calc(24px + env(safe-area-inset-bottom))}
+.db{flex:1;overflow-y:auto;padding:20px 22px calc(24px + env(safe-area-inset-bottom,0px))}
 .gl{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:600;margin:4px 0 6px}
 .mi{display:flex;justify-content:space-between;align-items:center;width:100%;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px;text-align:left}
 .sm{display:none;padding-left:16px}.sm.on{display:block}
@@ -168,30 +220,30 @@ footer .mark{margin:0;font-size:20px}
 .bq button{width:30px;height:30px;border-radius:8px;background:var(--s1)}
 .bq span{min-width:26px;text-align:center;color:var(--ink);font-weight:600}
 .rm{margin-left:auto;font-size:12.5px;color:var(--mute);text-decoration:underline;padding:6px}
-.bf{border-top:1px solid var(--line);padding:16px 22px calc(18px + env(safe-area-inset-bottom))}
+.bf{border-top:1px solid var(--line);padding:16px 22px calc(18px + env(safe-area-inset-bottom,0px))}
 .tl{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);padding:3px 0}
 .tl.t{color:var(--ink);font-weight:700;font-size:17px;padding:10px 0 4px}
 .bf .btn{margin-top:12px}
-.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:500;z-index:90;opacity:0;pointer-events:none;transition:.25s;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--ink);color:#FFFFFF;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:500;z-index:90;opacity:0;pointer-events:none;transition:.25s;white-space:nowrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header>
-  <button class="ib" data-act="menu" aria-label="Open menu">☰</button>
-  <span class="mark">FRAGENTRE</span>
-  <button class="ib" data-act="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-  <button class="ib" data-act="bag" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge hidden" id="badge">0</span></button>
+  <button class="ib" id="menuBtn" type="button" data-act="menu" aria-label="Open menu">☰</button>
+  <button class="mark" type="button" data-act="home">FRAGENTRE</button>
+  <button class="ib" type="button" data-act="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+  <button class="ib" type="button" data-act="bag" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge hidden" id="badge">0</span></button>
 </header>
 
 <main id="home">
   <section class="hero">
     <div class="stage" id="stage" aria-hidden="true"></div>
-    <p class="kick">HAND-DECANTED IN BANGLADESH</p>
+    <p class="kick">AUTHENTIC DECANT ATELIER</p>
     <h1>TRUE LUXURY IN EVERY ML</h1>
     <p class="sub">Discover your fragrance on your own terms — test authentic scents in travel-ready atomizers before committing to a full bottle.</p>
-    <button class="cta" data-act="explore">EXPLORE FRAGRANCES ↗</button>
+    <button class="cta" type="button" data-act="explore">EXPLORE FRAGRANCES ↗</button>
   </section>
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
 
@@ -205,14 +257,20 @@ footer .mark{margin:0;font-size:20px}
       <h3>What should we stock next?</h3>
       <p>Tell us the perfume you're after and we'll try to bring it in.</p>
       <input id="req" placeholder="Perfume name or brand" aria-label="Perfume request">
-      <button class="btn" data-act="stock">Request on WhatsApp</button>
+      <button class="btn" type="button" data-act="stock">Request on WhatsApp</button>
     </div>
   </section>
 
   <footer>
     <div class="mark">FRAGENTRE</div>
-    <div class="fl"><button data-act="home">Home</button><button data-act="info" data-k="pickup">Pick-up points</button><button data-act="info" data-k="delivery">Delivery policy</button><button data-act="info" data-k="contact">Contact us</button><button data-act="info" data-k="about">About</button></div>
-    <p class="copy">© FRAGENTRE • Hand-decanted in Bangladesh</p>
+    <div class="fl">
+      <button type="button" data-act="home">Home</button>
+      <button type="button" data-act="info" data-k="pickup">Pick-up points</button>
+      <button type="button" data-act="info" data-k="delivery">Delivery policy</button>
+      <button type="button" data-act="info" data-k="contact">Contact us</button>
+      <button type="button" data-act="info" data-k="about">About</button>
+    </div>
+    <p class="copy">© FRAGENTRE • All rights reserved</p>
   </footer>
 </main>
 
@@ -221,22 +279,25 @@ footer .mark{margin:0;font-size:20px}
 <div class="fbar hidden" id="fbar"></div>
 
 <div class="ov" id="ov" data-act="closeall"></div>
-<aside class="dr" id="menu" aria-label="Menu">
-  <div class="dh"><span>MENU</span><button class="ib" data-act="closeall" aria-label="Close menu">✕</button></div>
+<aside class="dr" id="menu" aria-label="Menu" aria-hidden="true">
+  <div class="dh"><span>MENU</span><button class="ib" type="button" data-act="closeall" aria-label="Close menu">✕</button></div>
   <div class="db">
     <div class="gl">MAIN</div>
-    <button class="mi" data-act="home">Home</button>
-    <button class="mi" data-act="shop" id="shopBtn" aria-expanded="false">Shop <span class="chev" id="chev">▾</span></button>
-    <div class="sm" id="sm"><button class="mi" data-act="cat" data-c="middle-eastern">Middle Eastern</button><button class="mi" data-act="cat" data-c="designer">Designer</button></div>
-    <button class="mi" data-act="info" data-k="pickup">Pick-up points</button>
-    <button class="mi" data-act="info" data-k="delivery">Delivery policy</button>
+    <button class="mi" type="button" data-act="home">Home</button>
+    <button class="mi" type="button" data-act="shop" id="shopBtn" aria-expanded="false">Shop <span class="chev" id="chev">▾</span></button>
+    <div class="sm" id="sm">
+      <button class="mi" type="button" data-act="cat" data-c="middle-eastern">Middle Eastern</button>
+      <button class="mi" type="button" data-act="cat" data-c="designer">Designer</button>
+    </div>
+    <button class="mi" type="button" data-act="info" data-k="pickup">Pick-up points</button>
+    <button class="mi" type="button" data-act="info" data-k="delivery">Delivery policy</button>
     <div class="gl" style="margin-top:26px">ALL YOU NEED TO KNOW</div>
-    <button class="mi" data-act="info" data-k="contact">Contact us</button>
-    <button class="mi" data-act="info" data-k="about">About</button>
+    <button class="mi" type="button" data-act="info" data-k="contact">Contact us</button>
+    <button class="mi" type="button" data-act="info" data-k="about">About</button>
   </div>
 </aside>
-<aside class="dr" id="bag" aria-label="Shopping bag">
-  <div class="dh"><span>YOUR BAG</span><button class="ib" data-act="closeall" aria-label="Close bag">✕</button></div>
+<aside class="dr" id="bag" aria-label="Shopping bag" aria-hidden="true">
+  <div class="dh"><span>YOUR BAG</span><button class="ib" type="button" data-act="closeall" aria-label="Close bag">✕</button></div>
   <div class="db" id="bagBody"></div>
   <div class="bf" id="bagFoot"></div>
 </aside>
@@ -256,7 +317,7 @@ const BRANDS=['All','Rasasi','Rayhaan','French Avenue','Carolina Herrera'];
 const INFO={
 pickup:['Pick-up points',`<div class="row2"><h4>Trunk Road</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Taranibash</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Appayon Tower</h4><p>Collect your order in person.</p></div><p class="dv" style="margin-top:14px">Message us on WhatsApp to confirm a pick-up time.</p>`],
 delivery:['Delivery policy',`<div class="row2"><h4>Nationwide delivery — ৳120</h4><p>We deliver across Bangladesh, with Cash on Delivery.</p></div><div class="row2"><h4>Protective packaging</h4><p>Glass atomizers are wrapped in protective cushioning so they arrive intact.</p></div><div class="row2"><h4>Unboxing video</h4><p>Please record an unboxing video when your parcel arrives, so we can resolve any issue quickly.</p></div>`],
-contact:['Contact us',`<a class="lnk" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener">Instagram <small>@fragentre</small></a><a class="lnk" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener">Facebook <small>@fragentre</small></a><button class="btn" style="margin-top:16px" data-act="wa">Chat on WhatsApp</button>`],
+contact:['Contact us',`<a class="lnk" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener">Instagram <small>@fragentre</small></a><a class="lnk" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener">Facebook <small>@fragentre</small></a><button class="btn" type="button" style="margin-top:16px" data-act="wa">Chat on WhatsApp</button>`],
 about:['About',`<div class="row2"><h4>Our story</h4><p>Fragentre began with a simple idea: great fragrance shouldn't mean guessing on a full bottle. We hand-decant authentic designer and Middle Eastern perfumes from sealed original bottles into travel-ready atomizers.</p></div><div class="row2"><h4>Try before you commit</h4><p>Wear a scent for days or weeks, then decide whether it deserves a place on your shelf.</p></div>`]
 };
 const $=s=>document.querySelector(s),find=id=>P.find(p=>p.id===id);
@@ -265,9 +326,38 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const wa=t=>window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank','noopener');
 let S={brand:'All',cat:'',q:'',pid:null,size:5,qty:1,bag:[]};
 
-/* hero stage: 3 floating bottles on stepped plinths */
-function bottle(h,liq){return `<svg viewBox="0 0 60 130" style="height:${h}px"><rect x="22" y="2" width="16" height="26" rx="3" fill="#0b0b0b" stroke="#333"/><rect x="22" y="24" width="16" height="4" fill="#B8913F"/><rect x="26" y="28" width="8" height="10" fill="#d8d2c4"/><rect x="5" y="38" width="50" height="90" rx="11" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.4)"/><rect x="8" y="66" width="44" height="59" rx="8" fill="${liq}" opacity=".88"/><rect x="11" y="44" width="4" height="78" rx="2" fill="#fff" opacity=".35"/><rect x="21" y="82" width="22" height="22" rx="2" fill="#fff" opacity=".88"/><rect x="25" y="90" width="14" height="1.6" fill="#111"/><rect x="28" y="95" width="8" height="1.6" fill="#999"/></svg>`}
-$('#stage').innerHTML=[[130,'#7FB0DE',34,'5 ML',0],[165,'#D9A24A',62,'10 ML',-1.6],[200,'#B8643F',90,'15 ML',-3.2]].map(([h,c,p,l,d])=>`<div class="step"><div class="bt" style="--d:${d}s">${bottle(h,c)}</div><div class="plinth" style="height:${p}px">${l}</div></div>`).join('');
+/* refined glass decant bottles (no size labels stamped on pedestals) */
+function bottle(w,h,liqTop,liqBot,gradId){
+  return `<svg viewBox="0 0 72 150" style="width:${w}px;height:${h}px">
+    <defs>
+      <linearGradient id="${gradId}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${liqTop}" stop-opacity=".92"/>
+        <stop offset="100%" stop-color="${liqBot}" stop-opacity=".96"/>
+      </linearGradient>
+      <linearGradient id="glassShine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".36"/>
+        <stop offset="28%" stop-color="#FFFFFF" stop-opacity=".06"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity=".14"/>
+      </linearGradient>
+    </defs>
+    <rect x="26" y="4" width="20" height="24" rx="4" fill="#181818" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
+    <rect x="25" y="25" width="22" height="4.5" rx="1.5" fill="#B8913F"/>
+    <rect x="30.5" y="29.5" width="11" height="9" fill="rgba(255,255,255,.22)"/>
+    <rect x="10" y="38.5" width="52" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.32)" stroke-width="1.1"/>
+    <rect x="13" y="64" width="46" height="75.5" rx="10" fill="url(#${gradId})"/>
+    <rect x="10" y="38.5" width="52" height="104" rx="13" fill="url(#glassShine)"/>
+    <line x1="16.5" y1="45" x2="16.5" y2="134" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+    <rect x="21" y="84" width="30" height="26" rx="2.5" fill="#FAF9F7" fill-opacity=".92"/>
+    <line x1="26" y1="94" x2="46" y2="94" stroke="#181818" stroke-width="1.4"/>
+    <line x1="29" y1="100" x2="43" y2="100" stroke="#7A766E" stroke-width="1.2"/>
+  </svg>`;
+}
+$('#stage').innerHTML=[
+  [66,136,'#8FC0E8','#5C8DB8','liq1',0],
+  [76,164,'#E5B45C','#B5832E','liq2',-1.5],
+  [84,186,'#C9744E','#8F4729','liq3',-3.0]
+].map(([w,h,t,b,id,d])=>`<div class="bt-wrap" style="--d:${d}s">${bottle(w,h,t,b,id)}<div class="shadow-base"></div></div>`).join('');
+
 const MQ=['AUTHENTIC DECANTS','HAND-DECANTED IN BANGLADESH','SEALED ORIGINAL BOTTLES','NATIONWIDE DELIVERY'];
 $('#track').innerHTML=Array(2).fill(MQ.map(t=>`<span>${t}</span><span>•</span>`).join('')).join('').repeat(2);
 
@@ -277,45 +367,54 @@ const low=p=>Math.min(...Object.values(p.pr));
 function renderGrid(){
   const q=S.q.trim().toLowerCase();
   const l=P.filter(p=>(!S.cat||p.cat===S.cat)&&(S.brand==='All'||p.brand===S.brand)&&(!q||(p.name+' '+p.brand+' '+p.vibe).toLowerCase().includes(q)));
-  $('#grid').innerHTML=l.length?l.map(p=>`<button class="pc" data-act="open" data-id="${p.id}"><div class="pic">${img(p)}${p.soldOut?'<span class="tag">SOLD OUT</span>':''}</div><span class="pn">${esc(p.name)}</span><span class="pb">${esc(p.brand)}</span><span class="pf">From ${fmt(low(p))}</span></button>`).join(''):'<p class="empty">No fragrances match your search.</p>';
-  $('#pills').innerHTML=BRANDS.map(b=>`<button class="pill ${S.brand===b?'on':''}" data-act="brand" data-b="${b}">${b}</button>`).join('');
-  const c=$('#cap');c.classList.toggle('hidden',!S.cat);c.innerHTML=S.cat?`<span>Showing ${CAT[S.cat]}</span><button data-act="clear">Clear</button>`:'';
+  $('#grid').innerHTML=l.length?l.map(p=>`<button class="pc" type="button" data-act="open" data-id="${p.id}"><div class="pic">${img(p)}${p.soldOut?'<span class="tag">SOLD OUT</span>':''}</div><span class="pn">${esc(p.name)}</span><span class="pb">${esc(p.brand)}</span><span class="pf">From ${fmt(low(p))}</span></button>`).join(''):'<p class="empty">No fragrances match your search.</p>';
+  $('#pills').innerHTML=BRANDS.map(b=>`<button class="pill ${S.brand===b?'on':''}" type="button" data-act="brand" data-b="${b}">${b}</button>`).join('');
+  const c=$('#cap');c.classList.toggle('hidden',!S.cat);c.innerHTML=S.cat?`<span>Showing ${CAT[S.cat]}</span><button type="button" data-act="clear">Clear</button>`:'';
 }
 function view(v){['home','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!==v));$('#fbar').classList.toggle('hidden',v!=='detailView');window.scrollTo(0,0)}
-function closeAll(){['menu','bag','ov'].forEach(i=>$('#'+i).classList.remove('on'))}
-function openDr(i){closeAll();$('#'+i).classList.add('on');$('#ov').classList.add('on')}
+function closeAll(){
+  ['menu','bag','ov'].forEach(i=>$('#'+i).classList.remove('on'));
+  $('#menu').setAttribute('aria-hidden','true');
+  $('#bag').setAttribute('aria-hidden','true');
+}
+function openDr(i){
+  closeAll();
+  $('#'+i).classList.add('on');
+  $('#'+i).setAttribute('aria-hidden','false');
+  $('#ov').classList.add('on');
+}
 function toCatalog(){closeAll();view('home');requestAnimationFrame(()=>$('#catalog').scrollIntoView({behavior:'smooth'}))}
 function goHome(){S.cat='';S.brand='All';S.q='';$('#q').value='';renderGrid();closeAll();view('home')}
-function openInfo(k){closeAll();$('#infoView').innerHTML=`<button class="back" data-act="home">← Back to Home</button><h1>${INFO[k][0]}</h1>${INFO[k][1]}`;view('infoView')}
+function openInfo(k){closeAll();$('#infoView').innerHTML=`<button class="back" type="button" data-act="home">← Back to Home</button><h1>${INFO[k][0]}</h1>${INFO[k][1]}`;view('infoView')}
 function openProduct(id){closeAll();S.pid=id;S.size=5;S.qty=1;renderDetail();view('detailView')}
 
 function noteGroup(t,s,a){return `<div class="ng"><div class="nh"><i></i>${t} <span>${s}</span></div><div class="chips">${a.map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`}
 function renderDetail(){
   const p=find(S.pid),so=!!p.soldOut,pr=p.pr[S.size],n=p.top.length+p.heart.length+p.base.length;
   $('#detailView').innerHTML=`
-  <div class="crumb"><button data-act="home">Home</button> / ${esc(p.brand)} / <b>${esc(p.name)}</b></div>
+  <div class="crumb"><button type="button" data-act="home">Home</button> / ${esc(p.brand)} / <b>${esc(p.name)}</b></div>
   <div class="dpic">${img(p)}</div>
   <div class="dk">${esc(p.brand)}</div><h1 class="dt">${esc(p.name)}</h1><p class="dv">${esc(p.vibe)}</p>
   <div class="buy">
     <div class="pr">${so?'<span class="price so">• SOLD OUT</span>':`<span class="price">${fmt(pr)}</span>`}<span class="wear">${S.size*3}+ wears</span></div>
     <div class="lab">— SELECT SIZE</div>
-    <div class="sizes">${SZ.map(s=>`<button class="size ${S.size===s?'on':''}" data-act="size" data-s="${s}"><b>${s}ML</b>${so?'<small>Sold out</small>':`<span>${fmt(p.pr[s])}</span><small>${s*15}+ sprays</small>`}</button>`).join('')}</div>
-    ${so?`<div class="buyrow"><button class="btn" data-act="notify">NOTIFY ME WHEN IT'S RESTOCKED</button></div>`:`<div class="buyrow"><div class="qty"><button data-act="qty" data-d="-1" aria-label="Decrease">−</button><span>${S.qty}</span><button data-act="qty" data-d="1" aria-label="Increase">+</button></div><button class="btn" data-act="add">ADD TO BAG</button></div>`}
+    <div class="sizes">${SZ.map(s=>`<button class="size ${S.size===s?'on':''}" type="button" data-act="size" data-s="${s}"><b>${s}ML</b>${so?'<small>Sold out</small>':`<span>${fmt(p.pr[s])}</span><small>${s*15}+ sprays</small>`}</button>`).join('')}</div>
+    ${so?`<div class="buyrow"><button class="btn" type="button" data-act="notify">NOTIFY ME WHEN IT'S RESTOCKED</button></div>`:`<div class="buyrow"><div class="qty"><button type="button" data-act="qty" data-d="-1" aria-label="Decrease">−</button><span>${S.qty}</span><button type="button" data-act="qty" data-d="1" aria-label="Increase">+</button></div><button class="btn" type="button" data-act="add">ADD TO BAG</button></div>`}
   </div>
-  ${so?'':'<button class="btn out" data-act="quick">Quick Order on WhatsApp</button>'}
+  ${so?'':'<button class="btn out" type="button" data-act="quick">Quick Order on WhatsApp</button>'}
   <div class="spec"><div><small>CATEGORY</small><b>${CAT[p.cat]}</b></div><div><small>CONCENTRATION</small><b>${p.conc}</b></div><div><small>SCENT PROFILE</small><b>${esc(p.vibe)}</b></div><div><small>LONGEVITY</small><b>${p.lon}</b></div></div>
   <div class="card"><div class="cardh"><small>PYRAMID</small><span>${n} notes</span></div>${noteGroup('Top notes','First impression',p.top)}${noteGroup('Heart notes','The character',p.heart)}${noteGroup('Base notes','The dry-down',p.base)}</div>
   <div class="sec"><small>BEST SEASONS</small><div class="chips">${p.seasons.map(x=>`<span>${x}</span>`).join('')}</div></div>
   <div class="sec"><small>OCCASIONS</small><div class="chips">${p.occ.map(x=>`<span>${x}</span>`).join('')}</div></div>
   <div class="sec"><small>DESCRIPTION</small><p><b style="color:var(--ink);font-weight:600">About this fragrance.</b> ${esc(p.desc)}</p></div>
   <div class="trust"><div><i>✓</i>Cash on delivery available across Bangladesh</div><div><i>✓</i>Nationwide delivery via Steadfast Courier</div><div><i>✓</i>100% genuine, hand-decanted from sealed original bottles</div></div>`;
-  $('#fbar').innerHTML=`<span class="fp">${so?'Sold out':fmt(pr)}</span><div class="fs">${SZ.map(s=>`<button class="${S.size===s?'on':''}" data-act="size" data-s="${s}">${s}ML</button>`).join('')}</div><button class="go" data-act="${so?'notify':'add'}">${so?'NOTIFY ME':'ADD TO BAG'}</button>`;
+  $('#fbar').innerHTML=`<span class="fp">${so?'Sold out':fmt(pr)}</span><div class="fs">${SZ.map(s=>`<button class="${S.size===s?'on':''}" type="button" data-act="size" data-s="${s}">${s}ML</button>`).join('')}</div><button class="go" type="button" data-act="${so?'notify':'add'}">${so?'NOTIFY ME':'ADD TO BAG'}</button>`;
 }
 function renderBag(){
   const n=S.bag.reduce((a,i)=>a+i.qty,0),sub=S.bag.reduce((a,i)=>a+find(i.id).pr[i.size]*i.qty,0),b=$('#badge');
   b.textContent=n;b.classList.toggle('hidden',!n);
-  $('#bagBody').innerHTML=n?S.bag.map((i,x)=>{const p=find(i.id);return `<div class="bi"><div class="th">${img(p)}</div><div class="bm"><b>${esc(p.name)}</b><span>${i.size}ML • ${fmt(p.pr[i.size])}</span><div class="bq"><button data-act="bq" data-x="${x}" data-d="-1" aria-label="Decrease">−</button><span>${i.qty}</span><button data-act="bq" data-x="${x}" data-d="1" aria-label="Increase">+</button><button class="rm" data-act="rm" data-x="${x}">Remove</button></div></div></div>`}).join(''):'<p class="empty" style="padding:56px 0">Your bag is empty.</p>';
-  $('#bagFoot').innerHTML=`<div class="tl"><span>Subtotal</span><span>${fmt(sub)}</span></div><div class="tl"><span>Nationwide Delivery</span><span>${fmt(n?DEL:0)}</span></div><div class="tl t"><span>Total</span><span>${fmt(n?sub+DEL:0)}</span></div><button class="btn" data-act="checkout" ${n?'':'disabled'}>Checkout on WhatsApp</button>`;
+  $('#bagBody').innerHTML=n?S.bag.map((i,x)=>{const p=find(i.id);return `<div class="bi"><div class="th">${img(p)}</div><div class="bm"><b>${esc(p.name)}</b><span>${i.size}ML • ${fmt(p.pr[i.size])}</span><div class="bq"><button type="button" data-act="bq" data-x="${x}" data-d="-1" aria-label="Decrease">−</button><span>${i.qty}</span><button type="button" data-act="bq" data-x="${x}" data-d="1" aria-label="Increase">+</button><button class="rm" type="button" data-act="rm" data-x="${x}">Remove</button></div></div></div>`}).join(''):'<p class="empty" style="padding:56px 0">Your bag is empty.</p>';
+  $('#bagFoot').innerHTML=`<div class="tl"><span>Subtotal</span><span>${fmt(sub)}</span></div><div class="tl"><span>Nationwide Delivery</span><span>${fmt(n?DEL:0)}</span></div><div class="tl t"><span>Total</span><span>${fmt(n?sub+DEL:0)}</span></div><button class="btn" type="button" data-act="checkout" ${n?'':'disabled'}>Checkout on WhatsApp</button>`;
 }
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1600)}
 
@@ -327,7 +426,7 @@ document.addEventListener('click',e=>{
     case 'closeall':closeAll();break;
     case 'home':goHome();break;
     case 'explore':$('#catalog').scrollIntoView({behavior:'smooth'});break;
-    case 'search':closeAll();view('home');requestAnimationFrame(()=>{$('#catalog').scrollIntoView({behavior:'smooth'});setTimeout(()=>$('#q').focus({preventScroll:true}),500)});break;
+    case 'search':closeAll();view('home');requestAnimationFrame(()=>{$('#catalog').scrollIntoView({behavior:'smooth'});setTimeout(()=>$('#q').focus({preventScroll:true}),450)});break;
     case 'shop':{const o=$('#sm').classList.toggle('on');$('#chev').classList.toggle('on',o);$('#shopBtn').setAttribute('aria-expanded',o)}break;
     case 'cat':S.cat=d.c;S.brand='All';S.q='';$('#q').value='';renderGrid();toCatalog();break;
     case 'clear':S.cat='';renderGrid();break;
@@ -352,5 +451,3 @@ renderGrid();renderBag();
 </script>
 </body>
 </html>
-EOF
-wc -c /mnt/user-data/outputs/index.html; tail -c 60 /mnt/user-data/outputs/index.html
