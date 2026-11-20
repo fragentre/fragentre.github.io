@@ -326,7 +326,6 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const wa=t=>window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank','noopener');
 let S={brand:'All',cat:'',q:'',pid:null,size:5,qty:1,bag:[]};
 
-/* refined glass decant bottles (no size labels stamped on pedestals) */
 function bottle(w,h,liqTop,liqBot,gradId){
   return `<svg viewBox="0 0 72 150" style="width:${w}px;height:${h}px">
     <defs>
