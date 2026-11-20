@@ -1,1475 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fragentre — Luxury Perfume Decants</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<title>FRAGENTRE — Authentic Perfume Decants</title>
+<meta name="description" content="Authentic perfume decants with nationwide delivery across Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --paper:#FAF9F7;
+  --soft:#F5F4F1;
+  --line:#EAE7E1;
+  --tx:#141414;
+  --mut:#75726B;
+  --gold:#9A7632
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{max-width:100%;overflow-x:hidden}
+body{
+  background:var(--bg);
+  color:var(--tx);
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  line-height:1.5;
+  padding-top:calc(64px + env(safe-area-inset-top,0px));
+  padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+  max-width:100%;
+  overflow-x:hidden
+}
+button,input,a{font:inherit;color:inherit}
+a{text-decoration:none}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
 
-  <!-- Google Fonts: Inter (clean modern UI/editorial sans) + Cormorant Garamond (refined editorial serif accent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+.wrap{width:100%;max-width:480px;margin:0 auto;padding:0 16px}
 
-  <!-- Tailwind CSS via CDN for responsive mobile-first layout -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-          },
-          colors: {
-            paper: '#FAF9F7',
-            surface: '#FFFFFF',
-            soft: '#F4F2EE',
-            ink: '#141413',
-            muted: '#66645E',
-            line: '#E6E2DA',
-            gold: '#8B7228',
-            goldSoft: '#F7F3E6',
-          },
-        },
-      },
-    };
-  </script>
+/* Fixed Frosted Glass Header */
+header.glass-hdr{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:65;
+  background:rgba(255,255,255,.76);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid rgba(20,20,20,.08);
+  padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px
+}
+.topbar{
+  max-width:480px;
+  margin:0 auto;
+  padding:0 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:42px
+}
+.hdr-left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0
+}
+.icon-btn{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:999px;
+  flex:none;
+  transition:background .2s
+}
+.icon-btn:hover{background:rgba(20,20,20,.05)}
+.icon-btn svg{width:21px;height:21px;stroke:var(--tx);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.top-bag{position:relative}
+.top-bag i{
+  position:absolute;top:2px;right:1px;
+  min-width:17px;height:17px;border-radius:9px;
+  background:var(--tx);color:#FFFFFF;
+  font-style:normal;font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;padding:0 4px
+}
 
-  <style>
-    /* Pure light-editorial theme — zero dark-mode color overrides */
-    :root {
-      color-scheme: light;
-    }
+.wordmark{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:20px;
+  font-weight:400;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--tx);
+  cursor:pointer
+}
 
-    html {
-      scroll-behavior: smooth;
-      background-color: #FAF9F7;
-      color: #141413;
-    }
+/* Search & Brand Filter */
+.tools{padding:16px 0 6px}
+.search{position:relative}
+.search svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;stroke:#8A8780
+}
+.search input{
+  width:100%;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:12px 14px 12px 42px;
+  font-size:15px;
+  color:var(--tx);
+  outline:none;
+  transition:border-color .2s
+}
+.search input:focus{border-color:var(--tx)}
+.search input::placeholder{color:#9B978E}
 
-    body {
-      background-color: #FAF9F7;
-      color: #141413;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pill{
+  padding:8px 15px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--bg);
+  font-size:12.5px;
+  color:var(--mut);
+  transition:.2s
+}
+.pill.on{
+  background:var(--tx);
+  border-color:var(--tx);
+  color:#FFFFFF;
+  font-weight:600
+}
 
-    .brand-wordmark {
-      letter-spacing: 0.16em;
-    }
+/* Catalog Cards */
+#collection{margin-top:14px}
+.card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:18px;
+  cursor:pointer;
+  transition:border-color .2s
+}
+.card:hover{border-color:#C9C5BC}
+.img{
+  height:245px;
+  padding:18px;
+  display:flex;align-items:center;justify-content:center;
+  background:#FFFFFF;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden
+}
+.img img{
+  width:auto;height:auto;
+  max-width:78%;max-height:84%;
+  object-fit:contain
+}
+.so-pill{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:5px 10px;
+  border-radius:6px;
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--line);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--tx)
+}
+.img .ph{
+  display:none;flex-direction:column;align-items:center;gap:8px;
+  color:var(--mut);font-size:11px;letter-spacing:.18em;text-transform:uppercase
+}
+.img.noimg .ph{display:flex}
+.img.noimg img{display:none}
 
-    .hero-display {
-      letter-spacing: -0.025em;
-      line-height: 1.06;
-    }
+.body{padding:18px}
+.brand{
+  font-size:10.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--mut);
+  font-weight:600
+}
+.title{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:21px;
+  font-weight:500;
+  line-height:1.25;
+  margin-top:4px;
+  color:var(--tx)
+}
+.vibe{font-size:13px;color:var(--mut);margin-top:5px}
+.fr{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)
+}
+.fr small{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+.fr b{font-size:20px;font-weight:600;color:var(--tx)}
+.vd{
+  border:1px solid var(--tx);
+  color:var(--tx);
+  border-radius:8px;
+  padding:10px 16px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.2s
+}
+.vd:hover{background:var(--tx);color:#FFFFFF}
 
-    /* Hide scrollbar on horizontal pill tracks while keeping touch scrolling smooth */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+/* Request Box on Home */
+.suggest{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:20px 18px;
+  margin-top:14px
+}
+.suggest h3{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.suggest p{font-size:13px;color:var(--mut);margin:6px 0 12px}
+.suggest input{
+  width:100%;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:12px 14px;
+  font-size:15px;
+  color:var(--tx);
+  outline:none
+}
+.suggest input:focus{border-color:var(--tx)}
+.suggest button{
+  width:100%;
+  margin-top:10px;
+  height:46px;
+  background:var(--tx);
+  color:#FFFFFF;
+  border-radius:8px;
+  font-weight:600;
+  letter-spacing:.14em;
+  font-size:12px;
+  text-transform:uppercase
+}
 
-    .card-press {
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.18s ease;
-    }
-    .card-press:active {
-      transform: scale(0.99);
-    }
-  </style>
+/* Footer */
+footer{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid var(--line)
+}
+.f-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  margin-top:12px;
+  font-size:12.5px;
+  color:var(--mut)
+}
+.f-links button{color:var(--mut);padding:2px 0}
+.f-links button:hover{color:var(--tx)}
+.f-bot{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:11px;
+  color:#8E8A82;
+  letter-spacing:.08em
+}
+
+/* Separate Page View */
+.page-view{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:var(--bg);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:calc(74px + env(safe-area-inset-top,0px)) 16px calc(36px + env(safe-area-inset-bottom,0px));
+  transform:translateX(100%);
+  visibility:hidden;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s
+}
+.page-view.show{
+  transform:none;
+  visibility:visible;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1)
+}
+.pv-wrap{max-width:480px;margin:0 auto}
+.pv-back{
+  display:inline-flex;align-items:center;gap:4px;height:36px;margin-bottom:14px;
+  font-size:13px;font-weight:500;color:var(--mut)
+}
+.pv-back:hover{color:var(--tx)}
+.pv-back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pv-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:20px 18px
+}
+.pv-kicker{
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:600
+}
+.pv-card h2{
+  font-family:'Montserrat','Plus Jakarta Sans',sans-serif;
+  font-size:20px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:6px
+}
+.pv-card p{
+  font-size:13.5px;color:var(--mut);margin-top:10px;line-height:1.65
+}
+.pickup-list{
+  list-style:none;
+  margin-top:16px;
+  border-top:1px solid var(--line)
+}
+.pickup-list li{
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;font-weight:500;color:var(--tx)
+}
+.pickup-list li small{
+  display:block;font-size:12px;font-weight:400;color:var(--mut);margin-top:2px
+}
+.social-list{
+  margin-top:16px;
+  border-top:1px solid var(--line);
+  display:grid
+}
+.social-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 2px;
+  border-bottom:1px solid var(--line);
+  font-size:13.5px;font-weight:500;color:var(--tx)
+}
+.social-link small{color:var(--mut);font-size:12.5px}
+.social-link:hover{color:var(--gold)}
+.pv-wa{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;margin-top:16px;height:46px;
+  background:var(--tx);color:#FFFFFF;border-radius:8px;
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase
+}
+.pv-wa svg{width:17px;height:17px;fill:#FFFFFF}
+
+/* Sticky Bag Bar */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+  transform:translateY(110%);
+  transition:transform .3s
+}
+.bar.show{transform:none}
+.bar .in{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar small{display:block;font-size:12px;color:var(--mut)}
+.bar b{font-size:18px}
+.bar button{
+  background:var(--tx);color:#FFFFFF;
+  font-weight:600;border-radius:8px;padding:12px 20px;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase
+}
+
+/* Overlay & Slide-Out Drawer */
+.ov{
+  position:fixed;inset:0;
+  background:rgba(20,20,20,.42);
+  z-index:70;opacity:0;pointer-events:none;transition:opacity .26s
+}
+.ov.show{opacity:1;pointer-events:auto}
+
+.nav-drawer{
+  position:fixed;top:0;bottom:0;left:0;
+  width:min(340px,88vw);
+  z-index:80;
+  background:var(--bg);
+  border-right:1px solid var(--line);
+  padding:calc(16px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  transform:translateX(-105%);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1)
+}
+.nav-drawer.show{transform:none}
+.nav-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:14px
+}
+.close-circle{
+  width:42px;height:42px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--tx)
+}
+.menu-label{
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mut);
+  font-weight:600
+}
+.nav-sec-title{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mut);
+  margin:16px 0 6px
+}
+.nav-list{
+  list-style:none;
+  border-top:1px solid var(--line)
+}
+.nav-list>li{
+  border-bottom:1px solid var(--line)
+}
+.nav-row{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 2px;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--tx);
+  text-align:left
+}
+.nav-row span:last-child{
+  color:var(--mut);
+  font-size:16px;
+  letter-spacing:0;
+  transition:transform .2s
+}
+.nav-row[aria-expanded="true"] span:last-child{
+  transform:rotate(90deg)
+}
+.nav-row:hover{color:var(--gold)}
+
+.sub-list{
+  list-style:none;
+  display:none;
+  padding:0 0 10px 12px
+}
+.sub-list.open{display:block}
+.sub-list button{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 4px;
+  font-size:12.5px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--mut);
+  text-align:left
+}
+.sub-list button:hover{color:var(--tx)}
+
+/* Bag Drawer */
+.drawer{
+  position:fixed;left:0;right:0;bottom:0;z-index:75;
+  background:var(--bg);
+  border-radius:16px 16px 0 0;
+  border-top:1px solid var(--line);
+  max-height:88vh;display:flex;flex-direction:column;
+  transform:translateY(105%);
+  transition:transform .32s cubic-bezier(.2,.8,.2,1);
+  max-width:480px;margin:0 auto;
+  box-shadow:0 -10px 30px rgba(20,20,20,.1)
+}
+.drawer.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+.dh h3{font-family:'Montserrat','Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.dh button{font-size:26px;color:var(--mut);width:36px;height:36px;line-height:1}
+.items{overflow-y:auto;padding:0 18px;flex:1}
+.it{padding:14px 0;border-bottom:1px solid var(--line)}
+.it .t{display:flex;justify-content:space-between;gap:10px}
+.it .t b{font-size:15px}
+.it .t span{color:var(--tx);font-weight:700;white-space:nowrap}
+.it small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.it .c{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--bg);flex:none}
+.qty button{width:34px;height:36px;font-size:18px;color:var(--tx)}
+.qty span{min-width:26px;text-align:center;font-weight:600;font-size:14px}
+.rm{font-size:12px;color:var(--mut);text-decoration:underline}
+
+.dl{padding:14px 18px 6px}
+.opt{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid var(--line);background:var(--paper);
+  border-radius:10px;padding:12px;margin-top:8px;font-size:13.5px;font-weight:500
+}
+.opt input{accent-color:var(--tx);width:17px;height:17px}
+.opt span{flex:1}
+
+.tot{display:flex;justify-content:space-between;align-items:center;padding:10px 18px 2px;font-size:13px;color:var(--mut)}
+.tot.g{font-size:18px;color:var(--tx);font-weight:700;padding-top:10px}
+.co{
+  margin:14px 18px calc(18px + env(safe-area-inset-bottom,0px));
+  height:48px;background:var(--tx);color:#FFFFFF;
+  border-radius:8px;font-weight:600;letter-spacing:.14em;font-size:12px;
+  text-transform:uppercase;width:calc(100% - 36px)
+}
+.noitem{text-align:center;color:var(--mut);padding:40px 0;font-size:14px}
+
+/* Detail View */
+.dv{
+  position:fixed;top:0;bottom:0;left:0;right:0;
+  max-width:480px;margin:0 auto;z-index:45;
+  background:var(--bg);display:flex;flex-direction:column;
+  transform:translateY(100%);visibility:hidden;
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s .32s
+}
+.dv.show{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.dsc{
+  flex:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding-top:calc(64px + env(safe-area-inset-top,0px))
+}
+.crumb{
+  display:flex;align-items:center;flex-wrap:wrap;gap:6px;
+  padding:14px 16px 8px;
+  font-size:12.5px;
+  color:var(--mut);
+  background:var(--bg)
+}
+.crumb button{color:var(--mut)}
+.crumb button:hover{color:var(--tx)}
+.crumb span{color:#B8B4AC}
+.crumb b{font-weight:500;color:var(--tx)}
+.dsc .img{height:270px;padding:18px;border-bottom:none}
+
+/* Grouped Purchase Container Inspired by Aromatica Light Mode */
+.buy-panel{
+  margin-top:16px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px
+}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.price{font-size:26px;font-weight:700;color:var(--tx);letter-spacing:-.01em}
+.badge{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font-size:12px;font-weight:500}
+.lbl{font-size:10.5px;letter-spacing:.2em;color:var(--mut);margin:16px 0 10px;font-weight:700}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.size{
+  border:1px solid var(--line);border-radius:10px;padding:12px 10px;
+  text-align:center;background:var(--bg);transition:.2s
+}
+.size b{display:block;font-size:14px;letter-spacing:.12em;font-weight:700}
+.size span{display:block;font-size:15px;margin-top:2px;font-weight:500}
+.size small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
+.size.on{
+  border:1.5px solid var(--gold);
+  background:#FFFFFF;
+  box-shadow:0 2px 10px rgba(154,118,50,.08)
+}
+
+/* Sold Out Size & Status Styling */
+.size.so{
+  background:var(--bg);
+  color:#A5A199
+}
+.size.so b{
+  text-decoration:line-through;
+  font-weight:600;
+  color:#A5A199
+}
+.size.so.on{
+  border:1.5px solid #9C9589;
+  box-shadow:none;
+  background:#FFFFFF
+}
+.size.so.on b{
+  color:#7A756D
+}
+.so-status{
+  display:flex;align-items:center;gap:8px;
+  margin-top:14px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--mut)
+}
+.so-dot{
+  width:7px;height:7px;border-radius:50%;background:#A5A199;flex:none
+}
+.notify-btn{
+  width:100%;margin-top:14px;height:48px;
+  background:var(--tx);color:#FFFFFF;border-radius:8px;
+  font-weight:600;letter-spacing:.12em;font-size:12px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:8px
+}
+.notify-btn svg{width:17px;height:17px;stroke:#FFFFFF;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.row{display:flex;gap:10px;margin-top:16px}
+.row .qty button{height:48px;width:40px}
+.add{
+  flex:1;background:var(--tx);color:#FFFFFF;border-radius:8px;
+  font-weight:600;letter-spacing:.14em;font-size:12px;text-transform:uppercase;height:48px;transition:.2s
+}
+.add.done{background:var(--gold);color:#FFFFFF}
+.wa{
+  width:100%;margin-top:12px;height:46px;
+  border:1px solid var(--line);background:var(--bg);border-radius:8px;
+  font-size:13.5px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px
+}
+.wa:hover{border-color:var(--tx)}
+.wa svg{width:17px;height:17px;fill:var(--tx)}
+.trust{list-style:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.trust li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mut);line-height:1.45}
+.trust svg{flex:none;width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.empty{text-align:center;color:var(--mut);padding:36px 10px;font-size:14px}
+
+.sec{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.sec .lbl{margin:0 0 12px}
+.tier{margin-left:5px;padding:0 0 14px 16px;border-left:1px solid var(--line);position:relative}
+.tier:last-child{padding-bottom:0}
+.tier::before{content:"";position:absolute;left:-4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--tx)}
+.tier h5{font-size:10.5px;font-weight:700;color:var(--mut);letter-spacing:.18em;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+.tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#FFFFFF;color:var(--tx);font-weight:500}
+.desc{font-size:14px;color:#3E3C37;line-height:1.65}
+.dbar{
+  flex:none;display:flex;align-items:center;gap:14px;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line)
+}
+.dbar>div{flex:1;min-width:0}
+.dbar small{display:block;font-size:12px;color:var(--mut)}
+.dbar b{font-size:20px}
+.dbar .add{flex:none;width:155px}
+
+@media (prefers-reduced-motion:reduce){
+  .dv,.drawer,.nav-drawer,.bar,.page-view{transition:none}
+}
+</style>
 </head>
-<body class="bg-paper text-ink min-h-screen flex flex-col">
+<body>
 
-  <!-- ===================================================================== -->
-  <!-- 1. TOP STICKY EDITORIAL HEADER                                        -->
-  <!-- ===================================================================== -->
-  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-line">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <!-- Hamburger Menu Trigger -->
-      <button
-        id="menuOpenBtn"
-        type="button"
-        aria-label="Open menu"
-        class="p-2.5 -ml-2 rounded-full text-ink hover:bg-soft active:bg-line/70 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-        </svg>
+<header class="glass-hdr" id="home">
+  <div class="topbar">
+    <div class="hdr-left">
+      <button class="icon-btn" id="menuOpen" type="button" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-
-      <!-- FRAGENTRE Wordmark -->
-      <a
-        href="#top"
-        id="headerBrandLink"
-        class="brand-wordmark text-base sm:text-lg font-medium uppercase text-ink px-2 py-1 rounded focus:outline-none"
-      >
-        FRAGENTRE
-      </a>
-
-      <!-- Shopping Bag Trigger with Item Count Badge -->
-      <button
-        id="bagOpenBtn"
-        type="button"
-        aria-label="Open shopping bag"
-        class="relative p-2.5 -mr-2 rounded-full text-ink hover:bg-soft active:bg-line/70 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-        <span
-          id="bagBadge"
-          class="hidden absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-ink text-surface text-[10px] font-semibold flex items-center justify-center leading-none"
-        >
-          0
-        </span>
-      </button>
+      <button class="wordmark" id="brandHome" type="button">FRAGENTRE</button>
     </div>
-  </header>
+    <button class="icon-btn top-bag" id="topBag" type="button" aria-label="Open shopping bag">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg>
+      <i id="tbc" style="display:none">0</i>
+    </button>
+  </div>
+</header>
 
-  <!-- ===================================================================== -->
-  <!-- MAIN CONTENT                                                          -->
-  <!-- ===================================================================== -->
-  <main id="top" class="flex-1">
-
-    <!-- =================================================================== -->
-    <!-- 2. OPENING HERO SECTION                                             -->
-    <!-- =================================================================== -->
-    <section aria-label="Featured Hero" class="bg-surface border-b border-line">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
-
-          <!-- Editorial Copy & Primary CTA -->
-          <div class="md:col-span-7 text-left">
-            <p class="text-[11px] uppercase tracking-[0.2em] text-gold font-medium mb-3">
-              Curated Perfume Decants
-            </p>
-
-            <h1 class="hero-display text-4xl sm:text-5xl font-normal uppercase text-ink mb-4">
-              TRUE LUXURY IN EVERY ML.
-            </h1>
-
-            <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-7">
-              Discover exceptional fragrances, thoughtfully chosen for every preference.
-            </p>
-
-            <div class="flex flex-wrap items-center gap-3">
-              <a
-                href="#collection"
-                id="exploreCollectionBtn"
-                class="px-7 py-3.5 rounded-full bg-ink text-surface text-xs sm:text-sm font-medium uppercase tracking-[0.14em] hover:bg-ink/90 active:scale-[0.99] transition-all min-h-[48px] inline-flex items-center justify-center gap-2"
-              >
-                <span>EXPLORE COLLECTION</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Refined Gold Script 'F' + FRAGENTRE Emblem -->
-          <div class="md:col-span-5">
-            <div class="rounded-2xl bg-paper border border-line p-7 sm:p-9 flex flex-col items-center justify-center text-center">
-              <!-- Gold Script 'F' Emblem (SVG — zero broken external image dependencies) -->
-              <svg
-                viewBox="0 0 180 150"
-                class="w-36 sm:w-44 h-auto mb-3 select-none"
-                role="img"
-                aria-label="Gold script F emblem for Fragentre"
-              >
-                <defs>
-                  <linearGradient id="fragentreGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#A88B38" />
-                    <stop offset="55%" stop-color="#8B7228" />
-                    <stop offset="100%" stop-color="#6F591B" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M54 122 C44 122, 38 116, 40 109 C42 103, 52 105, 55 113 C57 118, 63 115, 68 104 L94 42 C97 34, 93 29, 84 29 C69 29, 57 40, 56 54 C55 64, 63 71, 73 70 C81 69, 86 62, 84 55 C83 50, 77 49, 74 53"
-                  fill="none"
-                  stroke="url(#fragentreGold)"
-                  stroke-width="3.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M78 33 C98 24, 134 21, 144 31 C150 37, 144 46, 134 45 C127 44, 126 37, 132 34"
-                  fill="none"
-                  stroke="url(#fragentreGold)"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M76 74 L112 74 C117 74, 118 79, 112 81 L74 81"
-                  fill="none"
-                  stroke="url(#fragentreGold)"
-                  stroke-width="2.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-
-              <p class="brand-wordmark text-sm font-medium uppercase text-gold">
-                FRAGENTRE
-              </p>
-              <p class="text-[11px] text-muted mt-1.5 tracking-wide">
-                Everyday · Occasions · Discovery Sizes
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================== -->
-    <!-- 3. SEAMLESS SAME-PAGE CATALOG (#collection)                          -->
-    <!-- =================================================================== -->
-    <section id="collection" aria-label="Fragrance Collection" class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-14">
-
-      <!-- Section Heading & Count -->
-      <div class="flex items-baseline justify-between gap-4 mb-5">
-        <div>
-          <p class="text-[11px] uppercase tracking-[0.18em] text-muted font-medium mb-1">
-            All Fragrances
-          </p>
-          <h2 id="collectionHeading" class="text-2xl sm:text-3xl font-normal text-ink tracking-tight">
-            All Fragrances
-          </h2>
-        </div>
-        <span id="catalogCountLabel" class="text-xs text-muted whitespace-nowrap">
-          5 fragrances
-        </span>
-      </div>
-
-      <!-- Search Input ("Search perfume or brand...") -->
-      <div class="relative mb-3.5">
-        <svg
-          class="w-4 h-4 text-muted absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          viewBox="0 0 24 24"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
-        </svg>
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Search perfume or brand..."
-          aria-label="Search perfume or brand"
-          class="w-full pl-11 pr-10 py-3 rounded-xl bg-surface border border-line text-sm text-ink placeholder:text-muted/75 focus:outline-none focus:border-ink transition-colors min-h-[48px]"
-        />
-        <button
-          id="clearSearchBtn"
-          type="button"
-          aria-label="Clear search query"
-          class="hidden absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-muted hover:text-ink rounded-full"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Brand Filter Pills ("All", "Rasasi", "Rayhaan", "French Avenue", "Carolina Herrera") -->
-      <div id="brandPillsRow" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-6">
-        <!-- Populated by JS -->
-      </div>
-
-      <!-- Product Cards Grid -->
-      <div id="productCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Populated by JS -->
-      </div>
-
-      <!-- Empty Filter / Search State -->
-      <div id="emptyStateBox" class="hidden rounded-2xl bg-surface border border-line p-10 text-center">
-        <p class="text-sm font-medium text-ink mb-1">No matching fragrances found</p>
-        <p class="text-xs text-muted mb-5">Try another keyword or show all fragrances.</p>
-        <button
-          id="resetCatalogBtn"
-          type="button"
-          class="px-5 py-2.5 rounded-full bg-ink text-surface text-xs font-medium uppercase tracking-[0.12em]"
-        >
-          Reset Filters
-        </button>
-      </div>
-
-    </section>
-
-    <!-- =================================================================== -->
-    <!-- 6. STOCK REQUEST BOX ("WHAT SHOULD WE STOCK NEXT?")                 -->
-    <!-- =================================================================== -->
-    <section aria-label="Stock Request" class="max-w-5xl mx-auto px-4 sm:px-6 pb-14">
-      <div class="rounded-2xl bg-surface border border-line p-6 sm:p-8">
-        <p class="text-[11px] uppercase tracking-[0.18em] text-muted font-medium mb-1.5">
-          Fragrance Requests
-        </p>
-        <h2 class="text-xl sm:text-2xl font-normal uppercase tracking-wide text-ink mb-2">
-          WHAT SHOULD WE STOCK NEXT?
-        </h2>
-        <p class="text-xs sm:text-sm text-muted mb-5 max-w-lg">
-          Tell us a fragrance you want decanted for an upcoming occasion, daily wear, or budget.
-        </p>
-
-        <form id="stockRequestForm" class="flex flex-col sm:flex-row gap-3">
-          <label for="stockRequestInput" class="sr-only">Fragrance name to request</label>
-          <input
-            id="stockRequestInput"
-            type="text"
-            required
-            placeholder="e.g. Creed Aventus or Khamrah Qahwa"
-            class="flex-1 px-4 py-3 rounded-xl bg-paper border border-line text-sm text-ink placeholder:text-muted/75 focus:outline-none focus:border-ink transition-colors min-h-[48px]"
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 rounded-xl bg-ink text-surface text-xs font-medium uppercase tracking-[0.14em] hover:bg-ink/90 transition-colors min-h-[48px] whitespace-nowrap"
-          >
-            Request on WhatsApp
-          </button>
-        </form>
-        <p id="stockRequestNotice" class="hidden text-xs text-gold mt-2.5"></p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ===================================================================== -->
-  <!-- 6. LIGHT-EDITORIAL FOOTER                                             -->
-  <!-- ===================================================================== -->
-  <footer class="bg-surface border-t border-line">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs text-muted">
-        <div>
-          <p class="brand-wordmark text-xs font-medium uppercase text-ink mb-2.5">
-            FRAGENTRE
-          </p>
-          <p class="leading-relaxed">
-            Curated fragrance decants for every budget, mood, and occasion.
-          </p>
-        </div>
-
-        <div>
-          <p class="text-xs font-medium uppercase tracking-[0.12em] text-ink mb-2.5">
-            Pick-up &amp; Delivery
-          </p>
-          <ul class="space-y-1.5">
-            <li>Pick-up: Trunk Road, Taranibash, Appayon Tower</li>
-            <li>Delivery: ৳120 nationwide Cash on Delivery</li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="text-xs font-medium uppercase tracking-[0.12em] text-ink mb-2.5">
-            Contact
-          </p>
-          <div class="flex flex-wrap gap-x-4 gap-y-2">
-            <a
-              href="https://instagram.com/fragentre"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-ink hover:underline underline-offset-4"
-            >
-              Instagram (@fragentre)
-            </a>
-            <a
-              href="https://facebook.com/fragentre"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-ink hover:underline underline-offset-4"
-            >
-              Facebook (@fragentre)
-            </a>
-            <a
-              href="https://wa.me/8801700000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-ink hover:underline underline-offset-4"
-            >
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted">
-        <p>&copy; <span id="footerYear">2026</span> FRAGENTRE. All rights reserved.</p>
-        <p>Light Editorial Storefront</p>
-      </div>
+<main class="wrap">
+  <div class="tools">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand">
     </div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <div id="collection">
+    <div id="list"></div>
+  </div>
+
+  <section class="suggest" id="request">
+    <h3>What should we stock next?</h3>
+    <p>Tell us a fragrance you want decanted and we will try to bring it in.</p>
+    <input id="sg" type="text" placeholder="e.g. Amber Oud Gold" aria-label="Perfume suggestion">
+    <button id="sgb" type="button">Request on WhatsApp</button>
+  </section>
+
+  <footer>
+    <div class="wordmark" style="font-size:15px;letter-spacing:.18em">FRAGENTRE</div>
+    <div class="f-links">
+      <button type="button" data-page="home">Home</button>
+      <button type="button" data-page="pickups">Pick-up points</button>
+      <button type="button" data-page="delivery">Delivery policy</button>
+      <button type="button" data-page="contact">Contact us</button>
+      <button type="button" data-page="about">About</button>
+    </div>
+    <div class="f-bot">© FRAGENTRE • Hand-decanted in Bangladesh</div>
   </footer>
+</main>
 
-  <!-- ===================================================================== -->
-  <!-- 5A. SLIDE-OVER NAVIGATION DRAWER                                      -->
-  <!-- ===================================================================== -->
-  <div id="navBackdrop" class="fixed inset-0 z-50 bg-ink/30 hidden"></div>
-  <aside
-    id="navDrawer"
-    aria-label="Store navigation"
-    class="fixed top-0 left-0 bottom-0 z-50 w-80 max-w-[85vw] bg-surface border-r border-line shadow-xl -translate-x-full transition-transform duration-250 ease-out flex flex-col"
-  >
-    <div class="px-6 h-16 border-b border-line flex items-center justify-between">
-      <span class="brand-wordmark text-sm font-medium uppercase text-ink">FRAGENTRE</span>
-      <button
-        id="menuCloseBtn"
-        type="button"
-        aria-label="Close menu"
-        class="p-2 -mr-2 rounded-full text-muted hover:text-ink hover:bg-soft min-w-[40px] min-h-[40px] flex items-center justify-center"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+<!-- Separate Screen for Pick-up points, Delivery policy, Contact us, and About -->
+<section class="page-view" id="pv" role="dialog" aria-modal="true" aria-label="Information page" aria-hidden="true">
+  <div class="pv-wrap">
+    <button class="pv-back" id="pvBack" type="button" aria-label="Back to home">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Back to Home
+    </button>
+    <div id="pvBody"></div>
+  </div>
+</section>
 
-    <div class="flex-1 overflow-y-auto px-6 py-5 space-y-1 text-sm">
-      <button
-        type="button"
-        id="drawerHomeBtn"
-        class="w-full text-left py-3 px-2 rounded-lg text-ink font-medium hover:bg-soft transition-colors"
-      >
-        Home
-      </button>
+<div class="bar" id="bar">
+  <div class="in">
+    <div><small id="bc">0 items</small><b id="bs">৳0</b></div>
+    <button id="vb" type="button">View Bag</button>
+  </div>
+</div>
 
-      <!-- Shop (Middle Eastern & Designer) -->
-      <div class="border-y border-line my-1 py-1">
-        <button
-          type="button"
-          id="drawerShopToggle"
-          aria-expanded="true"
-          class="w-full text-left py-3 px-2 rounded-lg text-ink font-medium hover:bg-soft transition-colors flex items-center justify-between"
-        >
-          <span>Shop</span>
-          <svg id="drawerShopChevron" class="w-4 h-4 text-muted rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="drawerShopItems" class="pl-4 pr-2 pb-2 space-y-1 text-xs text-muted">
-          <button
-            type="button"
-            data-shop-group="Middle Eastern"
-            class="w-full text-left py-2.5 px-3 rounded-lg hover:bg-paper hover:text-ink transition-colors"
-          >
-            Middle Eastern
-          </button>
-          <button
-            type="button"
-            data-shop-group="Designer"
-            class="w-full text-left py-2.5 px-3 rounded-lg hover:bg-paper hover:text-ink transition-colors"
-          >
-            Designer
-          </button>
-        </div>
-      </div>
+<div class="ov" id="ov"></div>
 
-      <button
-        type="button"
-        data-info-open="pickup"
-        class="w-full text-left py-3 px-2 rounded-lg text-ink hover:bg-soft transition-colors flex items-center justify-between"
-      >
-        <span>Pick-up points</span>
-        <span class="text-xs text-muted">3 spots</span>
-      </button>
-
-      <button
-        type="button"
-        data-info-open="delivery"
-        class="w-full text-left py-3 px-2 rounded-lg text-ink hover:bg-soft transition-colors flex items-center justify-between"
-      >
-        <span>Delivery policy</span>
-        <span class="text-xs text-muted">৳120 COD</span>
-      </button>
-
-      <button
-        type="button"
-        data-info-open="contact"
-        class="w-full text-left py-3 px-2 rounded-lg text-ink hover:bg-soft transition-colors flex items-center justify-between"
-      >
-        <span>Contact us</span>
-        <span class="text-xs text-muted">@fragentre</span>
-      </button>
-
-      <button
-        type="button"
-        data-info-open="about"
-        class="w-full text-left py-3 px-2 rounded-lg text-ink hover:bg-soft transition-colors"
-      >
-        About
-      </button>
-    </div>
-
-    <div class="p-6 border-t border-line bg-paper text-xs text-muted space-y-1">
-      <p class="text-ink font-medium">Pick-up Locations</p>
-      <p>Trunk Road · Taranibash · Appayon Tower</p>
-      <p class="pt-1">Nationwide COD: <span class="text-ink font-medium">৳120</span></p>
-    </div>
-  </aside>
-
-  <!-- ===================================================================== -->
-  <!-- 5B. SHOPPING BAG DRAWER                                               -->
-  <!-- ===================================================================== -->
-  <div id="bagBackdrop" class="fixed inset-0 z-50 bg-ink/30 hidden"></div>
-  <aside
-    id="bagDrawer"
-    aria-label="Shopping bag"
-    class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-surface border-l border-line shadow-xl translate-x-full transition-transform duration-250 ease-out flex flex-col"
-  >
-    <div class="px-6 h-16 border-b border-line flex items-center justify-between">
-      <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-ink">Shopping Bag</h2>
-      <button
-        id="bagCloseBtn"
-        type="button"
-        aria-label="Close shopping bag"
-        class="p-2 -mr-2 rounded-full text-muted hover:text-ink hover:bg-soft min-w-[40px] min-h-[40px] flex items-center justify-center"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <div id="bagList" class="flex-1 overflow-y-auto p-6 space-y-3">
-      <!-- Bag items rendered by JS -->
-    </div>
-
-    <div class="p-6 border-t border-line bg-paper space-y-4">
-      <!-- Delivery vs Pick-up Toggle -->
-      <div>
-        <p class="text-[11px] uppercase tracking-[0.12em] text-muted mb-2">Fulfillment Method</p>
-        <div class="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            id="fulfillmentCodBtn"
-            data-fulfillment="cod"
-            class="py-2.5 px-3 rounded-xl border text-xs font-medium bg-ink text-surface border-ink transition-colors"
-          >
-            Nationwide COD (৳120)
-          </button>
-          <button
-            type="button"
-            id="fulfillmentPickupBtn"
-            data-fulfillment="pickup"
-            class="py-2.5 px-3 rounded-xl border text-xs font-medium bg-surface text-ink border-line hover:bg-soft transition-colors"
-          >
-            Pick-up Point (৳0)
-          </button>
-        </div>
-
-        <!-- Pick-up Point Selector (visible when Pick-up Point selected) -->
-        <div id="pickupLocationWrap" class="hidden mt-2.5">
-          <label for="pickupPointSelect" class="sr-only">Choose pick-up point</label>
-          <select
-            id="pickupPointSelect"
-            class="w-full px-3 py-2.5 rounded-xl bg-surface border border-line text-xs text-ink focus:outline-none focus:border-ink"
-          >
-            <option value="Trunk Road">Trunk Road</option>
-            <option value="Taranibash">Taranibash</option>
-            <option value="Appayon Tower">Appayon Tower</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Totals -->
-      <div class="space-y-1.5 text-xs border-t border-line pt-3">
-        <div class="flex justify-between text-muted">
-          <span>Subtotal</span>
-          <span id="bagSubtotalVal" class="text-ink font-medium">৳0</span>
-        </div>
-        <div class="flex justify-between text-muted">
-          <span>Delivery Fee</span>
-          <span id="bagDeliveryVal" class="text-ink font-medium">৳120</span>
-        </div>
-        <div class="flex justify-between text-sm font-medium text-ink pt-1">
-          <span>Total</span>
-          <span id="bagTotalVal">৳120</span>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        id="bagCheckoutBtn"
-        disabled
-        class="w-full py-3.5 rounded-full bg-ink text-surface text-xs font-medium uppercase tracking-[0.14em] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-ink/90 transition-colors min-h-[48px]"
-      >
-        Order via WhatsApp
-      </button>
-    </div>
-  </aside>
-
-  <!-- ===================================================================== -->
-  <!-- 4. PRODUCT DETAIL MODAL (BREADCRUMB + 2-COL SELECT SIZE + STICKY BAR) -->
-  <!-- ===================================================================== -->
-  <div id="detailBackdrop" class="fixed inset-0 z-50 bg-ink/35 hidden items-end sm:items-center justify-center p-0 sm:p-4">
-    <div
-      id="detailModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="detailTitle"
-      class="w-full sm:max-w-xl bg-surface border border-line rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92vh] flex flex-col overflow-hidden"
-    >
-      <!-- Top Header with Breadcrumb (Home / Brand / Perfume) -->
-      <div class="px-5 py-4 border-b border-line flex items-center justify-between gap-3 bg-surface">
-        <nav id="detailBreadcrumb" aria-label="Breadcrumb" class="flex flex-wrap items-center gap-1.5 text-xs text-muted">
-          <!-- Populated by JS -->
-        </nav>
-        <button
-          id="detailCloseBtn"
-          type="button"
-          aria-label="Close product details"
-          class="p-2 -mr-2 rounded-full text-muted hover:text-ink hover:bg-soft min-w-[40px] min-h-[40px] flex items-center justify-center shrink-0"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Scrollable Body -->
-      <div class="flex-1 overflow-y-auto p-5 sm:p-6">
-        <!-- Bottle Preview Frame -->
-        <div id="detailBottleFrame" class="rounded-2xl bg-paper border border-line py-7 px-6 flex items-center justify-center mb-5">
-          <!-- Populated by JS -->
-        </div>
-
-        <p id="detailBrand" class="text-[11px] uppercase tracking-[0.16em] text-muted font-medium mb-1"></p>
-        <h2 id="detailTitle" class="text-2xl sm:text-3xl font-normal text-ink mb-1.5"></h2>
-        <p id="detailNotesLine" class="text-xs sm:text-sm text-muted mb-4"></p>
-
-        <!-- Price & Stock Status Row -->
-        <div class="flex items-center justify-between pb-5 mb-5 border-b border-line">
-          <div>
-            <span id="detailPriceDisplay" class="text-xl font-medium text-ink"></span>
-          </div>
-          <span id="detailStatusBadge" class="text-xs font-medium px-3 py-1 rounded-full"></span>
-        </div>
-
-        <!-- 2-Column SELECT SIZE Grid (5ML, 10ML, 15ML, 30ML) -->
-        <div>
-          <p class="text-[11px] uppercase tracking-[0.16em] text-muted font-medium mb-3">
-            SELECT SIZE
-          </p>
-          <div id="detailSizeGrid" class="grid grid-cols-2 gap-2.5">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Sticky Action Bar -->
-      <div id="detailStickyBar" class="p-4 sm:px-6 border-t border-line bg-surface">
-        <!-- Populated by JS -->
-      </div>
-    </div>
+<nav class="nav-drawer" id="navDrawer" aria-label="Main navigation" aria-hidden="true">
+  <div class="nav-top">
+    <button class="close-circle" id="menuClose" type="button" aria-label="Close menu">×</button>
+    <span class="menu-label">MENU</span>
+    <span style="width:42px" aria-hidden="true"></span>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- INFO MODAL (PICK-UP POINTS, DELIVERY POLICY, CONTACT US, ABOUT)       -->
-  <!-- ===================================================================== -->
-  <div id="infoBackdrop" class="fixed inset-0 z-50 bg-ink/35 hidden items-center justify-center p-4">
-    <div
-      id="infoModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="infoTitle"
-      class="w-full max-w-md bg-surface border border-line rounded-2xl shadow-xl p-6"
-    >
-      <div class="flex items-center justify-between pb-3.5 border-b border-line">
-        <h2 id="infoTitle" class="text-base font-medium uppercase tracking-[0.08em] text-ink"></h2>
-        <button
-          id="infoCloseBtn"
-          type="button"
-          aria-label="Close dialog"
-          class="p-2 -mr-2 rounded-full text-muted hover:text-ink hover:bg-soft min-w-[40px] min-h-[40px] flex items-center justify-center"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div id="infoBody" class="pt-4 text-sm text-muted leading-relaxed space-y-3">
-        <!-- Populated by JS -->
-      </div>
-    </div>
+  <div class="nav-sec-title">MAIN</div>
+  <ul class="nav-list">
+    <li><button class="nav-row" type="button" data-page="home"><span>Home</span><span>›</span></button></li>
+    <li>
+      <button class="nav-row" id="shopToggle" type="button" aria-expanded="false" aria-controls="shopSub">
+        <span>Shop</span><span>›</span>
+      </button>
+      <ul class="sub-list" id="shopSub">
+        <li><button type="button" data-cat="middle-eastern"><span>Middle Eastern</span><span>›</span></button></li>
+        <li><button type="button" data-cat="designer"><span>Designer</span><span>›</span></button></li>
+      </ul>
+    </li>
+    <li><button class="nav-row" type="button" data-page="pickups"><span>Pick-up points</span><span>›</span></button></li>
+    <li><button class="nav-row" type="button" data-page="delivery"><span>Delivery policy</span><span>›</span></button></li>
+  </ul>
+
+  <div class="nav-sec-title">ALL YOU NEED TO KNOW</div>
+  <ul class="nav-list">
+    <li><button class="nav-row" type="button" data-page="contact"><span>Contact us</span><span>›</span></button></li>
+    <li><button class="nav-row" type="button" data-page="about"><span>About</span><span>›</span></button></li>
+  </ul>
+</nav>
+
+<aside class="drawer" id="dr" aria-label="Shopping bag" aria-hidden="true">
+  <div class="dh"><h3>Your Bag</h3><button id="cl" type="button" aria-label="Close bag">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="dl">
+    <div class="lbl" style="margin:0 0 4px">DELIVERY</div>
+    <label class="opt" id="o120"><input type="radio" name="d" value="120" checked><span>Nationwide Delivery</span><b>৳120</b></label>
   </div>
-
-  <!-- ===================================================================== -->
-  <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
-  <!-- ===================================================================== -->
-  <script>
-    (function () {
-      'use strict';
-
-      // Replace with your store WhatsApp number (country code + number, no '+' or spaces)
-      const WHATSAPP_NUMBER = '8801700000000';
-      const COD_FEE = 120;
-
-      // Catalog Data (5 Core Fragrances)
-      const CATALOG = [
-        {
-          id: 'hawas-ice',
-          name: 'Hawas Ice',
-          brand: 'Rasasi',
-          group: 'Middle Eastern',
-          notesShort: 'Fresh, fruity, icy',
-          inStock: true,
-          fromPrice: 320,
-          bottleAccent: '#2563EB',
-          bottleTint: '#DBEAFE',
-          sizes: [
-            { label: '5ML', price: 320, available: true },
-            { label: '10ML', price: 610, available: true },
-            { label: '15ML', price: 890, available: true },
-            { label: '30ML', price: 1720, available: true },
-          ],
-        },
-        {
-          id: 'rayhaan-aquatica',
-          name: 'Rayhaan Aquatica',
-          brand: 'Rayhaan',
-          group: 'Middle Eastern',
-          notesShort: 'Aquatic, citrus, crisp',
-          inStock: true,
-          fromPrice: 290,
-          bottleAccent: '#0D9488',
-          bottleTint: '#CCFBF1',
-          sizes: [
-            { label: '5ML', price: 290, available: true },
-            { label: '10ML', price: 550, available: true },
-            { label: '15ML', price: 800, available: true },
-            { label: '30ML', price: 1550, available: true },
-          ],
-        },
-        {
-          id: 'liquid-brun',
-          name: 'Liquid Brun',
-          brand: 'French Avenue',
-          group: 'Middle Eastern',
-          notesShort: 'Warm vanilla, spice, amber',
-          inStock: true,
-          fromPrice: 360,
-          bottleAccent: '#8B7228',
-          bottleTint: '#F7F3E6',
-          sizes: [
-            { label: '5ML', price: 360, available: true },
-            { label: '10ML', price: 690, available: true },
-            { label: '15ML', price: 1010, available: true },
-            { label: '30ML', price: 1950, available: true },
-          ],
-        },
-        {
-          id: 'hawas-black',
-          name: 'Hawas Black',
-          brand: 'Rasasi',
-          group: 'Middle Eastern',
-          notesShort: 'Woody, mossy, bold',
-          inStock: false,
-          fromPrice: 300,
-          bottleAccent: '#3F3E3A',
-          bottleTint: '#E7E5E0',
-          sizes: [
-            { label: '5ML', price: 300, available: false },
-            { label: '10ML', price: 580, available: false },
-            { label: '15ML', price: 850, available: false },
-            { label: '30ML', price: 1650, available: false },
-          ],
-        },
-        {
-          id: '212-men',
-          name: '212 Men',
-          brand: 'Carolina Herrera',
-          group: 'Designer',
-          notesShort: 'Clean, aromatic, woody',
-          inStock: false,
-          fromPrice: 460,
-          bottleAccent: '#64748B',
-          bottleTint: '#E2E8F0',
-          sizes: [
-            { label: '5ML', price: 460, available: false },
-            { label: '10ML', price: 880, available: false },
-            { label: '15ML', price: 1290, available: false },
-            { label: '30ML', price: 2480, available: false },
-          ],
-        },
-      ];
-
-      const BRAND_FILTERS = [
-        'All',
-        'Rasasi',
-        'Rayhaan',
-        'French Avenue',
-        'Carolina Herrera',
-      ];
-
-      const state = {
-        activeFilter: 'All',
-        searchQuery: '',
-        modalItemId: null,
-        modalSizeLabel: null,
-        fulfillment: 'cod', // 'cod' | 'pickup'
-        bag: [], // { id, name, brand, sizeLabel, unitPrice, qty }
-      };
-
-      // DOM Elements
-      const collectionSection = document.getElementById('collection');
-      const collectionHeading = document.getElementById('collectionHeading');
-      const catalogCountLabel = document.getElementById('catalogCountLabel');
-      const searchInput = document.getElementById('searchInput');
-      const clearSearchBtn = document.getElementById('clearSearchBtn');
-      const brandPillsRow = document.getElementById('brandPillsRow');
-      const productCardsGrid = document.getElementById('productCardsGrid');
-      const emptyStateBox = document.getElementById('emptyStateBox');
-      const resetCatalogBtn = document.getElementById('resetCatalogBtn');
-
-      // Reusable SVG Bottle Artwork Helper (zero external images)
-      function buildBottleSvg(item, sizeClass = 'w-24 h-28') {
-        return `
-          <svg viewBox="0 0 110 124" class="${sizeClass} select-none" aria-hidden="true">
-            <ellipse cx="55" cy="116" rx="28" ry="5" fill="#141413" fill-opacity="0.1" />
-            <rect x="44" y="10" width="22" height="10" rx="2" fill="#141413" />
-            <rect x="49" y="20" width="12" height="7" fill="#E6E2DA" stroke="#141413" stroke-width="1" />
-            <rect x="27" y="27" width="56" height="82" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="1.3" />
-            <rect x="31" y="58" width="48" height="47" rx="7" fill="${item.bottleTint}" stroke="${item.bottleAccent}" stroke-opacity="0.35" stroke-width="1" />
-            <text x="55" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.2" fill="#141413">
-              DECANT
-            </text>
-          </svg>
-        `;
-      }
-
-      // ===================================================================
-      // RENDER BRAND FILTER PILLS & PRODUCT CARDS
-      // ===================================================================
-      function renderBrandPills() {
-        brandPillsRow.innerHTML = '';
-
-        BRAND_FILTERS.forEach((filterName) => {
-          const active = state.activeFilter === filterName;
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.textContent = filterName;
-          btn.className = [
-            'px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-colors min-h-[38px] border',
-            active
-              ? 'bg-ink text-surface border-ink'
-              : 'bg-surface text-muted border-line hover:text-ink hover:border-ink/40',
-          ].join(' ');
-
-          btn.addEventListener('click', () => {
-            state.activeFilter = filterName;
-            renderBrandPills();
-            renderProducts();
-          });
-
-          brandPillsRow.appendChild(btn);
-        });
-      }
-
-      function getFilteredItems() {
-        const q = state.searchQuery.trim().toLowerCase();
-
-        return CATALOG.filter((item) => {
-          const matchesFilter =
-            state.activeFilter === 'All' ||
-            item.brand === state.activeFilter ||
-            item.group === state.activeFilter;
-
-          const matchesQuery =
-            !q ||
-            item.name.toLowerCase().includes(q) ||
-            item.brand.toLowerCase().includes(q) ||
-            item.group.toLowerCase().includes(q) ||
-            item.notesShort.toLowerCase().includes(q);
-
-          return matchesFilter && matchesQuery;
-        });
-      }
-
-      function renderProducts() {
-        const items = getFilteredItems();
-
-        collectionHeading.textContent =
-          state.activeFilter === 'All' ? 'All Fragrances' : state.activeFilter;
-        catalogCountLabel.textContent =
-          items.length === 1 ? '1 fragrance' : `${items.length} fragrances`;
-
-        productCardsGrid.innerHTML = '';
-
-        if (items.length === 0) {
-          productCardsGrid.classList.add('hidden');
-          emptyStateBox.classList.remove('hidden');
-          return;
-        }
-
-        productCardsGrid.classList.remove('hidden');
-        emptyStateBox.classList.add('hidden');
-
-        items.forEach((item) => {
-          const article = document.createElement('article');
-          article.className =
-            'card-press rounded-2xl bg-surface border border-line overflow-hidden flex flex-col justify-between hover:border-ink/35';
-
-          const priceOrStatus = item.inStock
-            ? `<p class="text-base font-medium text-ink">৳${item.fromPrice}</p>`
-            : `<p class="text-sm font-medium text-muted">Sold out · <span class="text-ink">From ৳${item.fromPrice}</span></p>`;
-
-          article.innerHTML = `
-            <div>
-              <!-- Crisp White Image Frame -->
-              <button
-                type="button"
-                data-open-detail="${item.id}"
-                aria-label="View details for ${item.name}"
-                class="w-full bg-surface border-b border-line py-8 px-6 flex items-center justify-center focus:outline-none hover:bg-paper/60 transition-colors"
-              >
-                ${buildBottleSvg(item, 'w-28 h-32')}
-              </button>
-
-              <!-- Card Details -->
-              <div class="p-5 pb-3">
-                <p class="text-[11px] uppercase tracking-[0.16em] text-muted font-medium mb-1">
-                  ${item.brand}
-                </p>
-                <button
-                  type="button"
-                  data-open-detail="${item.id}"
-                  class="text-left text-lg font-medium text-ink hover:underline underline-offset-4 block mb-1"
-                >
-                  ${item.name}
-                </button>
-                <p class="text-xs sm:text-sm text-muted">
-                  ${item.notesShort}
-                </p>
-              </div>
-            </div>
-
-            <!-- FROM Price + Outlined VIEW DETAILS Button -->
-            <div class="px-5 pb-5 pt-3 border-t border-line/60 flex items-center justify-between gap-3">
-              <div>
-                <p class="text-[10px] uppercase tracking-[0.14em] text-muted">FROM</p>
-                ${priceOrStatus}
-              </div>
-              <button
-                type="button"
-                data-open-detail="${item.id}"
-                class="px-4 py-2.5 rounded-full bg-surface text-ink border border-line hover:border-ink text-xs font-medium uppercase tracking-[0.1em] transition-colors min-h-[42px] whitespace-nowrap"
-              >
-                VIEW DETAILS
-              </button>
-            </div>
-          `;
-
-          productCardsGrid.appendChild(article);
-        });
-      }
-
-      // Search & Reset Handlers
-      searchInput.addEventListener('input', (e) => {
-        state.searchQuery = e.target.value;
-        clearSearchBtn.classList.toggle('hidden', state.searchQuery.length === 0);
-        renderProducts();
-      });
-
-      clearSearchBtn.addEventListener('click', () => {
-        state.searchQuery = '';
-        searchInput.value = '';
-        clearSearchBtn.classList.add('hidden');
-        renderProducts();
-      });
-
-      resetCatalogBtn.addEventListener('click', () => {
-        state.activeFilter = 'All';
-        state.searchQuery = '';
-        searchInput.value = '';
-        clearSearchBtn.classList.add('hidden');
-        renderBrandPills();
-        renderProducts();
-      });
-
-      productCardsGrid.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-open-detail]');
-        if (!btn) return;
-        openDetailModal(btn.getAttribute('data-open-detail'));
-      });
-
-      // ===================================================================
-      // PRODUCT DETAIL MODAL (BREADCRUMB + 2-COL SELECT SIZE + STICKY BAR)
-      // ===================================================================
-      const detailBackdrop = document.getElementById('detailBackdrop');
-      const detailBreadcrumb = document.getElementById('detailBreadcrumb');
-      const detailBottleFrame = document.getElementById('detailBottleFrame');
-      const detailBrand = document.getElementById('detailBrand');
-      const detailTitle = document.getElementById('detailTitle');
-      const detailNotesLine = document.getElementById('detailNotesLine');
-      const detailPriceDisplay = document.getElementById('detailPriceDisplay');
-      const detailStatusBadge = document.getElementById('detailStatusBadge');
-      const detailSizeGrid = document.getElementById('detailSizeGrid');
-      const detailStickyBar = document.getElementById('detailStickyBar');
-
-      function openDetailModal(itemId) {
-        const item = CATALOG.find((c) => c.id === itemId);
-        if (!item) return;
-
-        state.modalItemId = item.id;
-        const firstAvailable = item.sizes.find((s) => s.available);
-        state.modalSizeLabel = firstAvailable ? firstAvailable.label : item.sizes[0].label;
-
-        // Breadcrumb: Home / Brand / Perfume
-        detailBreadcrumb.innerHTML = `
-          <button type="button" id="bcHomeBtn" class="hover:text-ink hover:underline underline-offset-4">Home</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" id="bcBrandBtn" class="hover:text-ink hover:underline underline-offset-4">${item.brand}</button>
-          <span aria-hidden="true">/</span>
-          <span class="text-ink font-medium">${item.name}</span>
-        `;
-
-        document.getElementById('bcHomeBtn').addEventListener('click', () => {
-          closeDetailModal();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        document.getElementById('bcBrandBtn').addEventListener('click', () => {
-          closeDetailModal();
-          state.activeFilter = item.brand;
-          renderBrandPills();
-          renderProducts();
-          collectionSection.scrollIntoView({ behavior: 'smooth' });
-        });
-
-        detailBottleFrame.innerHTML = buildBottleSvg(item, 'w-32 h-36');
-        detailBrand.textContent = `${item.brand} · ${item.group}`;
-        detailTitle.textContent = item.name;
-        detailNotesLine.textContent = item.notesShort;
-
-        if (item.inStock) {
-          detailStatusBadge.textContent = 'In Stock';
-          detailStatusBadge.className = 'text-xs font-medium px-3 py-1 rounded-full bg-goldSoft text-gold border border-gold/25';
-        } else {
-          detailStatusBadge.textContent = 'Sold out';
-          detailStatusBadge.className = 'text-xs font-medium px-3 py-1 rounded-full bg-soft text-muted border border-line';
-        }
-
-        renderDetailSizesAndBar(item);
-
-        detailBackdrop.classList.remove('hidden');
-        detailBackdrop.classList.add('flex');
-      }
-
-      function renderDetailSizesAndBar(item) {
-        const selectedSize =
-          item.sizes.find((s) => s.label === state.modalSizeLabel) || item.sizes[0];
-
-        detailPriceDisplay.textContent = `৳${selectedSize.price}`;
-
-        detailSizeGrid.innerHTML = '';
-        item.sizes.forEach((sz) => {
-          const isSelected = sz.label === selectedSize.label;
-          const btn = document.createElement('button');
-          btn.type = 'button';
-
-          if (!sz.available) {
-            btn.className =
-              'py-3 px-3.5 rounded-xl border border-line bg-paper text-muted flex flex-col items-center justify-center min-h-[58px] cursor-pointer';
-            btn.innerHTML = `
-              <span class="text-xs font-semibold line-through">${sz.label}</span>
-              <span class="text-[11px] mt-0.5">Sold out</span>
-            `;
-          } else {
-            btn.className = [
-              'py-3 px-3.5 rounded-xl border flex flex-col items-center justify-center min-h-[58px] transition-colors',
-              isSelected
-                ? 'bg-ink text-surface border-ink'
-                : 'bg-surface text-ink border-line hover:border-ink/40',
-            ].join(' ');
-            btn.innerHTML = `
-              <span class="text-xs font-semibold">${sz.label}</span>
-              <span class="text-[11px] mt-0.5 ${isSelected ? 'text-surface/80' : 'text-muted'}">৳${sz.price}</span>
-            `;
-          }
-
-          btn.addEventListener('click', () => {
-            state.modalSizeLabel = sz.label;
-            renderDetailSizesAndBar(item);
-          });
-
-          detailSizeGrid.appendChild(btn);
-        });
-
-        // Sticky Action Bar
-        if (item.inStock && selectedSize.available) {
-          detailStickyBar.innerHTML = `
-            <div class="flex items-center justify-between gap-4">
-              <div>
-                <p class="text-[11px] text-muted">${item.name} · ${selectedSize.label}</p>
-                <p class="text-base font-medium text-ink">৳${selectedSize.price}</p>
-              </div>
-              <button
-                type="button"
-                id="detailAddBagBtn"
-                class="px-6 py-3.5 rounded-full bg-ink text-surface text-xs font-medium uppercase tracking-[0.14em] hover:bg-ink/90 transition-colors min-h-[48px]"
-              >
-                Add to Bag
-              </button>
-            </div>
-          `;
-
-          document.getElementById('detailAddBagBtn').addEventListener('click', () => {
-            addItemToBag(item, selectedSize);
-            closeDetailModal();
-            openBagDrawer();
-          });
-        } else {
-          const waRestockUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-            `Hello Fragentre, please notify me or help with a custom request for ${item.name} (${item.brand}) — ${selectedSize.label}.`
-          )}`;
-
-          detailStickyBar.innerHTML = `
-            <div class="flex items-center justify-between gap-3">
-              <div>
-                <p class="text-xs font-medium text-ink">${item.name}</p>
-                <p class="text-xs text-muted">Sold out · ${selectedSize.label}</p>
-              </div>
-              <a
-                href="${waRestockUrl}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-5 py-3 rounded-full bg-ink text-surface text-xs font-medium uppercase tracking-[0.12em] hover:bg-ink/90 transition-colors min-h-[46px] inline-flex items-center justify-center whitespace-nowrap"
-              >
-                Notify / Request
-              </a>
-            </div>
-          `;
-        }
-      }
-
-      function closeDetailModal() {
-        detailBackdrop.classList.add('hidden');
-        detailBackdrop.classList.remove('flex');
-      }
-
-      document.getElementById('detailCloseBtn').addEventListener('click', closeDetailModal);
-      detailBackdrop.addEventListener('click', (e) => {
-        if (e.target === detailBackdrop) closeDetailModal();
-      });
-
-      // ===================================================================
-      // SLIDE-OVER NAVIGATION DRAWER
-      // ===================================================================
-      const navBackdrop = document.getElementById('navBackdrop');
-      const navDrawer = document.getElementById('navDrawer');
-      const drawerShopToggle = document.getElementById('drawerShopToggle');
-      const drawerShopItems = document.getElementById('drawerShopItems');
-      const drawerShopChevron = document.getElementById('drawerShopChevron');
-
-      function openNavDrawer() {
-        navBackdrop.classList.remove('hidden');
-        requestAnimationFrame(() => navDrawer.classList.remove('-translate-x-full'));
-      }
-
-      function closeNavDrawer() {
-        navDrawer.classList.add('-translate-x-full');
-        setTimeout(() => navBackdrop.classList.add('hidden'), 250);
-      }
-
-      drawerShopToggle.addEventListener('click', () => {
-        const expanded = drawerShopToggle.getAttribute('aria-expanded') === 'true';
-        drawerShopToggle.setAttribute('aria-expanded', String(!expanded));
-        drawerShopItems.classList.toggle('hidden', expanded);
-        drawerShopChevron.classList.toggle('rotate-180', !expanded);
-      });
-
-      document.getElementById('menuOpenBtn').addEventListener('click', openNavDrawer);
-      document.getElementById('menuCloseBtn').addEventListener('click', closeNavDrawer);
-      navBackdrop.addEventListener('click', closeNavDrawer);
-
-      document.getElementById('drawerHomeBtn').addEventListener('click', () => {
-        closeNavDrawer();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      drawerShopItems.addEventListener('click', (e) => {
-        const groupBtn = e.target.closest('[data-shop-group]');
-        if (!groupBtn) return;
-        const group = groupBtn.getAttribute('data-shop-group');
-        state.activeFilter = group;
-        renderBrandPills();
-        renderProducts();
-        closeNavDrawer();
-        collectionSection.scrollIntoView({ behavior: 'smooth' });
-      });
-
-      // ===================================================================
-      // SHOPPING BAG DRAWER & CHECKOUT BUILDER
-      // ===================================================================
-      const bagBackdrop = document.getElementById('bagBackdrop');
-      const bagDrawer = document.getElementById('bagDrawer');
-      const bagBadge = document.getElementById('bagBadge');
-      const bagList = document.getElementById('bagList');
-      const bagSubtotalVal = document.getElementById('bagSubtotalVal');
-      const bagDeliveryVal = document.getElementById('bagDeliveryVal');
-      const bagTotalVal = document.getElementById('bagTotalVal');
-      const bagCheckoutBtn = document.getElementById('bagCheckoutBtn');
-      const fulfillmentCodBtn = document.getElementById('fulfillmentCodBtn');
-      const fulfillmentPickupBtn = document.getElementById('fulfillmentPickupBtn');
-      const pickupLocationWrap = document.getElementById('pickupLocationWrap');
-      const pickupPointSelect = document.getElementById('pickupPointSelect');
-
-      function openBagDrawer() {
-        bagBackdrop.classList.remove('hidden');
-        requestAnimationFrame(() => bagDrawer.classList.remove('translate-x-full'));
-      }
-
-      function closeBagDrawer() {
-        bagDrawer.classList.add('translate-x-full');
-        setTimeout(() => bagBackdrop.classList.add('hidden'), 250);
-      }
-
-      document.getElementById('bagOpenBtn').addEventListener('click', openBagDrawer);
-      document.getElementById('bagCloseBtn').addEventListener('click', closeBagDrawer);
-      bagBackdrop.addEventListener('click', closeBagDrawer);
-
-      function addItemToBag(item, sizeObj) {
-        const existing = state.bag.find(
-          (entry) => entry.id === item.id && entry.sizeLabel === sizeObj.label
-        );
-        if (existing) {
-          existing.qty += 1;
-        } else {
-          state.bag.push({
-            id: item.id,
-            name: item.name,
-            brand: item.brand,
-            sizeLabel: sizeObj.label,
-            unitPrice: sizeObj.price,
-            qty: 1,
-          });
-        }
-        renderBagDrawer();
-      }
-
-      function setFulfillment(mode) {
-        state.fulfillment = mode;
-        const isCod = mode === 'cod';
-
-        fulfillmentCodBtn.className = isCod
-          ? 'py-2.5 px-3 rounded-xl border text-xs font-medium bg-ink text-surface border-ink transition-colors'
-          : 'py-2.5 px-3 rounded-xl border text-xs font-medium bg-surface text-ink border-line hover:bg-soft transition-colors';
-
-        fulfillmentPickupBtn.className = !isCod
-          ? 'py-2.5 px-3 rounded-xl border text-xs font-medium bg-ink text-surface border-ink transition-colors'
-          : 'py-2.5 px-3 rounded-xl border text-xs font-medium bg-surface text-ink border-line hover:bg-soft transition-colors';
-
-        pickupLocationWrap.classList.toggle('hidden', isCod);
-        renderBagDrawer();
-      }
-
-      fulfillmentCodBtn.addEventListener('click', () => setFulfillment('cod'));
-      fulfillmentPickupBtn.addEventListener('click', () => setFulfillment('pickup'));
-
-      function renderBagDrawer() {
-        const totalCount = state.bag.reduce((sum, entry) => sum + entry.qty, 0);
-        const subtotal = state.bag.reduce((sum, entry) => sum + entry.unitPrice * entry.qty, 0);
-        const deliveryFee = state.bag.length === 0 ? 0 : state.fulfillment === 'cod' ? COD_FEE : 0;
-        const grandTotal = subtotal + deliveryFee;
-
-        if (totalCount > 0) {
-          bagBadge.textContent = String(totalCount);
-          bagBadge.classList.remove('hidden');
-        } else {
-          bagBadge.classList.add('hidden');
-        }
-
-        bagSubtotalVal.textContent = `৳${subtotal}`;
-        bagDeliveryVal.textContent = `৳${deliveryFee}`;
-        bagTotalVal.textContent = `৳${grandTotal}`;
-        bagCheckoutBtn.disabled = state.bag.length === 0;
-
-        if (state.bag.length === 0) {
-          bagList.innerHTML = `
-            <div class="text-center py-12 text-xs text-muted">
-              Your shopping bag is currently empty.
-            </div>
-          `;
-          return;
-        }
-
-        bagList.innerHTML = state.bag
-          .map(
-            (entry, idx) => `
-          <div class="rounded-xl bg-paper border border-line p-3.5 flex items-center justify-between gap-3">
-            <div>
-              <p class="text-[10px] uppercase tracking-[0.14em] text-muted">${entry.brand}</p>
-              <p class="text-sm font-medium text-ink">${entry.name} <span class="text-muted font-normal">(${entry.sizeLabel})</span></p>
-              <p class="text-xs text-ink mt-0.5">৳${entry.unitPrice * entry.qty}</p>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button
-                type="button"
-                data-qty-dec="${idx}"
-                aria-label="Decrease quantity"
-                class="w-8 h-8 rounded-full bg-surface border border-line text-ink text-xs flex items-center justify-center hover:bg-soft"
-              >-</button>
-              <span class="w-5 text-center text-xs font-medium">${entry.qty}</span>
-              <button
-                type="button"
-                data-qty-inc="${idx}"
-                aria-label="Increase quantity"
-                class="w-8 h-8 rounded-full bg-surface border border-line text-ink text-xs flex items-center justify-center hover:bg-soft"
-              >+</button>
-            </div>
-          </div>
-        `
-          )
-          .join('');
-      }
-
-      bagList.addEventListener('click', (e) => {
-        const dec = e.target.closest('[data-qty-dec]');
-        const inc = e.target.closest('[data-qty-inc]');
-        if (dec) {
-          const i = Number(dec.getAttribute('data-qty-dec'));
-          if (state.bag[i].qty > 1) state.bag[i].qty -= 1;
-          else state.bag.splice(i, 1);
-          renderBagDrawer();
-        } else if (inc) {
-          const i = Number(inc.getAttribute('data-qty-inc'));
-          state.bag[i].qty += 1;
-          renderBagDrawer();
-        }
-      });
-
-      bagCheckoutBtn.addEventListener('click', () => {
-        if (state.bag.length === 0) return;
-
-        const lines = state.bag.map(
-          (entry) => `- ${entry.name} (${entry.sizeLabel}) x${entry.qty} = ৳${entry.unitPrice * entry.qty}`
-        );
-        const subtotal = state.bag.reduce((sum, entry) => sum + entry.unitPrice * entry.qty, 0);
-        const deliveryLine =
-          state.fulfillment === 'cod'
-            ? `Nationwide Cash on Delivery (৳${COD_FEE})`
-            : `Pick-up Point: ${pickupPointSelect.value} (৳0)`;
-        const total = subtotal + (state.fulfillment === 'cod' ? COD_FEE : 0);
-
-        const text = encodeURIComponent(
-          `Hello Fragentre, I would like to order:\n${lines.join('\n')}\nSubtotal: ৳${subtotal}\nFulfillment: ${deliveryLine}\nTotal: ৳${total}`
-        );
-
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
-      });
-
-      // ===================================================================
-      // INFO MODAL (PICK-UP POINTS, DELIVERY POLICY, CONTACT US, ABOUT)
-      // ===================================================================
-      const infoBackdrop = document.getElementById('infoBackdrop');
-      const infoTitle = document.getElementById('infoTitle');
-      const infoBody = document.getElementById('infoBody');
-
-      const INFO_SECTIONS = {
-        pickup: {
-          title: 'Pick-up Points',
-          body: `
-            <p>Arrange local pick-up at any of our designated points:</p>
-            <ul class="list-disc pl-5 space-y-1 text-ink font-medium">
-              <li>Trunk Road</li>
-              <li>Taranibash</li>
-              <li>Appayon Tower</li>
-            </ul>
-            <p class="text-xs text-muted">Confirm timing via WhatsApp before heading out.</p>
-          `,
-        },
-        delivery: {
-          title: 'Delivery Policy',
-          body: `
-            <p>Nationwide delivery is available with <strong class="text-ink font-medium">৳120 Cash on Delivery (COD)</strong>.</p>
-            <p class="text-xs text-muted">Each decant is securely packed for transit.</p>
-          `,
-        },
-        contact: {
-          title: 'Contact Us',
-          body: `
-            <p>Connect with <strong class="text-ink font-medium">Fragentre</strong> on your preferred channel:</p>
-            <div class="flex flex-col gap-2 pt-1">
-              <a href="https://instagram.com/fragentre" target="_blank" rel="noopener noreferrer" class="text-ink underline underline-offset-4">Instagram — @fragentre</a>
-              <a href="https://facebook.com/fragentre" target="_blank" rel="noopener noreferrer" class="text-ink underline underline-offset-4">Facebook — @fragentre</a>
-              <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener noreferrer" class="text-ink underline underline-offset-4">WhatsApp Direct</a>
-            </div>
-          `,
-        },
-        about: {
-          title: 'About Fragentre',
-          body: `
-            <p><strong class="text-ink font-medium">Fragentre</strong> curates fragrances in accessible decant sizes so you can wear scents for special occasions, everyday routines, or specific budgets.</p>
-          `,
-        },
-      };
-
-      function openInfoModal(key) {
-        const info = INFO_SECTIONS[key];
-        if (!info) return;
-        infoTitle.textContent = info.title;
-        infoBody.innerHTML = info.body;
-        infoBackdrop.classList.remove('hidden');
-        infoBackdrop.classList.add('flex');
-      }
-
-      function closeInfoModal() {
-        infoBackdrop.classList.add('hidden');
-        infoBackdrop.classList.remove('flex');
-      }
-
-      document.getElementById('infoCloseBtn').addEventListener('click', closeInfoModal);
-      infoBackdrop.addEventListener('click', (e) => {
-        if (e.target === infoBackdrop) closeInfoModal();
-      });
-
-      document.addEventListener('click', (e) => {
-        const trigger = e.target.closest('[data-info-open]');
-        if (!trigger) return;
-        closeNavDrawer();
-        openInfoModal(trigger.getAttribute('data-info-open'));
-      });
-
-      // ===================================================================
-      // STOCK REQUEST FORM & KEYBOARD ESCAPE
-      // ===================================================================
-      const stockRequestForm = document.getElementById('stockRequestForm');
-      const stockRequestInput = document.getElementById('stockRequestInput');
-      const stockRequestNotice = document.getElementById('stockRequestNotice');
-
-      stockRequestForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const scentName = stockRequestInput.value.trim();
-        if (!scentName) return;
-
-        stockRequestNotice.textContent = `Opening WhatsApp to request "${scentName}"...`;
-        stockRequestNotice.classList.remove('hidden');
-
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-          `Hello Fragentre, I would like to request this fragrance for stock: ${scentName}`
-        )}`;
-        window.open(url, '_blank', 'noopener,noreferrer');
-        stockRequestInput.value = '';
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeNavDrawer();
-          closeDetailModal();
-          closeBagDrawer();
-          closeInfoModal();
-        }
-      });
-
-      // Initial Boot
-      document.getElementById('footerYear').textContent = String(new Date().getFullYear());
-      renderBrandPills();
-      renderProducts();
-      renderBagDrawer();
-    })();
-  </script>
+  <div class="tot"><span>Subtotal</span><span id="ds">৳0</span></div>
+  <div class="tot"><span>Delivery</span><span id="dd">৳120</span></div>
+  <div class="tot g"><span>Total</span><span id="dt">৳0</span></div>
+  <button class="co" id="co" type="button">Checkout on WhatsApp</button>
+</aside>
+
+<section class="dv" id="dv" role="dialog" aria-modal="true" aria-label="Perfume details" aria-hidden="true">
+  <div class="dsc" id="dsc"></div>
+  <div class="dbar" id="dbar"></div>
+</section>
+
+<script>
+(function(){
+var PHONE="8801841928296";
+var DELIVERY=120;
+var SIZES=[5,10,15,30];
+var WEARS={5:"15+ wears",10:"30+ wears",15:"45+ wears",30:"90+ wears"};
+var SPRAYS={5:"75+ sprays",10:"150+ sprays",15:"225+ sprays",30:"450+ sprays"};
+var P=[
+ {id:"hawas-ice",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Ice",img:"images/hawas-ice.png.WEBP",pr:{5:320,10:580,15:800,30:1420},vibe:"Fresh, fruity, icy",top:["Frozen Apple","Italian Bergamot","Italian Lemon","Star Anise"],heart:["Orange Blossom","Plum","Cardamom"],base:["Moss","Driftwood","Amber","Musk"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Casual outings"],desc:"A cool, crisp scent that opens with frosty apple and bright citrus, softens into plum and orange blossom, and dries down to a clean base of moss, amber and musk."},
+ {id:"rayhaan-aquatica",cat:"middle-eastern",brand:"Rayhaan",name:"Rayhaan Aquatica",img:"images/rayhaan-aquatica.png.WEBP",pr:{5:270,10:470,15:660,30:1200},vibe:"Tropical, citrusy, coconut",top:["Lime","Coconut Milk","Bergamot","Mandarin"],heart:["Sugar Cane","Jasmine","Hibiscus","Gardenia"],base:["Rum","Musk","Tonka Bean","Patchouli"],seasons:["Spring","Summer"],occ:["Daytime","Casual outings","Beach days"],desc:"Sun-warmed tropical citrus with creamy coconut milk, resting on a sweet, boozy base of rum, tonka bean and musk. Light, fresh and made for warm days."},
+ {id:"liquid-brun",cat:"middle-eastern",brand:"French Avenue",name:"Liquid Brun",img:"images/liquid-brun.png.WEBP",pr:{5:350,10:650,15:900,30:1700},vibe:"Sweet, spicy, gourmand",top:["Cinnamon","Orange Blossom","Cardamom","Bergamot"],heart:["Bourbon Vanilla","Elemi"],base:["Praline","Ambroxan","Musk","Guaiac Wood"],seasons:["Autumn","Winter"],occ:["Evenings","Date nights","Celebrations"],desc:"A rich, warm gourmand. Cinnamon and cardamom open the scent, bourbon vanilla gives it a creamy heart, and sweet praline settles over smooth woods and musk."},
+ {id:"hawas-black",cat:"middle-eastern",brand:"Rasasi",name:"Hawas Black",soldOut:true,img:"images/hawas-black.png.WEBP",pr:{5:300,10:620,15:860,30:1550},vibe:"Woody, earthy, citrusy",top:["Bergamot","Pineapple","Grapefruit"],heart:["Patchouli","Cedarwood","Jasmine"],base:["Oakmoss","Woody Notes","Amber"],seasons:["All Seasons"],occ:["Evening","Formal","Office"],desc:"A bold, woody-citrus composition opening with crisp pineapple and grapefruit, layered over earthy patchouli and cedarwood, anchored by deep oakmoss and amber."},
+ {id:"212-men",cat:"designer",brand:"Carolina Herrera",name:"212 Men",soldOut:true,img:"images/212-men.png.WEBP",pr:{5:460,10:850,15:1200,30:2200},vibe:"Crisp, green, aromatic",top:["Green Notes","Grapefruit","Spices","Bergamot","Lavender"],heart:["Ginger","Violet","Gardenia","Sage"],base:["Musk","Sandalwood","Incense","Vetiver","Guaiac Wood"],seasons:["Spring","Summer"],occ:["Daily wear","Office","Signature scent"],desc:"An energetic, clean urban classic blending fresh cut-green notes and bright grapefruit with aromatic ginger, sage, and a smooth woody-musk drydown."}
+];
+var PAGES={
+ pickups:{
+  kicker:"Collection",
+  heading:"Pick-up points",
+  text:"Scheduled in-person collection is available by prior confirmation at these locations:",
+  spots:["Trunk Road","Taranibash","Appayon Tower"]
+ },
+ delivery:{
+  kicker:"Shipping",
+  heading:"Delivery policy",
+  text:"Orders ship nationwide across Bangladesh (৳120) with Cash on Delivery. Every glass decant atomizer is packed with protective cushioning—please inspect your parcel on arrival and record an unboxing video if any issue occurs in transit."
+ },
+ contact:{
+  kicker:"Support",
+  heading:"Contact us",
+  text:"Have a question about an order, stock availability, or decant sizes? Reach us on Instagram, Facebook, or WhatsApp.",
+  socials:[
+   {label:"Instagram",handle:"@fragentre",url:"https://www.instagram.com/fragentre"},
+   {label:"Facebook",handle:"@fragentre",url:"https://www.facebook.com/fragentre"}
+  ],
+  waMsg:"Hello FRAGENTRE! I have a question regarding your decants."
+ },
+ about:{
+  kicker:"Brand",
+  heading:"About FRAGENTRE",
+  text:"FRAGENTRE makes authentic designer and Middle Eastern fragrances accessible in travel-ready glass atomizers. Every decant is hand-drawn carefully from sealed original bottles so you can experience real projection, longevity, and wearability on your skin before committing to a full bottle."
+ }
+};
+var BRANDS=["All","Rasasi","Rayhaan","French Avenue","Carolina Herrera"];
+var st={}; P.forEach(function(p){st[p.id]={size:5,qty:1}});
+var cart=[],brand="All",catFilter="all",term="";
+var curPage=null,curId=null;
+var $=function(i){return document.getElementById(i)};
+var tk=function(n){return "৳"+n.toLocaleString("en-US")};
+var find=function(id){return P.filter(function(p){return p.id===id})[0]};
+
+var IC={
+ cod:'<svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>',
+ truck:'<svg viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4.5l3.5 3.5V16h-8"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
+ shield:'<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+ bell:'<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>'
+};
+var WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>';
+
+function PH(p){return '<div class="ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6E6B64" stroke-width="1.2"><rect x="7" y="9" width="10" height="12" rx="2"/><path d="M10 9V6h4v3M9 3h6v3H9z"/></svg>'+p.name+'</div>'}
+function IMG(p,showBadge){
+ var badge=(showBadge&&p.soldOut)?'<span class="so-pill">Sold out</span>':'';
+ return '<div class="img">'+badge+'<img src="'+p.img+'" alt="'+p.name+' by '+p.brand+'" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">'+PH(p)+'</div>';
+}
+function chips(a,c){return a.map(function(n){return '<span class="'+(c||'chip')+'">'+n+'</span>'}).join("")}
+
+function card(p){
+ return '<article class="card" data-a="open" data-id="'+p.id+'">'+IMG(p,true)+
+  '<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2><p class="vibe">'+p.vibe+'</p>'+
+  '<div class="fr"><div><small>From</small><b>'+tk(p.pr[5])+'</b></div><button class="vd" type="button" data-a="open" data-id="'+p.id+'">View Details</button></div></div></article>';
+}
+function renderList(){
+ var t=term.trim().toLowerCase();
+ var arr=P.filter(function(p){
+  return (catFilter==="all"||p.cat===catFilter)&&
+         (brand==="All"||p.brand===brand)&&
+         (!t||(p.name+" "+p.brand).toLowerCase().indexOf(t)>-1);
+ });
+ $("list").innerHTML=arr.length?arr.map(card).join(""):'<div class="empty">No perfumes match your filter. Try another name or brand, or request it below.</div>';
+}
+
+function detail(p){
+ var s=st[p.id],pr=p.pr[s.size],so=!!p.soldOut;
+ var tiles=SIZES.map(function(z){
+  if(so){
+   return '<button class="size so'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><small>Sold out</small></button>';
+  }
+  return '<button class="size'+(z===s.size?' on':'')+'" type="button" data-a="size" data-id="'+p.id+'" data-v="'+z+'" aria-pressed="'+(z===s.size)+'"><b>'+z+'ML</b><span>'+tk(p.pr[z])+'</span><small>'+SPRAYS[z]+'</small></button>';
+ }).join("");
+
+ var panelContent=so?(
+  '<div class="lbl" style="margin-top:0">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
+  '<div class="so-status"><span class="so-dot"></span><span>Sold out</span></div>'+
+  '<button class="notify-btn" type="button" data-a="notify" data-id="'+p.id+'">'+IC.bell+'Notify me when it\'s restocked</button>'
+ ):(
+  '<div class="pr"><div class="price">'+tk(pr)+'</div><span class="badge">'+WEARS[s.size]+'</span></div>'+
+  '<div class="lbl">SELECT SIZE</div><div class="sizes">'+tiles+'</div>'+
+  '<div class="row"><div class="qty"><button type="button" data-a="qm" data-id="'+p.id+'" aria-label="Decrease quantity">−</button><span>'+s.qty+'</span><button type="button" data-a="qp" data-id="'+p.id+'" aria-label="Increase quantity">+</button></div>'+
+  '<button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button></div>'
+ );
+
+ var waBtn=so?'':'<button class="wa" type="button" data-a="wa" data-id="'+p.id+'">'+WAI+'Quick Order on WhatsApp</button>';
+
+ return '<nav class="crumb" aria-label="Breadcrumb"><button type="button" data-a="back">Home</button><span>/</span><span>'+p.brand+'</span><span>/</span><b>'+p.name+'</b></nav>'+
+  IMG(p,false)+'<div class="body"><div class="brand">'+p.brand+'</div><h2 class="title">'+p.name+'</h2>'+
+  '<div class="buy-panel">'+panelContent+'</div>'+
+  waBtn+
+  '<div class="sec"><div class="lbl">FRAGRANCE PYRAMID</div>'+
+   '<div class="tier"><h5>TOP NOTES</h5><div class="chips">'+chips(p.top)+'</div></div>'+
+   '<div class="tier"><h5>HEART NOTES</h5><div class="chips">'+chips(p.heart)+'</div></div>'+
+   '<div class="tier"><h5>BASE NOTES</h5><div class="chips">'+chips(p.base)+'</div></div></div>'+
+  '<div class="sec"><div class="lbl">BEST SEASONS</div><div class="chips">'+chips(p.seasons,"tag")+'</div>'+
+   '<div class="lbl" style="margin-top:18px">BEST OCCASIONS</div><div class="chips">'+chips(p.occ,"tag")+'</div></div>'+
+  '<div class="sec"><div class="lbl">ABOUT</div><p class="desc">'+p.desc+'</p></div>'+
+  '<ul class="trust"><li>'+IC.cod+'<span>Cash on delivery available across Bangladesh</span></li><li>'+IC.truck+'<span>Nationwide delivery via Steadfast Courier</span></li><li>'+IC.shield+'<span>100% genuine, hand-decanted from sealed original bottles</span></li></ul></div>';
+}
+function dbar(p){
+ if(p.soldOut){
+  return '<div><small>'+p.name+'</small><b>Sold out</b></div><button class="add" type="button" data-a="notify" data-id="'+p.id+'">Notify Me</button>';
+ }
+ var s=st[p.id];
+ return '<div><small>'+s.size+'ML'+(s.qty>1?' × '+s.qty:'')+'</small><b>'+tk(p.pr[s.size]*s.qty)+'</b></div><button class="add" type="button" data-a="add" data-id="'+p.id+'">ADD TO BAG</button>';
+}
+function lock(){
+ var navOpen=$("navDrawer").classList.contains("show");
+ var bagOpen=$("dr").classList.contains("show");
+ document.body.style.overflow=(curId||curPage||navOpen||bagOpen)?"hidden":"";
+}
+function renderDetail(){
+ var p=find(curId),sc=$("dsc"),y=sc.scrollTop;
+ sc.innerHTML=detail(p);$("dbar").innerHTML=dbar(p);sc.scrollTop=y;
+}
+function openDetail(id,nopush){
+ closePage();
+ curId=id;renderDetail();$("dsc").scrollTop=0;
+ $("dv").classList.add("show");$("dv").setAttribute("aria-hidden","false");lock();
+ if(!nopush){try{history.pushState({d:1},"","#"+id)}catch(e){}}
+}
+function closeDetail(fromPop){
+ if(!curId)return;
+ curId=null;$("dv").classList.remove("show");$("dv").setAttribute("aria-hidden","true");lock();
+ if(!fromPop&&history.state&&history.state.d){try{history.back()}catch(e){}}
+}
+
+function openPage(key){
+ openNav(false);
+ closeDetail();
+ if(key==="home"){
+  catFilter="all";brand="All";renderPills();renderList();
+  closePage();
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ var pg=PAGES[key];
+ if(!pg)return;
+ curPage=key;
+ var spotsHtml=pg.spots?('<ul class="pickup-list">'+pg.spots.map(function(s){return '<li>'+s+'<small>By prior confirmation</small></li>'}).join("")+'</ul>'):"";
+ var socialsHtml=pg.socials?('<div class="social-list">'+pg.socials.map(function(sc){return '<a class="social-link" href="'+sc.url+'" target="_blank" rel="noopener noreferrer"><span>'+sc.label+'</span><small>'+sc.handle+' ›</small></a>'}).join("")+'</div>'):"";
+ var waBtn=pg.waMsg?('<button class="pv-wa" type="button" data-a="contact-wa">'+WAI+'Message on WhatsApp</button>'):"";
+ $("pvBody").innerHTML='<div class="pv-card"><div class="pv-kicker">'+pg.kicker+'</div><h2>'+pg.heading+'</h2><p>'+pg.text+'</p>'+spotsHtml+socialsHtml+waBtn+'</div>';
+ $("pv").scrollTop=0;
+ $("pv").classList.add("show");
+ $("pv").setAttribute("aria-hidden","false");
+ lock();
+ $("pvBack").focus({preventScroll:true});
+}
+function closePage(){
+ if(!curPage)return;
+ curPage=null;
+ $("pv").classList.remove("show");
+ $("pv").setAttribute("aria-hidden","true");
+ lock();
+}
+
+function renderPills(){
+ $("pills").innerHTML=BRANDS.map(function(b){return '<button class="pill'+(b===brand?' on':'')+'" type="button" data-a="brand" data-v="'+b+'">'+b+'</button>'}).join("");
+}
+
+function sub(){return cart.reduce(function(a,i){return a+find(i.id).pr[i.size]*i.qty},0)}
+function count(){return cart.reduce(function(a,i){return a+i.qty},0)}
+function renderBag(){
+ var n=count(),s=sub();
+ $("bar").classList.toggle("show",n>0);
+ $("bc").textContent=n+(n===1?" item":" items");
+ $("bs").textContent=tk(s);
+ $("tbc").textContent=n;$("tbc").style.display=n?"":"none";
+ $("items").innerHTML=cart.length?cart.map(function(i,ix){
+  var p=find(i.id),u=p.pr[i.size];
+  return '<div class="it"><div class="t"><b>'+p.name+'</b><span>'+tk(u*i.qty)+'</span></div><small>'+p.brand+' • '+i.size+'ml • '+tk(u)+' each</small>'+
+  '<div class="c"><div class="qty"><button type="button" data-a="cm" data-v="'+ix+'" aria-label="Decrease">−</button><span>'+i.qty+'</span><button type="button" data-a="cp" data-v="'+ix+'" aria-label="Increase">+</button></div><button class="rm" type="button" data-a="rm" data-v="'+ix+'">Remove</button></div></div>';
+ }).join(""):'<div class="noitem">Your bag is empty.</div>';
+ $("ds").textContent=tk(s);
+ $("dd").textContent=tk(DELIVERY);
+ $("dt").textContent=tk(s+(cart.length?DELIVERY:0));
+ $("co").disabled=!cart.length;$("co").style.opacity=cart.length?1:.4;
+ if(!cart.length&&$("dr").classList.contains("show"))setTimeout(function(){if(!cart.length)openDrawer(false)},500);
+}
+function openDrawer(o){
+ if(o)openNav(false);
+ $("dr").classList.toggle("show",o);
+ $("dr").setAttribute("aria-hidden",!o);
+ syncOverlay();lock();
+}
+function openNav(o){
+ if(o)openDrawer(false);
+ $("navDrawer").classList.toggle("show",o);
+ $("navDrawer").setAttribute("aria-hidden",!o);
+ syncOverlay();lock();
+}
+function syncOverlay(){
+ var any=$("dr").classList.contains("show")||$("navDrawer").classList.contains("show");
+ $("ov").classList.toggle("show",any);
+}
+function wa(msg){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank","noopener")}
+
+$("shopToggle").addEventListener("click",function(){
+ var open=$("shopSub").classList.toggle("open");
+ this.setAttribute("aria-expanded",open);
+});
+
+document.addEventListener("click",function(e){
+ var catBtn=e.target.closest("[data-cat]");
+ if(catBtn){
+  catFilter=catBtn.dataset.cat;
+  brand="All";
+  openNav(false);
+  closeDetail();
+  closePage();
+  renderPills();
+  renderList();
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+
+ var pgBtn=e.target.closest("[data-page]");
+ if(pgBtn){openPage(pgBtn.dataset.page);return;}
+
+ var b=e.target.closest("[data-a]");if(!b)return;
+ var a=b.dataset.a,id=b.dataset.id,v=b.dataset.v,s;
+ if(a==="brand"){brand=v;catFilter="all";renderPills();renderList();}
+ else if(a==="open"){openDetail(id);}
+ else if(a==="back"){closeDetail();}
+ else if(a==="bag"){openDrawer(true);}
+ else if(a==="size"){st[id].size=+v;renderDetail();}
+ else if(a==="qp"){st[id].qty=Math.min(20,st[id].qty+1);renderDetail();}
+ else if(a==="qm"){st[id].qty=Math.max(1,st[id].qty-1);renderDetail();}
+ else if(a==="add"){
+  var prod=find(id);if(!prod||prod.soldOut)return;
+  s=st[id];
+  var ex=cart.filter(function(i){return i.id===id&&i.size===s.size})[0];
+  if(ex)ex.qty=Math.min(50,ex.qty+s.qty);else cart.push({id:id,size:s.size,qty:s.qty});
+  renderBag();
+  b.textContent="Added ✓";b.classList.add("done");
+  setTimeout(function(){b.textContent="ADD TO BAG";b.classList.remove("done");},1300);
+ }
+ else if(a==="notify"){
+  s=st[id];var np=find(id);
+  wa("Hello FRAGENTRE! Restock alert request:\n\n• "+np.name+" ("+np.brand+")\n• Preferred size: "+s.size+"ml\n\nPlease notify me when it's back in stock. Thank you!");
+ }
+ else if(a==="contact-wa"){
+  wa(PAGES.contact.waMsg);
+ }
+ else if(a==="wa"){
+  s=st[id];var p=find(id),u=p.pr[s.size];
+  wa("Hello FRAGENTRE! I'd like to order:\n\n• "+p.name+" ("+p.brand+")\n• Size: "+s.size+"ml\n• Quantity: "+s.qty+"\n• Price: "+tk(u*s.qty)+"\n\nPlease confirm availability and delivery details. Thank you!");
+ }
+ else if(a==="cp"){cart[+v].qty=Math.min(50,cart[+v].qty+1);renderBag();}
+ else if(a==="cm"){cart[+v].qty=Math.max(1,cart[+v].qty-1);renderBag();}
+ else if(a==="rm"){cart.splice(+v,1);renderBag();}
+});
+$("q").addEventListener("input",function(e){term=e.target.value;renderList()});
+$("brandHome").addEventListener("click",function(){openPage("home")});
+$("menuOpen").addEventListener("click",function(){openNav(true)});
+$("menuClose").addEventListener("click",function(){openNav(false)});
+$("pvBack").addEventListener("click",function(){closePage()});
+$("topBag").addEventListener("click",function(){openDrawer(true)});
+$("vb").addEventListener("click",function(){openDrawer(true)});
+$("cl").addEventListener("click",function(){openDrawer(false)});
+$("ov").addEventListener("click",function(){openNav(false);openDrawer(false)});
+document.addEventListener("keydown",function(e){
+ if(e.key==="Escape"){
+  if($("navDrawer").classList.contains("show"))openNav(false);
+  else if($("dr").classList.contains("show"))openDrawer(false);
+  else if(curId)closeDetail();
+  else if(curPage)closePage();
+ }
+});
+$("co").addEventListener("click",function(){
+ if(!cart.length)return;
+ var s=sub();
+ var lines=cart.map(function(i,n){
+  var p=find(i.id),u=p.pr[i.size];
+  return (n+1)+". "+p.name+" ("+p.brand+")\n   "+i.size+"ml × "+i.qty+" = "+tk(u*i.qty);
+ }).join("\n");
+ wa("Hello FRAGENTRE! I'd like to place an order:\n\n"+lines+"\n\nSubtotal: "+tk(s)+"\nNationwide Delivery: "+tk(DELIVERY)+"\nTotal: "+tk(s+DELIVERY)+"\n\nPayment: Cash on delivery\nName:\nPhone:\nFull address:\n\nThank you!");
+});
+$("sgb").addEventListener("click",function(){
+ var v=$("sg").value.trim();
+ if(!v){$("sg").focus();$("sg").placeholder="Type a perfume name first";return;}
+ wa("Hello FRAGENTRE! Stock request: I'd love to see \""+v+"\" available as a decant. Please let me know if you can bring it in. Thank you!");
+});
+
+renderPills();renderList();renderBag();
+window.addEventListener("popstate",function(){closeDetail(true)});
+var h0=location.hash.slice(1);if(h0&&find(h0))openDetail(h0,true);
+})();
+</script>
 </body>
 </html>
