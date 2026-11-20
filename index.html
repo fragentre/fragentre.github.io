@@ -109,15 +109,21 @@ h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
 .cap{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:10px}
 .cap button{text-decoration:underline;text-underline-offset:3px}
 
-/* seamless minimal blended cards like Aromatica */
+/* seamless blended bottle rendering with soft edge feathering */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 16px;margin-top:24px}
 @media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
 .pc{display:block;width:100%;text-align:center}
-.pic{aspect-ratio:1/1.05;background:#FFFFFF;display:grid;place-items:center;position:relative;overflow:hidden;padding:10px}
-.pic img{width:76%;height:80%;object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 14px 18px rgba(0,0,0,.08));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.pic{aspect-ratio:1/1.05;background:#FFFFFF;display:grid;place-items:center;position:relative;overflow:hidden;padding:8px}
+.pic img{
+  width:78%;height:82%;object-fit:contain;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 68% 74% at 50% 50%, #000 62%, transparent 100%);
+  mask-image:radial-gradient(ellipse 68% 74% at 50% 50%, #000 62%, transparent 100%);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1)
+}
 .pc:active .pic img{transform:scale(.97)}
 .ph{width:38%;height:60%;border:1px dashed #DCDCDC;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
-.tag{position:absolute;top:8px;right:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.12em;padding:4px 9px;color:var(--mute)}
+.tag{position:absolute;top:8px;right:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.12em;padding:4px 9px;color:var(--mute);z-index:2}
 .pn{display:block;margin-top:10px;font-size:14.5px;font-weight:500;color:var(--ink)}
 .pb{display:block;margin-top:2px;font-size:10px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
 .pf{display:block;margin-top:3px;font-size:13px;color:var(--mute)}
@@ -150,9 +156,14 @@ footer .mark{margin:0;font-size:20px}
 .lnk{display:flex;justify-content:space-between;padding:17px 18px;background:var(--s1);border-radius:14px;margin-bottom:10px;text-decoration:none;font-weight:500}
 .lnk small{color:var(--mute);font-size:14px;font-weight:400}
 
-/* seamless minimal blended product image on white */
+/* seamless blended product detail image */
 .dpic{background:#FFFFFF;aspect-ratio:1/.86;display:grid;place-items:center;margin:8px 0 18px;padding:12px}
-.dpic img{width:62%;height:82%;object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 18px 24px rgba(0,0,0,.1))}
+.dpic img{
+  width:64%;height:84%;object-fit:contain;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 70% 76% at 50% 50%, #000 64%, transparent 100%);
+  mask-image:radial-gradient(ellipse 70% 76% at 50% 50%, #000 64%, transparent 100%)
+}
 .dpic .ph{width:28%;height:56%}
 .dk{font-size:12px;letter-spacing:.22em;color:var(--mute);font-weight:500;text-transform:uppercase}
 .dt{font-size:28px;font-weight:500;line-height:1.15;margin:4px 0 4px!important}
