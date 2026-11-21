@@ -105,31 +105,29 @@ header{
 
 /* swipeable shelf on homepage */
 .shelf{
-  display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+  display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
   padding:4px 0 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch
 }
 .shelf::-webkit-scrollbar{display:none}
 .slideCard{
-  flex:0 0 72%;max-width:290px;scroll-snap-align:start;
+  flex:0 0 68%;max-width:280px;scroll-snap-align:start;
   display:flex;flex-direction:column;text-align:center
 }
-@media(min-width:640px){.slideCard{flex:0 0 260px}}
+@media(min-width:640px){.slideCard{flex:0 0 265px}}
 
-/* full-scale bottle sizing like Aromatica */
+/* bold, full-framed bottle cards matching Aromatica scale */
 .pc{display:block;width:100%;text-align:center}
 .pic{
-  aspect-ratio:1/1.26;background:#FFFFFF;display:grid;place-items:center;
-  position:relative;overflow:hidden;padding:2px
+  aspect-ratio:1/1.32;background:#FFFFFF;display:grid;place-items:center;
+  position:relative;overflow:hidden;padding:0
 }
 .pic img{
-  width:98%;height:98%;object-fit:contain;
+  width:100%;height:100%;object-fit:contain;
   mix-blend-mode:multiply;
-  -webkit-mask-image:radial-gradient(ellipse 76% 82% at 50% 50%, #000 68%, transparent 100%);
-  mask-image:radial-gradient(ellipse 76% 82% at 50% 50%, #000 68%, transparent 100%);
   transition:transform .35s cubic-bezier(.2,.7,.2,1)
 }
 .pc:active .pic img{transform:scale(.97)}
-.ph{width:46%;height:68%;border:1px dashed #DCDCDC;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
+.ph{width:48%;height:70%;border:1px dashed #DCDCDC;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
 .tag{position:absolute;top:8px;right:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.12em;padding:4px 9px;color:var(--mute);z-index:2}
 .pn{display:block;margin-top:8px;font-size:15px;font-weight:500;color:var(--ink)}
 .pb{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
@@ -209,9 +207,9 @@ header{
 .cap button{text-decoration:underline;text-underline-offset:3px}
 
 /* full-size 2-column grid in collection view like Aromatica */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 12px;margin-top:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 10px;margin-top:20px}
 @media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:38px 20px}}
-.grid .pic{aspect-ratio:1/1.28;padding:0}
+.grid .pic{aspect-ratio:1/1.32;padding:0}
 .grid .pic img{width:100%;height:100%}
 
 .crumb{font-size:13.5px;color:var(--mute);padding:12px 0 4px}
@@ -225,12 +223,7 @@ header{
 
 /* seamless blended product detail image */
 .dpic{background:#FFFFFF;aspect-ratio:1/.86;display:grid;place-items:center;margin:8px 0 18px;padding:12px}
-.dpic img{
-  width:64%;height:84%;object-fit:contain;
-  mix-blend-mode:multiply;
-  -webkit-mask-image:radial-gradient(ellipse 70% 76% at 50% 50%, #000 64%, transparent 100%);
-  mask-image:radial-gradient(ellipse 70% 76% at 50% 50%, #000 64%, transparent 100%)
-}
+.dpic img{width:76%;height:92%;object-fit:contain;mix-blend-mode:multiply}
 .dpic .ph{width:28%;height:56%}
 .dk{font-size:12px;letter-spacing:.22em;color:var(--mute);font-weight:500;text-transform:uppercase}
 .dt{font-size:28px;font-weight:500;line-height:1.15;margin:4px 0 4px!important}
@@ -301,6 +294,66 @@ header{
 .fs button.on{border-color:var(--gold);color:var(--ink)}
 .fbar .go{height:42px;padding:0 14px;border-radius:999px;background:var(--ink);color:#FFFFFF;font-size:11.5px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
 
+/* top search overlay like Aromatica */
+.sov{
+  position:fixed;inset:0;z-index:75;
+  background:rgba(17,17,17,.45);
+  opacity:0;pointer-events:none;transition:opacity .22s ease
+}
+.sov.on{opacity:1;pointer-events:auto}
+.smodal{
+  position:fixed;top:0;left:0;right:0;z-index:82;
+  background:#FFFFFF;
+  max-height:76dvh;
+  display:flex;flex-direction:column;
+  border-radius:0 0 22px 22px;
+  box-shadow:0 18px 44px rgba(0,0,0,.18);
+  padding-top:env(safe-area-inset-top,0px);
+  transform:translate3d(0,-102%,0);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1)
+}
+.smodal.on{transform:translate3d(0,0,0)}
+.sbar-row{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;border-bottom:1px solid var(--line)
+}
+.sbox{
+  flex:1;display:flex;align-items:center;gap:10px;
+  height:48px;padding:0 14px;border-radius:14px;
+  background:#FFFFFF;border:1px solid #E5E5E5
+}
+.sbox svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.8;flex:none}
+.sbox input{flex:1;min-width:0;border:0;outline:0;background:none;font-size:16px;height:100%}
+.sclear{
+  width:24px;height:24px;border-radius:999px;background:#EFEFEF;
+  color:var(--ink);font-size:13px;display:grid;place-items:center;flex:none
+}
+.sclose{width:40px;height:40px;border-radius:999px;font-size:20px;display:grid;place-items:center;flex:none}
+.sbody{flex:1;overflow-y:auto;padding:16px 20px 24px}
+.sugg-list{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.sugg-item{
+  text-align:left;padding:9px 4px;font-size:14.5px;color:var(--mute);
+  border-radius:8px
+}
+.sugg-item:active{background:var(--s1);color:var(--ink)}
+.shead{
+  font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:var(--mute);text-transform:uppercase;margin:6px 0 12px
+}
+.sprod{
+  display:flex;align-items:center;gap:14px;width:100%;
+  text-align:left;padding:10px 4px;border-bottom:1px solid var(--line)
+}
+.sprod:last-child{border-bottom:0}
+.sprod-pic{
+  width:56px;height:70px;background:#FFFFFF;display:grid;place-items:center;
+  flex:none;overflow:hidden
+}
+.sprod-pic img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.sprod-meta b{display:block;font-size:10px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase;font-weight:600}
+.sprod-meta span{display:block;font-size:14.5px;font-weight:500;color:var(--ink)}
+.sprod-meta small{display:block;font-size:13px;color:var(--mute);margin-top:2px}
+
 /* drawers */
 .ov{position:fixed;inset:0;background:rgba(17,17,17,.42);z-index:70;opacity:0;pointer-events:none;transition:opacity .28s}
 .ov.on{opacity:1;pointer-events:auto}
@@ -337,9 +390,22 @@ header{
 <header>
   <button class="ib" id="menuBtn" type="button" data-act="menu" aria-label="Open menu">☰</button>
   <button class="mark" type="button" data-act="home">FRAGENTRE</button>
-  <button class="ib" type="button" data-act="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+  <button class="ib" id="searchBtn" type="button" data-act="openSearch" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
   <button class="ib" type="button" data-act="bag" aria-label="Open cart"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge hidden" id="badge">0</span></button>
 </header>
+
+<div class="sov" id="sov" data-act="closeSearch"></div>
+<div class="smodal" id="smodal" role="dialog" aria-label="Search fragrances" aria-hidden="true">
+  <div class="sbar-row">
+    <label class="sbox">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="sq" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand">
+      <button class="sclear hidden" id="sclear" type="button" data-act="clearSearch" aria-label="Clear search">×</button>
+    </label>
+    <button class="sclose" type="button" data-act="closeSearch" aria-label="Close search">✕</button>
+  </div>
+  <div class="sbody" id="sbody"></div>
+</div>
 
 <main id="home">
   <section class="hero">
@@ -465,7 +531,6 @@ header{
 <section class="view hidden" id="collectionView">
   <button class="back" type="button" data-act="back">← Back</button>
   <h1>The Collection</h1>
-  <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand"></label>
   <div class="pills" id="pills"></div>
   <div class="cap hidden" id="cap"></div>
   <div class="grid" id="grid"></div>
@@ -576,6 +641,45 @@ function renderGrid(){
   const c=$('#cap');c.classList.toggle('hidden',!S.cat);c.innerHTML=S.cat?`<span>Showing ${CAT[S.cat]}</span><button type="button" data-act="clear">Clear</button>`:'';
 }
 
+function renderSearchResults(){
+  const raw=$('#sq').value;
+  const q=raw.trim().toLowerCase();
+  $('#sclear').classList.toggle('hidden',!raw.length);
+  const terms=['Hawas Ice','Rayhaan Aquatica','Liquid Brun','Hawas Black','212 Men'];
+  const matches=q
+    ?P.filter(p=>(p.name+' '+p.brand+' '+p.vibe+' '+CAT[p.cat]).toLowerCase().includes(q))
+    :P;
+  const suggs=(q
+    ?terms.filter(t=>t.toLowerCase().includes(q))
+    :terms.slice(0,4)
+  ).filter(t=>t.toLowerCase()!==q);
+
+  const suggHtml=suggs.length
+    ?`<div class="sugg-list">${suggs.map(t=>`<button class="sugg-item" type="button" data-act="pickSugg" data-q="${esc(t)}">${esc(t.toLowerCase())}</button>`).join('')}</div>`
+    :'';
+
+  const prodHtml=matches.length
+    ?matches.map(p=>`<button class="sprod" type="button" data-act="openFromSearch" data-id="${p.id}"><div class="sprod-pic">${img(p)}</div><div class="sprod-meta"><b>${esc(p.brand)}</b><span>${esc(p.name)}</span><small>From ${fmt(low(p))}</small></div></button>`).join('')
+    :'<p class="empty" style="padding:24px 0">No matching fragrances found.</p>';
+
+  $('#sbody').innerHTML=`${suggHtml}<div class="shead">PRODUCTS</div>${prodHtml}`;
+}
+
+function openSearchModal(){
+  closeAll(false);
+  $('#sov').classList.add('on');
+  $('#smodal').classList.add('on');
+  $('#smodal').setAttribute('aria-hidden','false');
+  renderSearchResults();
+  requestAnimationFrame(()=>$('#sq').focus({preventScroll:true}));
+}
+
+function closeSearchModal(){
+  $('#sov').classList.remove('on');
+  $('#smodal').classList.remove('on');
+  $('#smodal').setAttribute('aria-hidden','true');
+}
+
 function updateFbarVisibility(){
   const fb=$('#fbar');
   if(S.view!=='detailView'||fb.classList.contains('hidden')){
@@ -602,6 +706,7 @@ function applyView(v,push=true){
 }
 
 function closeAll(push=true){
+  closeSearchModal();
   const hadOpen=$('#menu').classList.contains('on')||$('#bag').classList.contains('on');
   ['menu','bag','ov'].forEach(i=>$('#'+i).classList.remove('on'));
   $('#menu').setAttribute('aria-hidden','true');
@@ -612,6 +717,7 @@ function closeAll(push=true){
 }
 
 function openDr(i){
+  closeSearchModal();
   ['menu','bag','ov'].forEach(k=>$('#'+k).classList.remove('on'));
   $('#menu').setAttribute('aria-hidden','true');
   $('#bag').setAttribute('aria-hidden','true');
@@ -627,15 +733,11 @@ function goHome(){
   applyView('home',true);
 }
 
-function openCollection(cat='',brand='All',focusSearch=false){
+function openCollection(cat='',brand='All'){
   S.cat=cat;S.brand=brand;S.q='';
-  if($('#q'))$('#q').value='';
   renderGrid();
   closeAll(false);
   applyView('collectionView',true);
-  if(focusSearch){
-    requestAnimationFrame(()=>setTimeout(()=>$('#q').focus({preventScroll:true}),120));
-  }
 }
 
 function openInfo(k){
@@ -700,6 +802,7 @@ function renderBag(){
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1600)}
 
 window.addEventListener('popstate',e=>{
+  closeSearchModal();
   ['menu','bag','ov'].forEach(i=>$('#'+i).classList.remove('on'));
   $('#menu').setAttribute('aria-hidden','true');
   $('#bag').setAttribute('aria-hidden','true');
@@ -745,12 +848,16 @@ document.addEventListener('click',e=>{
     case 'menu':openDr('menu');break;
     case 'bag':renderBag();openDr('bag');break;
     case 'closeall':closeAll(true);break;
+    case 'openSearch':openSearchModal();break;
+    case 'closeSearch':closeSearchModal();break;
+    case 'clearSearch':$('#sq').value='';renderSearchResults();$('#sq').focus({preventScroll:true});break;
+    case 'pickSugg':$('#sq').value=d.q;renderSearchResults();$('#sq').focus({preventScroll:true});break;
+    case 'openFromSearch':openProduct(d.id);break;
     case 'back':if(history.length>1){history.back()}else{goHome()}break;
     case 'home':goHome();break;
-    case 'explore':openCollection('','All',false);break;
-    case 'collection':openCollection('','All',false);break;
-    case 'colCat':openCollection(d.c,'All',false);break;
-    case 'search':openCollection('','All',true);break;
+    case 'explore':openCollection('','All');break;
+    case 'collection':openCollection('','All');break;
+    case 'colCat':openCollection(d.c,'All');break;
     case 'shop':{const o=$('#sm').classList.toggle('on');$('#chev').classList.toggle('on',o);$('#shopBtn').setAttribute('aria-expanded',o)}break;
     case 'clear':S.cat='';renderGrid();break;
     case 'brand':S.brand=d.b;S.cat='';renderGrid();break;
@@ -768,8 +875,13 @@ document.addEventListener('click',e=>{
     case 'wa':wa('Hi Fragentre!');break;
   }
 });
-$('#q').addEventListener('input',e=>{S.q=e.target.value;renderGrid()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll(true)});
+$('#sq').addEventListener('input',renderSearchResults);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if($('#smodal').classList.contains('on'))closeSearchModal();
+    else closeAll(true);
+  }
+});
 history.replaceState({view:'home',pid:null,infoKey:null},'','#home');
 renderShelf();renderGrid();renderBag();
 </script>
