@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Montserrat:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#111111;--mute:#737373;--line:#EFEFEF;--s1:#F7F7F7;--s2:#FAFAFA;--gold:#9A7632;
@@ -287,10 +287,10 @@ header{background:rgba(255,255,255,.82)}
 .mark{font-size:17px;letter-spacing:.34em}
 .hero{background:radial-gradient(56% 36% at 50% 30%,rgba(205,165,95,.25),transparent 70%),radial-gradient(80% 26% at 50% 58%,rgba(255,255,255,.05),transparent 72%),linear-gradient(180deg,#171717,#0D0D0D)}
 .stage::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent)}
-.kick{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.28em;color:rgba(255,255,255,.62)}
-.kick::before,.kick::after{content:"";width:16px;height:1px;background:linear-gradient(90deg,transparent,#B8913F)}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.24em;color:rgba(255,255,255,.62)}
+.kick::before,.kick::after{content:"";width:12px;height:1px;background:linear-gradient(90deg,transparent,#B8913F)}
 .kick::after{transform:scaleX(-1)}
-@media(max-width:350px){.kick::before,.kick::after{display:none}}
+@media(max-width:345px){.kick::before,.kick::after{display:none}}
 .hero h1{font-size:clamp(30px,8.6vw,46px);letter-spacing:.006em}
 .sub{color:rgba(255,255,255,.6)}
 .cta{padding:18px 34px;font-size:12px;letter-spacing:.17em}
@@ -338,9 +338,9 @@ header{background:rgba(255,255,255,.82)}
 <main id="home">
   <section class="hero">
     <div class="stage" id="stage" aria-hidden="true"></div>
-    <p class="kick">AUTHENTIC DECANT ATELIER</p>
-    <h1>TRUE LUXURY IN EVERY ML</h1>
-    <p class="sub">Wear what suits the moment — explore more scents, keep spending effortless, and carry authentic fragrances in pocket-ready sizes.</p>
+    <p class="kick">AUTHENTIC FRAGRANCE DECANTS</p>
+    <h1>TRUE LUXURY<br>IN EVERY ML</h1>
+    <p class="sub">Discover exceptional fragrances, explore different scents, and find your signature — one thoughtfully prepared decant at a time.</p>
     <button class="cta" type="button" data-act="explore">EXPLORE FRAGRANCES ↗</button>
     <div class="trustrow"><span>100% Authentic</span><i></i><span>Cash on Delivery</span><i></i><span>Nationwide</span></div>
   </section>
@@ -487,29 +487,35 @@ P.forEach(p=>{const pre=new Image();pre.src=p.img;});
 
 /* Luxury flacon: thick faceted glass, metal collar, sculpted cap, floating liquid, refraction */
 function flacon(k,o){
-  const r=n=>+n.toFixed(1),cx=60,col=10,bBot=212;
+  const r=n=>+n.toFixed(1),cx=60,col=16,bBot=212;
   const ch=(x,y,w,h,c)=>`M${r(x+c)} ${r(y)}H${r(x+w-c)}L${r(x+w)} ${r(y+c)}V${r(y+h-c)}L${r(x+w-c)} ${r(y+h)}H${r(x+c)}L${r(x)} ${r(y+h-c)}V${r(y+c)}Z`;
-  const {bw,bh,cut,capW,capH,cap,l1,l2,m,cc,fill,glint}=o;
+  const {bw,bh,cut,capW,capH,l1,l2,m,fill}=o;
   const bx=cx-bw/2,by=bBot-bh,bt=Math.round(bh*.2),ly=r(by+bh*(1-fill)),lb=bBot-bt;
-  const cW=r(capW*.8),cx0=cx-capW/2,capY=by-col-capH,x1=bx+5,x2=bx+bw-5,lw=x2-x1;
-  const lw2=r(bw*.56),lh=r(Math.min(bh*.2,lw2*.62)),lx=r(cx-lw2/2),lyy=r(ly+(lb-ly-lh)/2+2),fs=r(lw2*.105);
-  let capSvg;
-  if(cap==='dome')capSvg=`<path d="M${cx0} ${capY+capH}V${r(capY+capH*.4)}Q${cx0} ${capY} ${cx} ${capY}Q${cx0+capW} ${capY} ${cx0+capW} ${r(capY+capH*.4)}V${capY+capH}Z" fill="url(#${k}c)"/><path d="M${cx0+6} ${r(capY+capH*.36)}Q${cx0+8} ${capY+5} ${cx-5} ${capY+3.5}" stroke="#fff" stroke-opacity=".34" stroke-width="1.2" fill="none" stroke-linecap="round"/>`;
-  else if(cap==='block')capSvg=`<path d="M${cx0+3} ${capY}H${cx0+capW-3}L${cx0+capW} ${capY+3}V${capY+capH}H${cx0}V${capY+3}Z" fill="url(#${k}c)"/><rect x="${cx0+3}" y="${capY+1}" width="${capW-6}" height="1.1" rx=".5" fill="#fff" opacity=".3"/>`;
-  else capSvg=`<rect x="${cx0}" y="${capY}" width="${capW}" height="${capH}" rx="3" fill="url(#${k}c)"/>`+[1,2,3,4].map(i=>`<line x1="${r(cx0+capW*i/5)}" y1="${capY+5}" x2="${r(cx0+capW*i/5)}" y2="${capY+capH-5}" stroke="#fff" stroke-opacity=".07"/>`).join('')+`<rect x="${cx0+3}" y="${capY+1}" width="${capW-6}" height="1.1" rx=".5" fill="#fff" opacity=".3"/>`;
-  capSvg+=`<rect x="${cx0+4}" y="${capY+8}" width="2.4" height="${capH-18}" rx="1.2" fill="#fff" opacity=".28"/>`;
+  const cW=r(capW*.68),cx0=cx-capW/2,capY=by-col-capH,x1=bx+5,x2=bx+bw-5,lw=x2-x1;
+  const lw2=r(bw*o.lf),fh=r(lw2*.94),lx=r(cx-lw2/2),ly0=r(ly+(lb-ly-fh)/2+2),fs=r(lw2*.19),JF="Jost,'Futura','Century Gothic',sans-serif";
+  const px=p=>r(p[0])+','+r(p[1]),W=capW/2,tw=capW*.3,bw2=capW*.32,gy=capY+capH*.42,bot=capY+capH;
+  const row=(y,h)=>[0,1,2,3,4].map(i=>[cx-h+i*h/2,y]),T=row(capY,tw),G=row(gy,W),B=row(bot,bw2);
+  const poly=(pts,op,c)=>`<polygon points="${pts.map(px).join(' ')}" fill="${c||'#fff'}" fill-opacity="${op}" stroke="#fff" stroke-opacity=".42" stroke-width=".5" stroke-linejoin="round"/>`;
+  const crown=[[T[0],G[0],G[1]],[T[0],T[1],G[1]],[T[1],G[1],G[2]],[T[1],T[2],G[2]],[T[2],T[3],G[2]],[T[3],G[2],G[3]],[T[3],T[4],G[3]],[T[4],G[3],G[4]]],co=[.16,.3,.22,.38,.18,.32,.12,.26];
+  const pav=[[G[0],G[1],B[1],B[0]],[G[1],G[2],B[2],B[1]],[G[2],G[3],B[3],B[2]],[G[3],G[4],B[4],B[3]]],po=[.24,.12,.2,.1];
+  const capSvg=`<rect x="${r(cx-capW*.13)}" y="${r(capY+capH*.5)}" width="${r(capW*.26)}" height="${r(capH*.62)}" rx="1" fill="url(#${k}m)"/><rect x="${r(cx-capW*.05)}" y="${r(capY+capH*.26)}" width="${r(capW*.1)}" height="${r(capH*.32)}" rx=".8" fill="url(#${k}m)"/><circle cx="${cx}" cy="${r(capY+capH*.3)}" r="${r(capW*.022)}" fill="#1c1c1c"/>`
+  +crown.map((t,i)=>poly(t,co[i])).join('')+pav.map((t,i)=>poly(t,po[i])).join('')
+  +poly(crown[3],.1,'#FFD9A0')+poly(pav[1],.09,'#BFD8FF')
+  +`<polygon points="${[[cx-tw*.25,capY+1.5],[cx+tw*.05,capY+1.5],[cx-W*.1,gy-1.5],[cx-W*.4,gy-1.5]].map(px).join(' ')}" fill="#fff" fill-opacity=".4"/>`
+  +`<path d="M${px(T[0])}L${px(T[4])}L${px(G[4])}L${px(B[4])}L${px(B[0])}L${px(G[0])}Z" stroke="#fff" stroke-opacity=".72" stroke-width=".9" fill="none" stroke-linejoin="round"/>`
+  +`<line x1="${r(T[0][0]+1)}" y1="${capY}" x2="${r(T[4][0]-1)}" y2="${capY}" stroke="#fff" stroke-opacity=".95" stroke-width="1.2" stroke-linecap="round"/>`;
   const sx=r(bx+bw*.8);
   return `<svg viewBox="0 0 120 220" aria-hidden="true"><defs>
 <linearGradient id="${k}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".18" stop-color="#fff" stop-opacity=".05"/><stop offset=".62" stop-color="#fff" stop-opacity=".02"/><stop offset=".86" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity=".24"/></linearGradient>
 <linearGradient id="${k}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${l1}"/><stop offset="1" stop-color="${l2}"/></linearGradient>
 <linearGradient id="${k}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".42"/><stop offset=".24" stop-color="#000" stop-opacity="0"/><stop offset=".76" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></linearGradient>
 <linearGradient id="${k}m" x1="0" x2="1"><stop offset="0" stop-color="${m[0]}"/><stop offset=".22" stop-color="${m[1]}"/><stop offset=".46" stop-color="${m[2]}"/><stop offset=".64" stop-color="${m[3]}"/><stop offset="1" stop-color="${m[0]}"/></linearGradient>
-<linearGradient id="${k}c" x1="0" x2="1"><stop offset="0" stop-color="${cc[0]}"/><stop offset=".25" stop-color="${cc[1]}"/><stop offset=".55" stop-color="${cc[2]}"/><stop offset="1" stop-color="${cc[3]}"/></linearGradient>
 <linearGradient id="${k}b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient></defs>
 ${capSvg}
-<rect x="${cx0-1}" y="${by-col-3}" width="${capW+2}" height="3" rx="1" fill="url(#${k}m)"/>
+<rect x="${r(cx-capW*.37)}" y="${by-col-2.5}" width="${r(capW*.74)}" height="3" rx="1.2" fill="url(#${k}m)"/>
 <rect x="${r(cx-cW/2)}" y="${by-col}" width="${cW}" height="${col}" fill="url(#${k}m)"/>
 <path d="M${r(cx-cW/2)} ${by-col+4}H${r(cx+cW/2)}M${r(cx-cW/2)} ${by-3}H${r(cx+cW/2)}" stroke="#000" stroke-opacity=".3" stroke-width=".8"/>
+<rect x="${r(cx-cW*.2)}" y="${by-col+1}" width="${r(cW*.1)}" height="${col-2}" fill="#fff" opacity=".4"/>
 <path d="${ch(bx,by,bw,bh,cut)}" fill="rgba(255,255,255,.04)"/>
 <rect x="${x1}" y="${ly}" width="${lw}" height="${lb-ly}" rx="1.5" fill="url(#${k}l)" opacity=".96"/>
 <rect x="${x1}" y="${ly}" width="${lw}" height="${lb-ly}" rx="1.5" fill="url(#${k}s)"/>
@@ -521,10 +527,9 @@ ${capSvg}
 <path d="M${x1} ${lb}H${x2}L${x2-7} ${bBot-3}H${x1+7}Z" fill="#fff" opacity=".05"/>
 <line x1="${x1}" y1="${lb}" x2="${x2}" y2="${lb}" stroke="#fff" stroke-opacity=".5" stroke-width=".8"/>
 <line x1="${bx+cut+3}" y1="${bBot-3}" x2="${bx+bw-cut-3}" y2="${bBot-3}" stroke="#fff" stroke-opacity=".28" stroke-width=".8"/>
-<rect x="${lx}" y="${lyy}" width="${lw2}" height="${lh}" rx="1.2" fill="#F7F4ED" opacity=".96"/>
-<rect x="${r(lx+1.3)}" y="${r(lyy+1.3)}" width="${r(lw2-2.6)}" height="${r(lh-2.6)}" rx=".7" fill="none" stroke="#9A7632" stroke-opacity=".45" stroke-width=".4"/>
-<text x="${cx}" y="${r(lyy+lh*.42)}" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="500" font-size="${fs}" textLength="${r(lw2*.7)}" lengthAdjust="spacing" fill="#161616">FRAGENTRE</text>
-<line x1="${cx-lw2*.12}" y1="${r(lyy+lh*.7)}" x2="${cx+lw2*.12}" y2="${r(lyy+lh*.7)}" stroke="#9A7632" stroke-width=".6"/>
+<rect x="${lx}" y="${ly0}" width="${lw2}" height="${fh}" fill="#000" fill-opacity=".12" stroke="#FFF6E2" stroke-opacity=".78" stroke-width=".55"/>
+<text x="${cx}" y="${r(ly0+fh*.43)}" text-anchor="middle" font-family="${JF}" font-weight="300" font-size="${fs}" textLength="${r(lw2*.5)}" lengthAdjust="spacing" fill="#FFF6E2">FRAG</text>
+<text x="${cx}" y="${r(ly0+fh*.76)}" text-anchor="middle" font-family="${JF}" font-weight="300" font-size="${fs}" textLength="${r(lw2*.64)}" lengthAdjust="spacing" fill="#FFF6E2">ENTRE</text>
 <path d="${ch(bx,by,bw,bh,cut)}" fill="url(#${k}g)" stroke="#fff" stroke-opacity=".4" stroke-width="1"/>
 <path d="${ch(bx+3,by+3,bw-6,bh-6,cut-2.5)}" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width=".8"/>
 <path d="M${bx+cut} ${by}V${bBot}M${bx+bw-cut} ${by}V${bBot}" stroke="#fff" stroke-opacity=".14" stroke-width=".8"/>
@@ -532,12 +537,12 @@ ${capSvg}
 <line x1="${bx+cut}" y1="${by}" x2="${bx+bw-cut}" y2="${by}" stroke="#fff" stroke-opacity=".5"/>
 <rect x="${bx+3}" y="${by+cut+2}" width="2.6" height="${bh-cut*2-bt-8}" rx="1.3" fill="#fff" opacity=".38"/>
 <rect x="${bx+bw-5}" y="${by+cut+6}" width="1.4" height="${bh-cut*2-bt-16}" rx=".7" fill="#fff" opacity=".16"/>
-${glint?`<path d="M${bx+cut+5} ${by+4}l1.2 3.2 3.2 1.2-3.2 1.2-1.2 3.2-1.2-3.2-3.2-1.2 3.2-1.2z" fill="#fff" opacity=".85"/>`:''}</svg>`;
+</svg>`;
 }
 $('#stage').innerHTML=[
-  ['l',{bw:56,bh:128,cut:6,capW:26,capH:40,cap:'cyl',l1:'#B5D9F3',l2:'#4A82B2',m:['#5f5f5f','#ececec','#a4a4a4','#fafafa'],cc:['#141414','#5a5a5a','#262626','#0b0b0b'],fill:.74},'rgba(110,170,225,.5)',0],
-  ['c',{bw:80,bh:112,cut:11,capW:38,capH:44,cap:'dome',l1:'#F3CE85',l2:'#A8631C',m:['#6a5020','#f4dd9c','#b08838','#fff1c2'],cc:['#0b0b0b','#3d3d3d','#171717','#050505'],fill:.78,glint:1},'rgba(214,170,98,.55)',-2.3],
-  ['r',{bw:84,bh:94,cut:5,capW:40,capH:34,cap:'block',l1:'#DE9272',l2:'#74351F',m:['#563c2d','#e9c7aa','#a07858','#f8dfca'],cc:['#1f1f1f','#474747','#272727','#0f0f0f'],fill:.76},'rgba(196,112,76,.5)',-4.6]
+  ['l',{bw:56,bh:128,cut:6,capW:38,capH:25,lf:.6,l1:'#B5D9F3',l2:'#4A82B2',m:['#7a6330','#f6e6b4','#c2a05a','#fff6d6'],cc:['#141414','#5a5a5a','#262626','#0b0b0b'],fill:.74},'rgba(110,170,225,.5)',0],
+  ['c',{bw:80,bh:112,cut:11,capW:54,capH:33,lf:.5,l1:'#F3CE85',l2:'#A8631C',m:['#6a5020','#f4dd9c','#b08838','#fff1c2'],cc:['#0b0b0b','#3d3d3d','#171717','#050505'],fill:.78},'rgba(214,170,98,.55)',-2.3],
+  ['r',{bw:84,bh:94,cut:5,capW:50,capH:30,lf:.46,l1:'#DE9272',l2:'#74351F',m:['#6b4a3a','#f1cfb8','#b78a6c','#fbe6d6'],cc:['#1f1f1f','#474747','#272727','#0f0f0f'],fill:.76},'rgba(196,112,76,.5)',-4.6]
 ].map(([c,o,g,d])=>`<div class="bt-wrap ${c}" style="--d:${d}s;--glow:${g}"><div class="bt">${flacon('f'+c,o)}</div><div class="shadow-base"></div></div>`).join('');
 
 const MQ=['AUTHENTIC DECANTS','HAND-DECANTED IN BANGLADESH','SEALED ORIGINAL BOTTLES','NATIONWIDE DELIVERY'];
