@@ -96,57 +96,124 @@ header{
 .track span{font-weight:600;font-size:13.5px;letter-spacing:.2em;padding:0 18px;white-space:nowrap;color:var(--ink)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* catalog */
-.wrap{padding:52px 16px 8px;max-width:1000px;margin:0 auto}
-h2{font-weight:500;font-size:26px;text-align:center;letter-spacing:-.01em}
-.search{margin:22px 0 4px;display:flex;align-items:center;gap:12px;height:54px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 8px 26px rgba(0,0,0,.04)}
-.search svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.7;flex:none}
-.search input{flex:1;min-width:0;border:0;outline:0;background:none;font-size:16px;height:100%}
-.pills{display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:none}
-.pills::-webkit-scrollbar{display:none}
-.pill{flex:none;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--mute);background:#FFFFFF}
-.pill.on{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
-.cap{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:10px}
-.cap button{text-decoration:underline;text-underline-offset:3px}
+/* home shelf & sections */
+.wrap{padding:52px 16px 16px;max-width:1040px;margin:0 auto}
+.shelfHead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:22px}
+.shelfHead h2{font-weight:500;font-size:26px;letter-spacing:-.01em;text-align:left}
+.shelfHead p{font-size:13px;color:var(--mute);margin-top:2px}
+.viewAllBtn{font-size:13px;font-weight:600;color:var(--ink);padding:8px 2px;white-space:nowrap;border-bottom:1px solid var(--ink)}
 
-/* seamless blended bottle rendering with soft edge feathering */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 16px;margin-top:24px}
-@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
+/* swipeable shelf on homepage */
+.shelf{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 2px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch
+}
+.shelf::-webkit-scrollbar{display:none}
+.slideCard{
+  flex:0 0 64%;max-width:255px;scroll-snap-align:start;
+  display:flex;flex-direction:column;text-align:center
+}
+@media(min-width:640px){.slideCard{flex:0 0 230px}}
+
+/* bigger, well-proportioned bottle cards */
 .pc{display:block;width:100%;text-align:center}
-.pic{aspect-ratio:1/1.05;background:#FFFFFF;display:grid;place-items:center;position:relative;overflow:hidden;padding:8px}
+.pic{
+  aspect-ratio:1/1.15;background:#FFFFFF;display:grid;place-items:center;
+  position:relative;overflow:hidden;padding:6px
+}
 .pic img{
-  width:78%;height:82%;object-fit:contain;
+  width:88%;height:92%;object-fit:contain;
   mix-blend-mode:multiply;
-  -webkit-mask-image:radial-gradient(ellipse 68% 74% at 50% 50%, #000 62%, transparent 100%);
-  mask-image:radial-gradient(ellipse 68% 74% at 50% 50%, #000 62%, transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 50%, #000 64%, transparent 100%);
+  mask-image:radial-gradient(ellipse 72% 78% at 50% 50%, #000 64%, transparent 100%);
   transition:transform .35s cubic-bezier(.2,.7,.2,1)
 }
 .pc:active .pic img{transform:scale(.97)}
-.ph{width:38%;height:60%;border:1px dashed #DCDCDC;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
+.ph{width:42%;height:64%;border:1px dashed #DCDCDC;border-radius:10px;display:grid;place-items:center;color:#9a9a9a;font-size:9px;letter-spacing:.14em;font-weight:600}
 .tag{position:absolute;top:8px;right:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.12em;padding:4px 9px;color:var(--mute);z-index:2}
-.pn{display:block;margin-top:10px;font-size:14.5px;font-weight:500;color:var(--ink)}
-.pb{display:block;margin-top:2px;font-size:10px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
-.pf{display:block;margin-top:3px;font-size:13px;color:var(--mute)}
+.pn{display:block;margin-top:10px;font-size:15px;font-weight:500;color:var(--ink)}
+.pb{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.pf{display:block;margin-top:3px;font-size:13.5px;color:var(--mute)}
 .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:48px 0}
 
-.stock{margin:48px 0 8px;background:var(--s1);border-radius:18px;padding:26px 20px}
+/* value highlights after shelf (inspired by 5th & 6th ss, tailored for Fragentre) */
+.highlights{margin-top:36px;display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:700px){.highlights{grid-template-columns:1fr 1fr}}
+.hcard{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:18px 18px}
+.hcard small{display:block;font-size:10.5px;letter-spacing:.18em;color:var(--mute);font-weight:600;text-transform:uppercase;margin-bottom:5px}
+.hcard h3{font-size:16px;font-weight:600;color:var(--ink);line-height:1.3}
+.hcard p{font-size:13.5px;color:var(--mute);margin-top:4px;line-height:1.5}
+
+.stock{margin:32px 0 12px;background:var(--s1);border-radius:18px;padding:26px 20px}
 .stock h3{font-size:19px;font-weight:600}
 .stock p{color:var(--mute);font-size:13.5px;margin:4px 0 16px}
 .stock input{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:#FFFFFF;font-size:16px;outline:0;margin-bottom:10px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;background:var(--ink);color:#FFFFFF;border-radius:12px;font-size:13px;font-weight:600;letter-spacing:.08em;text-decoration:none}
 .btn.out{background:#FFFFFF;color:var(--ink);border:1px solid #E2E2E2}
 .btn[disabled]{opacity:.35;pointer-events:none}
-footer{margin-top:44px;border-top:1px solid var(--line);padding:38px 20px calc(34px + env(safe-area-inset-bottom,0px));text-align:center}
-footer .mark{margin:0;font-size:20px}
-.fl{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 22px;margin:20px 0;font-size:13.5px;color:var(--mute)}
-.fl button{padding:8px 0}
-.copy{font-size:12px;color:var(--mute)}
 
-/* views */
-.view{max-width:720px;margin:0 auto;padding:calc(var(--hh) + 10px) 16px calc(40px + env(safe-area-inset-bottom,0px));min-height:100dvh}
+/* dark footer like 7th ss with FB, IG, WhatsApp */
+.dfooter{
+  margin-top:44px;
+  background:#111111;
+  color:#FFFFFF;
+  padding:42px 20px calc(36px + env(safe-area-inset-bottom,0px))
+}
+.dfooter-in{max-width:920px;margin:0 auto}
+.dfooter-top{
+  font-size:14.5px;color:rgba(255,255,255,.78);
+  padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)
+}
+.dcols{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px 24px;
+  padding:28px 0;border-bottom:1px solid rgba(255,255,255,.12)
+}
+@media(min-width:680px){.dcols{grid-template-columns:1fr 1fr 1fr}}
+.dcol h4{
+  font-size:11.5px;font-weight:600;letter-spacing:.2em;
+  color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:14px
+}
+.dcol button,.dcol a{
+  display:block;text-align:left;padding:6px 0;font-size:14.5px;
+  color:rgba(255,255,255,.9);text-decoration:none
+}
+.dcol button:active,.dcol a:active{opacity:.65}
+.dfooter-bot{
+  padding-top:26px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center
+}
+.socials{display:flex;align-items:center;justify-content:center;gap:14px}
+.socBtn{
+  width:42px;height:42px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  display:grid;place-items:center;color:#FFFFFF;text-decoration:none;
+  transition:background .2s ease,border-color .2s ease
+}
+.socBtn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.45)}
+.socBtn svg{width:18px;height:18px;fill:currentColor}
+.dcopy{font-size:12px;color:rgba(255,255,255,.52)}
+
+/* views (full collection, info, detail) */
+.view{max-width:1040px;margin:0 auto;padding:calc(var(--hh) + 10px) 16px calc(44px + env(safe-area-inset-bottom,0px));min-height:100dvh}
+#infoView,#detailView{max-width:720px}
 #detailView{padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
 .back{font-size:14px;font-weight:500;padding:12px 0;color:var(--mute)}
-.view h1{font-size:28px;font-weight:500;margin:10px 0 20px}
+.view h1{font-size:28px;font-weight:500;margin:8px 0 18px}
+.search{margin:16px 0 4px;display:flex;align-items:center;gap:12px;height:54px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 8px 26px rgba(0,0,0,.04)}
+.search svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.7;flex:none}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;font-size:16px;height:100%}
+.pills{display:flex;gap:8px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--mute);background:#FFFFFF}
+.pill.on{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
+.cap{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:10px}
+.cap button{text-decoration:underline;text-underline-offset:3px}
+
+/* 2-column grid in full collection view with larger well-sized bottles */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 18px;margin-top:22px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:40px 24px}}
+.grid .pic{aspect-ratio:1/1.2}
+.grid .pic img{width:90%;height:94%}
+
 .crumb{font-size:13.5px;color:var(--mute);padding:12px 0 4px}
 .crumb button{color:var(--mute)}
 .crumb b{color:var(--ink);font-weight:600}
@@ -284,12 +351,39 @@ footer .mark{margin:0;font-size:20px}
   </section>
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
 
-  <section class="wrap" id="catalog">
-    <h2>The Collection</h2>
-    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand"></label>
-    <div class="pills" id="pills"></div>
-    <div class="cap hidden" id="cap"></div>
-    <div class="grid" id="grid"></div>
+  <section class="wrap" id="shelfSection">
+    <div class="shelfHead">
+      <div>
+        <h2>Featured Decants</h2>
+        <p>Swipe to explore — or view the full collection</p>
+      </div>
+      <button class="viewAllBtn" type="button" data-act="collection">View all →</button>
+    </div>
+    <div class="shelf" id="shelf" role="region" aria-label="Swipeable fragrance shelf"></div>
+
+    <div class="highlights">
+      <div class="hcard">
+        <small>AUTHENTIC | UNALTERED</small>
+        <h3>100% Genuine Fragrances</h3>
+        <p>Every decant is drawn carefully from sealed original bottles into clean glass atomizers.</p>
+      </div>
+      <div class="hcard">
+        <small>DELIVERY &amp; COD</small>
+        <h3>Nationwide Delivery — ৳120</h3>
+        <p>Arrives in 2 to 4 business days with Cash on Delivery across Bangladesh.</p>
+      </div>
+      <div class="hcard">
+        <small>LOCAL PICK-UP</small>
+        <h3>Trunk Road, Taranibash &amp; Garden City</h3>
+        <p>Prefer local collection? Message us on WhatsApp to arrange an in-person pick-up.</p>
+      </div>
+      <div class="hcard">
+        <small>PACKAGING &amp; CARE</small>
+        <h3>Cushioned Transit Packing</h3>
+        <p>Wrapped securely to protect glass sprays in transit — record an unboxing video on arrival.</p>
+      </div>
+    </div>
+
     <div class="stock">
       <h3>What should we stock next?</h3>
       <p>Tell us the perfume you're after and we'll try to bring it in.</p>
@@ -298,18 +392,54 @@ footer .mark{margin:0;font-size:20px}
     </div>
   </section>
 
-  <footer>
-    <div class="mark">FRAGENTRE</div>
-    <div class="fl">
-      <button type="button" data-act="home">Home</button>
-      <button type="button" data-act="info" data-k="pickup">Pick-up points</button>
-      <button type="button" data-act="info" data-k="delivery">Delivery policy</button>
-      <button type="button" data-act="info" data-k="contact">Contact us</button>
-      <button type="button" data-act="info" data-k="about">About</button>
+  <footer class="dfooter">
+    <div class="dfooter-in">
+      <p class="dfooter-top">Authentic fragrances by the ml. Worn your way.</p>
+      <div class="dcols">
+        <div class="dcol">
+          <h4>SHOP</h4>
+          <button type="button" data-act="collection">All Fragrances</button>
+          <button type="button" data-act="colCat" data-c="middle-eastern">Middle Eastern</button>
+          <button type="button" data-act="colCat" data-c="designer">Designer</button>
+        </div>
+        <div class="dcol">
+          <h4>POLICIES &amp; HELP</h4>
+          <button type="button" data-act="info" data-k="delivery">Delivery policy</button>
+          <button type="button" data-act="info" data-k="returns">Return &amp; refund policy</button>
+          <button type="button" data-act="info" data-k="pickup">Pick-up points</button>
+          <button type="button" data-act="info" data-k="contact">Contact us</button>
+        </div>
+        <div class="dcol">
+          <h4>ABOUT</h4>
+          <button type="button" data-act="info" data-k="about">About Fragentre</button>
+        </div>
+      </div>
+      <div class="dfooter-bot">
+        <div class="socials">
+          <a class="socBtn" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+          </a>
+          <a class="socBtn" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25zM12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a class="socBtn" href="https://wa.me/8801841928296" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.75.453 3.453 1.313 4.969L2 22l5.219-1.375c1.453.797 3.094 1.219 4.812 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.531.078-1.203.109-1.938-.125-.453-.141-1.031-.328-1.766-.641-3.094-1.344-5.109-4.484-5.266-4.688-.156-.203-1.266-1.688-1.266-3.219s.797-2.281 1.078-2.594c.281-.312.625-.391.828-.391.203 0 .406 0 .594.016.188.016.453-.078.703.531.25.609.859 2.094.938 2.25.078.156.125.344.031.547-.094.203-.141.328-.281.5-.141.172-.297.391-.422.516-.141.141-.297.297-.125.578.172.281.75 1.234 1.609 2 1.109.984 2.047 1.297 2.328 1.438.281.141.453.125.625-.078.172-.203.719-.844.906-1.125.188-.281.391-.234.656-.141.266.094 1.672.797 1.969.938.297.141.484.203.563.328.078.125.078.719-.172 1.422z"/></svg>
+          </a>
+        </div>
+        <p class="dcopy">© FRAGENTRE • All rights reserved</p>
+      </div>
     </div>
-    <p class="copy">© FRAGENTRE • All rights reserved</p>
   </footer>
 </main>
+
+<section class="view hidden" id="collectionView">
+  <button class="back" type="button" data-act="back">← Back</button>
+  <h1>The Collection</h1>
+  <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Search perfume or brand..." autocomplete="off" aria-label="Search perfume or brand"></label>
+  <div class="pills" id="pills"></div>
+  <div class="cap hidden" id="cap"></div>
+  <div class="grid" id="grid"></div>
+</section>
 
 <section class="view hidden" id="infoView"></section>
 <section class="view hidden" id="detailView"></section>
@@ -321,13 +451,15 @@ footer .mark{margin:0;font-size:20px}
   <div class="db">
     <div class="gl">MAIN</div>
     <button class="mi" type="button" data-act="home">Home</button>
-    <button class="mi" type="button" data-act="shop" id="shopBtn" aria-expanded="false">Shop <span class="chev" id="chev">▾</span></button>
+    <button class="mi" type="button" data-act="collection">All Fragrances</button>
+    <button class="mi" type="button" data-act="shop" id="shopBtn" aria-expanded="false">Shop by category <span class="chev" id="chev">▾</span></button>
     <div class="sm" id="sm">
-      <button class="mi" type="button" data-act="cat" data-c="middle-eastern">Middle Eastern</button>
-      <button class="mi" type="button" data-act="cat" data-c="designer">Designer</button>
+      <button class="mi" type="button" data-act="colCat" data-c="middle-eastern">Middle Eastern</button>
+      <button class="mi" type="button" data-act="colCat" data-c="designer">Designer</button>
     </div>
     <button class="mi" type="button" data-act="info" data-k="pickup">Pick-up points</button>
     <button class="mi" type="button" data-act="info" data-k="delivery">Delivery policy</button>
+    <button class="mi" type="button" data-act="info" data-k="returns">Return &amp; refund policy</button>
     <div class="gl" style="margin-top:26px">ALL YOU NEED TO KNOW</div>
     <button class="mi" type="button" data-act="info" data-k="contact">Contact us</button>
     <button class="mi" type="button" data-act="info" data-k="about">About</button>
@@ -354,6 +486,7 @@ const BRANDS=['All','Rasasi','Rayhaan','French Avenue','Carolina Herrera'];
 const INFO={
 pickup:['Pick-up points',`<div class="row2"><h4>Trunk Road</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Taranibash</h4><p>Collect your order in person.</p></div><div class="row2"><h4>Garden City</h4><p>Collect your order in person.</p></div><p class="dv" style="margin-top:14px">Message us on WhatsApp to confirm a pick-up time.</p>`],
 delivery:['Delivery policy',`<div class="row2"><h4>Nationwide delivery — ৳120</h4><p>We deliver across Bangladesh, arriving in 2 to 4 business days with Cash on Delivery.</p></div><div class="row2"><h4>Protective packaging</h4><p>Glass atomizers are wrapped in protective cushioning so they arrive intact.</p></div><div class="row2"><h4>Unboxing video</h4><p>Please record an unboxing video when your parcel arrives, so we can resolve any issue quickly.</p></div>`],
+returns:['Return & refund policy',`<div class="row2"><h4>Damaged or leaked in transit</h4><p>If your atomizer arrives leaked or damaged, contact us on WhatsApp with a clear unboxing video so we can arrange a replacement or refund.</p></div><div class="row2"><h4>Opened or used decants</h4><p>Because decants are custom-filled travel sprays, opened or sprayed decants cannot be returned unless there is a transit or fulfillment issue.</p></div>`],
 contact:['Contact us',`<a class="lnk" href="https://www.instagram.com/fragentre" target="_blank" rel="noopener">Instagram <small>@fragentre</small></a><a class="lnk" href="https://www.facebook.com/fragentre" target="_blank" rel="noopener">Facebook <small>@fragentre</small></a><button class="btn" type="button" style="margin-top:16px" data-act="wa">Chat on WhatsApp</button>`],
 about:['About',`<div class="row2"><h4>Our story</h4><p>Fragentre makes authentic designer and Middle Eastern fragrances accessible in pocket-ready sizes — whether you want to rotate scents by mood, keep spending smart, or explore more without limits.</p></div><div class="row2"><h4>Decanted from sealed originals</h4><p>Every atomizer is filled carefully from sealed original bottles into clean travel sprays.</p></div>`]
 };
@@ -399,11 +532,16 @@ $('#track').innerHTML=Array(2).fill(MQ.map(t=>`<span>${t}</span><span>•</span>
 
 const img=p=>`<img src="${p.img}" alt="${esc(p.name)}" loading="lazy" onerror="this.outerHTML='<div class=ph>${esc(up(p.brand))}</div>'">`;
 const low=p=>Math.min(...Object.values(p.pr));
+const cardMarkup=(p,cls='')=>`<button class="pc ${cls}" type="button" data-act="open" data-id="${p.id}"><div class="pic">${img(p)}${p.soldOut?'<span class="tag">SOLD OUT</span>':''}</div><span class="pn">${esc(p.name)}</span><span class="pb">${esc(p.brand)}</span><span class="pf">From ${fmt(low(p))}</span></button>`;
+
+function renderShelf(){
+  $('#shelf').innerHTML=P.map(p=>cardMarkup(p,'slideCard')).join('');
+}
 
 function renderGrid(){
   const q=S.q.trim().toLowerCase();
   const l=P.filter(p=>(!S.cat||p.cat===S.cat)&&(S.brand==='All'||p.brand===S.brand)&&(!q||(p.name+' '+p.brand+' '+p.vibe).toLowerCase().includes(q)));
-  $('#grid').innerHTML=l.length?l.map(p=>`<button class="pc" type="button" data-act="open" data-id="${p.id}"><div class="pic">${img(p)}${p.soldOut?'<span class="tag">SOLD OUT</span>':''}</div><span class="pn">${esc(p.name)}</span><span class="pb">${esc(p.brand)}</span><span class="pf">From ${fmt(low(p))}</span></button>`).join(''):'<p class="empty">No fragrances match your search.</p>';
+  $('#grid').innerHTML=l.length?l.map(p=>cardMarkup(p)).join(''):'<p class="empty">No fragrances match your search.</p>';
   $('#pills').innerHTML=BRANDS.map(b=>`<button class="pill ${S.brand===b?'on':''}" type="button" data-act="brand" data-b="${b}">${b}</button>`).join('');
   const c=$('#cap');c.classList.toggle('hidden',!S.cat);c.innerHTML=S.cat?`<span>Showing ${CAT[S.cat]}</span><button type="button" data-act="clear">Clear</button>`:'';
 }
@@ -422,13 +560,13 @@ function updateFbarVisibility(){
 
 function applyView(v,push=true){
   S.view=v;
-  ['home','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!==v));
+  ['home','collectionView','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!==v));
   $('#fbar').classList.toggle('hidden',v!=='detailView');
   window.scrollTo(0,0);
   updateFbarVisibility();
   if(push){
     const state={view:v,pid:S.pid,infoKey:S.infoKey};
-    const hash=v==='detailView'&&S.pid?'#product/'+S.pid:(v==='infoView'&&S.infoKey?'#info/'+S.infoKey:'#home');
+    const hash=v==='detailView'&&S.pid?'#product/'+S.pid:(v==='infoView'&&S.infoKey?'#info/'+S.infoKey:(v==='collectionView'?'#collection':'#home'));
     history.pushState(state,'',hash);
   }
 }
@@ -453,14 +591,23 @@ function openDr(i){
   history.pushState({view:S.view,pid:S.pid,infoKey:S.infoKey,drawer:i},'');
 }
 
-function toCatalog(){closeAll(false);applyView('home',true);requestAnimationFrame(()=>$('#catalog').scrollIntoView({behavior:'smooth'}))}
 function goHome(){
-  S.cat='';S.brand='All';S.q='';S.infoKey=null;
-  if($('#q'))$('#q').value='';
-  renderGrid();
+  S.infoKey=null;
   closeAll(false);
   applyView('home',true);
 }
+
+function openCollection(cat='',brand='All',focusSearch=false){
+  S.cat=cat;S.brand=brand;S.q='';
+  if($('#q'))$('#q').value='';
+  renderGrid();
+  closeAll(false);
+  applyView('collectionView',true);
+  if(focusSearch){
+    requestAnimationFrame(()=>setTimeout(()=>$('#q').focus({preventScroll:true}),120));
+  }
+}
+
 function openInfo(k){
   S.infoKey=k;
   closeAll(false);
@@ -479,7 +626,7 @@ function noteGroup(t,s,a){return `<div class="ng"><div class="nh"><i></i>${t} <s
 function renderDetail(){
   const p=find(S.pid)||P[0],so=!!p.soldOut,pr=p.pr[S.size],n=p.top.length+p.heart.length+p.base.length;
   $('#detailView').innerHTML=`
-  <div class="crumb"><button type="button" data-act="home">Home</button> / ${esc(p.brand)} / <b>${esc(p.name)}</b></div>
+  <div class="crumb"><button type="button" data-act="home">Home</button> / <button type="button" data-act="collection">Collection</button> / <b>${esc(p.name)}</b></div>
   <div class="dpic">${img(p)}</div>
   <div class="dk">${esc(p.brand)}</div><h1 class="dt">${esc(p.name)}</h1><p class="dv">${esc(p.vibe)}</p>
   <div class="buy" id="buyBox">
@@ -529,14 +676,22 @@ window.addEventListener('popstate',e=>{
   const st=e.state;
   if(!st||!st.view||st.view==='home'){
     S.view='home';
-    ['home','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='home'));
+    ['home','collectionView','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='home'));
+    $('#fbar').classList.add('hidden');
+    $('#fbar').classList.remove('show');
+    return;
+  }
+  if(st.view==='collectionView'){
+    S.view='collectionView';
+    renderGrid();
+    ['home','collectionView','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='collectionView'));
     $('#fbar').classList.add('hidden');
     $('#fbar').classList.remove('show');
     return;
   }
   if(st.view==='detailView'&&st.pid){
     S.pid=st.pid;renderDetail();
-    ['home','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='detailView'));
+    ['home','collectionView','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='detailView'));
     $('#fbar').classList.remove('hidden');
     S.view='detailView';
     updateFbarVisibility();
@@ -545,7 +700,7 @@ window.addEventListener('popstate',e=>{
   if(st.view==='infoView'&&st.infoKey&&INFO[st.infoKey]){
     S.infoKey=st.infoKey;
     $('#infoView').innerHTML=`<button class="back" type="button" data-act="back">← Back</button><h1>${INFO[st.infoKey][0]}</h1>${INFO[st.infoKey][1]}`;
-    ['home','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='infoView'));
+    ['home','collectionView','infoView','detailView'].forEach(id=>$('#'+id).classList.toggle('hidden',id!=='infoView'));
     $('#fbar').classList.add('hidden');
     $('#fbar').classList.remove('show');
     S.view='infoView';
@@ -562,10 +717,11 @@ document.addEventListener('click',e=>{
     case 'closeall':closeAll(true);break;
     case 'back':if(history.length>1){history.back()}else{goHome()}break;
     case 'home':goHome();break;
-    case 'explore':$('#catalog').scrollIntoView({behavior:'smooth'});break;
-    case 'search':closeAll(false);applyView('home',true);requestAnimationFrame(()=>{$('#catalog').scrollIntoView({behavior:'smooth'});setTimeout(()=>$('#q').focus({preventScroll:true}),450)});break;
+    case 'explore':openCollection('','All',false);break;
+    case 'collection':openCollection('','All',false);break;
+    case 'colCat':openCollection(d.c,'All',false);break;
+    case 'search':openCollection('','All',true);break;
     case 'shop':{const o=$('#sm').classList.toggle('on');$('#chev').classList.toggle('on',o);$('#shopBtn').setAttribute('aria-expanded',o)}break;
-    case 'cat':S.cat=d.c;S.brand='All';S.q='';$('#q').value='';renderGrid();toCatalog();break;
     case 'clear':S.cat='';renderGrid();break;
     case 'brand':S.brand=d.b;S.cat='';renderGrid();break;
     case 'info':openInfo(d.k);break;
@@ -585,7 +741,7 @@ document.addEventListener('click',e=>{
 $('#q').addEventListener('input',e=>{S.q=e.target.value;renderGrid()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll(true)});
 history.replaceState({view:'home',pid:null,infoKey:null},'','#home');
-renderGrid();renderBag();
+renderShelf();renderGrid();renderBag();
 </script>
 </body>
 </html>
